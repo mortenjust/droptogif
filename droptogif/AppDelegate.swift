@@ -20,6 +20,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
     }
+    
+    func application(sender: NSApplication, openFiles filenames: [AnyObject]) {
+        convertFiles(filenames as! [String])
+        for filename in filenames {
+            println("let's process \(filename as! String) ");
+        }
+    }
+    
+    func convertFiles(filenames: [String]){
+        
+    }
 
 
 }

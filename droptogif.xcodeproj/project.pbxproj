@@ -12,6 +12,10 @@
 		C8AD072D1BC4EA9D00943844 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8AD072C1BC4EA9D00943844 /* Images.xcassets */; };
 		C8AD07301BC4EA9D00943844 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8AD072E1BC4EA9D00943844 /* Main.storyboard */; };
 		C8AD073C1BC4EA9D00943844 /* droptogifTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AD073B1BC4EA9D00943844 /* droptogifTests.swift */; };
+		C8AD07471BC4F0BE00943844 /* ShellTasker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AD07461BC4F0BE00943844 /* ShellTasker.swift */; };
+		C8AD07491BC4F2D400943844 /* ffmpeg in Resources */ = {isa = PBXBuildFile; fileRef = C8AD07481BC4F2D400943844 /* ffmpeg */; };
+		C8AD074B1BC4F2F400943844 /* gifify in Resources */ = {isa = PBXBuildFile; fileRef = C8AD074A1BC4F2F400943844 /* gifify */; };
+		C8AD074D1BC4F31800943844 /* convert in Resources */ = {isa = PBXBuildFile; fileRef = C8AD074C1BC4F31800943844 /* convert */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +38,10 @@
 		C8AD07351BC4EA9D00943844 /* droptogifTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = droptogifTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8AD073A1BC4EA9D00943844 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C8AD073B1BC4EA9D00943844 /* droptogifTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = droptogifTests.swift; sourceTree = "<group>"; };
+		C8AD07461BC4F0BE00943844 /* ShellTasker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShellTasker.swift; sourceTree = "<group>"; };
+		C8AD07481BC4F2D400943844 /* ffmpeg */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = ffmpeg; sourceTree = "<group>"; };
+		C8AD074A1BC4F2F400943844 /* gifify */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = gifify; sourceTree = "<group>"; };
+		C8AD074C1BC4F31800943844 /* convert */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = convert; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +83,9 @@
 		C8AD07251BC4EA9D00943844 /* droptogif */ = {
 			isa = PBXGroup;
 			children = (
+				C8AD07451BC4EBF300943844 /* Scripts */,
 				C8AD07281BC4EA9D00943844 /* AppDelegate.swift */,
+				C8AD07461BC4F0BE00943844 /* ShellTasker.swift */,
 				C8AD072A1BC4EA9D00943844 /* ViewController.swift */,
 				C8AD072C1BC4EA9D00943844 /* Images.xcassets */,
 				C8AD072E1BC4EA9D00943844 /* Main.storyboard */,
@@ -107,6 +117,16 @@
 				C8AD073A1BC4EA9D00943844 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C8AD07451BC4EBF300943844 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				C8AD074C1BC4F31800943844 /* convert */,
+				C8AD07481BC4F2D400943844 /* ffmpeg */,
+				C8AD074A1BC4F2F400943844 /* gifify */,
+			);
+			name = Scripts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,7 +209,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8AD074D1BC4F31800943844 /* convert in Resources */,
+				C8AD074B1BC4F2F400943844 /* gifify in Resources */,
 				C8AD072D1BC4EA9D00943844 /* Images.xcassets in Resources */,
+				C8AD07491BC4F2D400943844 /* ffmpeg in Resources */,
 				C8AD07301BC4EA9D00943844 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -209,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8AD072B1BC4EA9D00943844 /* ViewController.swift in Sources */,
+				C8AD07471BC4F0BE00943844 /* ShellTasker.swift in Sources */,
 				C8AD07291BC4EA9D00943844 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
