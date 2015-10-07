@@ -1,0 +1,415 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C8AD07291BC4EA9D00943844 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AD07281BC4EA9D00943844 /* AppDelegate.swift */; };
+		C8AD072B1BC4EA9D00943844 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AD072A1BC4EA9D00943844 /* ViewController.swift */; };
+		C8AD072D1BC4EA9D00943844 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8AD072C1BC4EA9D00943844 /* Images.xcassets */; };
+		C8AD07301BC4EA9D00943844 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8AD072E1BC4EA9D00943844 /* Main.storyboard */; };
+		C8AD073C1BC4EA9D00943844 /* droptogifTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AD073B1BC4EA9D00943844 /* droptogifTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C8AD07361BC4EA9D00943844 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C8AD071B1BC4EA9D00943844 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C8AD07221BC4EA9D00943844;
+			remoteInfo = droptogif;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C8AD07231BC4EA9D00943844 /* droptogif.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = droptogif.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8AD07271BC4EA9D00943844 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C8AD07281BC4EA9D00943844 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C8AD072A1BC4EA9D00943844 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C8AD072C1BC4EA9D00943844 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C8AD072F1BC4EA9D00943844 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C8AD07351BC4EA9D00943844 /* droptogifTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = droptogifTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8AD073A1BC4EA9D00943844 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C8AD073B1BC4EA9D00943844 /* droptogifTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = droptogifTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C8AD07201BC4EA9D00943844 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8AD07321BC4EA9D00943844 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C8AD071A1BC4EA9D00943844 = {
+			isa = PBXGroup;
+			children = (
+				C8AD07251BC4EA9D00943844 /* droptogif */,
+				C8AD07381BC4EA9D00943844 /* droptogifTests */,
+				C8AD07241BC4EA9D00943844 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C8AD07241BC4EA9D00943844 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C8AD07231BC4EA9D00943844 /* droptogif.app */,
+				C8AD07351BC4EA9D00943844 /* droptogifTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C8AD07251BC4EA9D00943844 /* droptogif */ = {
+			isa = PBXGroup;
+			children = (
+				C8AD07281BC4EA9D00943844 /* AppDelegate.swift */,
+				C8AD072A1BC4EA9D00943844 /* ViewController.swift */,
+				C8AD072C1BC4EA9D00943844 /* Images.xcassets */,
+				C8AD072E1BC4EA9D00943844 /* Main.storyboard */,
+				C8AD07261BC4EA9D00943844 /* Supporting Files */,
+			);
+			path = droptogif;
+			sourceTree = "<group>";
+		};
+		C8AD07261BC4EA9D00943844 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C8AD07271BC4EA9D00943844 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C8AD07381BC4EA9D00943844 /* droptogifTests */ = {
+			isa = PBXGroup;
+			children = (
+				C8AD073B1BC4EA9D00943844 /* droptogifTests.swift */,
+				C8AD07391BC4EA9D00943844 /* Supporting Files */,
+			);
+			path = droptogifTests;
+			sourceTree = "<group>";
+		};
+		C8AD07391BC4EA9D00943844 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C8AD073A1BC4EA9D00943844 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C8AD07221BC4EA9D00943844 /* droptogif */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C8AD073F1BC4EA9D00943844 /* Build configuration list for PBXNativeTarget "droptogif" */;
+			buildPhases = (
+				C8AD071F1BC4EA9D00943844 /* Sources */,
+				C8AD07201BC4EA9D00943844 /* Frameworks */,
+				C8AD07211BC4EA9D00943844 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = droptogif;
+			productName = droptogif;
+			productReference = C8AD07231BC4EA9D00943844 /* droptogif.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C8AD07341BC4EA9D00943844 /* droptogifTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C8AD07421BC4EA9D00943844 /* Build configuration list for PBXNativeTarget "droptogifTests" */;
+			buildPhases = (
+				C8AD07311BC4EA9D00943844 /* Sources */,
+				C8AD07321BC4EA9D00943844 /* Frameworks */,
+				C8AD07331BC4EA9D00943844 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C8AD07371BC4EA9D00943844 /* PBXTargetDependency */,
+			);
+			name = droptogifTests;
+			productName = droptogifTests;
+			productReference = C8AD07351BC4EA9D00943844 /* droptogifTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C8AD071B1BC4EA9D00943844 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = "Morten Just Petersen";
+				TargetAttributes = {
+					C8AD07221BC4EA9D00943844 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					C8AD07341BC4EA9D00943844 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = C8AD07221BC4EA9D00943844;
+					};
+				};
+			};
+			buildConfigurationList = C8AD071E1BC4EA9D00943844 /* Build configuration list for PBXProject "droptogif" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C8AD071A1BC4EA9D00943844;
+			productRefGroup = C8AD07241BC4EA9D00943844 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C8AD07221BC4EA9D00943844 /* droptogif */,
+				C8AD07341BC4EA9D00943844 /* droptogifTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C8AD07211BC4EA9D00943844 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8AD072D1BC4EA9D00943844 /* Images.xcassets in Resources */,
+				C8AD07301BC4EA9D00943844 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8AD07331BC4EA9D00943844 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C8AD071F1BC4EA9D00943844 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8AD072B1BC4EA9D00943844 /* ViewController.swift in Sources */,
+				C8AD07291BC4EA9D00943844 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8AD07311BC4EA9D00943844 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8AD073C1BC4EA9D00943844 /* droptogifTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C8AD07371BC4EA9D00943844 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C8AD07221BC4EA9D00943844 /* droptogif */;
+			targetProxy = C8AD07361BC4EA9D00943844 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C8AD072E1BC4EA9D00943844 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C8AD072F1BC4EA9D00943844 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C8AD073D1BC4EA9D00943844 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C8AD073E1BC4EA9D00943844 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		C8AD07401BC4EA9D00943844 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = droptogif/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C8AD07411BC4EA9D00943844 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = droptogif/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		C8AD07431BC4EA9D00943844 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = droptogifTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/droptogif.app/Contents/MacOS/droptogif";
+			};
+			name = Debug;
+		};
+		C8AD07441BC4EA9D00943844 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = droptogifTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/droptogif.app/Contents/MacOS/droptogif";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C8AD071E1BC4EA9D00943844 /* Build configuration list for PBXProject "droptogif" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8AD073D1BC4EA9D00943844 /* Debug */,
+				C8AD073E1BC4EA9D00943844 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C8AD073F1BC4EA9D00943844 /* Build configuration list for PBXNativeTarget "droptogif" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8AD07401BC4EA9D00943844 /* Debug */,
+				C8AD07411BC4EA9D00943844 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C8AD07421BC4EA9D00943844 /* Build configuration list for PBXNativeTarget "droptogifTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8AD07431BC4EA9D00943844 /* Debug */,
+				C8AD07441BC4EA9D00943844 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C8AD071B1BC4EA9D00943844 /* Project object */;
+}
