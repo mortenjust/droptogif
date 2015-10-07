@@ -38,13 +38,13 @@ class ShellTasker: NSObject {
             return
         }
         
-        //        println("running \(scriptFile)")
+        println("running \(scriptFile)")
         
 
-        var sp:AnyObject = NSBundle.mainBundle().pathForResource(scriptFile, ofType: "sh") as! AnyObject
+        var sp:AnyObject = NSBundle.mainBundle().pathForResource(scriptFile, ofType: "") as! AnyObject
         let scriptPath = sp as! String
         
-        var resourcesPath = NSBundle.mainBundle().pathForResource("adb", ofType: "")?.stringByDeletingLastPathComponent
+        var resourcesPath = NSBundle.mainBundle().pathForResource("convert", ofType: "")?.stringByDeletingLastPathComponent
         
         var bash = "/bin/bash"
         
@@ -53,10 +53,10 @@ class ShellTasker: NSObject {
         
         task.launchPath = bash
         
+        // build entire command as arguments to /bin/bash
         var allArguments = [String]()
-        allArguments.append("\(scriptPath)") // $1
-        
-        allArguments.append(resourcesPath!) // $1
+        allArguments.append("\(scriptPath)") //
+        allArguments.append(resourcesPath!) // the script sees this as $1
 
         for arg in args {
             allArguments.append(arg)

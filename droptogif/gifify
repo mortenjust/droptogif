@@ -1,5 +1,9 @@
 #!/bin/bash
 
+thisdir=$1
+convert=$thisdir/convert
+ffmpeg=$thisdir/ffmpeg
+
 function printHelpAndExit {
   echo 'Usage:'
   echo '  gifify [options] filename'
@@ -42,7 +46,7 @@ done
 
 shift $(( OPTIND - 1 ))
 
-filename=$1
+filename=$2 # changed to $2 since $1 now contains the working folder
 
 if [ -z ${output} ]; then
   output=$filename
@@ -79,10 +83,10 @@ echo 'Exporting movie...'
 delay=$(bc -l <<< "100/$fps/$speed")
 temp=$(mktemp /tmp/tempfile.XXXXXXXXX)
 
-ffmpeg -loglevel panic -i "$filename" $filter -r $fps -f image2pipe -vcodec ppm - >> $temp
+$ffmpeg -loglevel panic -i "$filename" $filter -r $fps -f image2pipe -vcodec ppm - >> $temp
 
 echo 'Making gif...'
-cat $temp | convert +dither -layers Optimize -delay $delay - "${output}.gif"
+cat $temp | $convert +dither -layers Optimize -delay $delay - "${output}.gif"
 
 if [ $noupload -ne 1 ]; then
   open -a CloudApp "${output}.gif"

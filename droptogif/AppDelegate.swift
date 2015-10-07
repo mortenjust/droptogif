@@ -23,13 +23,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func application(sender: NSApplication, openFiles filenames: [AnyObject]) {
         convertFiles(filenames as! [String])
-        for filename in filenames {
-            println("let's process \(filename as! String) ");
-        }
+
     }
     
     func convertFiles(filenames: [String]){
-        
+        for filename in filenames {
+            println("let's process \(filename) ");
+            ShellTasker(scriptFile: "gifify").run(arguments: [filename], complete: { (output) -> Void in
+                println("Done with output: \(output)");
+            })
+        }
     }
 
 
