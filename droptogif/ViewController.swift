@@ -12,19 +12,39 @@ class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDeleg
     
     @IBOutlet weak var watchFolderLabel: NSTextView!
     
-
+    @IBOutlet weak var settingsButton: NSButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
        // watchFolderLabel.folderTextViewDelegate = self;
         watchFolderLabel.delegate = self;
-        
     }
 
     override var representedObject: AnyObject? {
         didSet {
         // Update the view, if already loaded.
         }
+    }
+    
+    @IBAction func settingsClicked(sender: AnyObject) {
+        toggleWindowSize()
+    }
+    
+    func toggleWindowSize(){
+        let window = NSApplication.sharedApplication().windows.first;
+        
+        var frame = window?.frame
+        
+        print(frame?.size.width)
+        
+        if frame?.size.width == 400 {
+            frame?.size.width = 260
+        } else {
+            frame?.size.width = 400
+        }
+        window?.setFrame(frame!, display: true, animate: true)
+
     }
     
     @IBAction func watchFolderPressed(sender: AnyObject) {
@@ -35,7 +55,7 @@ class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDeleg
         NSWorkspace.sharedWorkspace().openFile(watchFolderLabel.string!);
     }
     
-    
+
     func selectFolder(){
         let openPanel = NSOpenPanel();
         openPanel.title = "Select a folder to watch for videos"

@@ -13,11 +13,29 @@ import EonilFileSystemEvents
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, FolderWatcherDelegate {
 
+
     func folderWatcherEvent(event: FileSystemEvent) {
         handleNewFile(event.path)
     }
     
+    
+    
     func applicationDidFinishLaunching(aNotification: NSNotification) {
+        let window = NSApplication.sharedApplication().windows.first!;
+        
+        window.titlebarAppearsTransparent = true
+        
+//        window.styleMask = NSBorderlessWindowMask
+        window.title = ""
+        window.movableByWindowBackground  = true
+        window.canBecomeKeyWindow
+        window.backgroundColor = NSColor(red:0.286, green:0.294, blue:0.329, alpha:1);
+        
+        var windowFrame = window.frame;
+        windowFrame.size.width = 260;
+        window.setFrame(windowFrame, display: true, animate: true);
+        
+        
         FolderWatcher.use.delegate = self;
         FolderWatcher.use.stopAll();
         startMonitoringFolderInPrefs()
