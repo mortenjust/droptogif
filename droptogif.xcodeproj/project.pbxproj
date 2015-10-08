@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C8ACAA061BC5A46E001C5B20 /* EonilFileSystemEvents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8ACA9FF1BC5A42D001C5B20 /* EonilFileSystemEvents.framework */; };
+		C8ACAA091BC5F137001C5B20 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8ACAA081BC5F137001C5B20 /* Util.swift */; settings = {ASSET_TAGS = (); }; };
+		C8ACAA0F1BC5F431001C5B20 /* MJWatchFolderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8ACAA0E1BC5F431001C5B20 /* MJWatchFolderTextView.swift */; settings = {ASSET_TAGS = (); }; };
+		C8ACAA111BC5FF0D001C5B20 /* FolderWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8ACAA101BC5FF0D001C5B20 /* FolderWatcher.swift */; settings = {ASSET_TAGS = (); }; };
 		C8AD07291BC4EA9D00943844 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AD07281BC4EA9D00943844 /* AppDelegate.swift */; };
 		C8AD072B1BC4EA9D00943844 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AD072A1BC4EA9D00943844 /* ViewController.swift */; };
 		C8AD072D1BC4EA9D00943844 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8AD072C1BC4EA9D00943844 /* Images.xcassets */; };
@@ -19,6 +23,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C8ACA9FE1BC5A42D001C5B20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C8ACA9F71BC5A42C001C5B20 /* EonilFileSystemEvents.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 45D970A61A1569090037649F;
+			remoteInfo = EonilFileSystemEvents;
+		};
+		C8ACAA001BC5A42D001C5B20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C8ACA9F71BC5A42C001C5B20 /* EonilFileSystemEvents.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 45D970961A155DD50037649F;
+			remoteInfo = InternalTester;
+		};
+		C8ACAA021BC5A42D001C5B20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C8ACA9F71BC5A42C001C5B20 /* EonilFileSystemEvents.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 45DA95801A69F1610091410B;
+			remoteInfo = InternalTester4;
+		};
+		C8ACAA041BC5A42D001C5B20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C8ACA9F71BC5A42C001C5B20 /* EonilFileSystemEvents.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 45BF99C51A131E3A004E4E2E;
+			remoteInfo = TestdriveApp;
+		};
 		C8AD07361BC4EA9D00943844 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C8AD071B1BC4EA9D00943844 /* Project object */;
@@ -29,6 +61,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C8ACA9F71BC5A42C001C5B20 /* EonilFileSystemEvents.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = EonilFileSystemEvents.xcodeproj; path = ../thirdparty/FileSystemEvents/Project/EonilFileSystemEvents.xcodeproj; sourceTree = "<group>"; };
+		C8ACAA081BC5F137001C5B20 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		C8ACAA0E1BC5F431001C5B20 /* MJWatchFolderTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MJWatchFolderTextView.swift; sourceTree = "<group>"; };
+		C8ACAA101BC5FF0D001C5B20 /* FolderWatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderWatcher.swift; sourceTree = "<group>"; };
 		C8AD07231BC4EA9D00943844 /* droptogif.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = droptogif.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8AD07271BC4EA9D00943844 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C8AD07281BC4EA9D00943844 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8ACAA061BC5A46E001C5B20 /* EonilFileSystemEvents.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,9 +99,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C8ACA9F81BC5A42C001C5B20 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C8ACA9FF1BC5A42D001C5B20 /* EonilFileSystemEvents.framework */,
+				C8ACAA011BC5A42D001C5B20 /* InternalTester */,
+				C8ACAA031BC5A42D001C5B20 /* InternalTester4.app */,
+				C8ACAA051BC5A42D001C5B20 /* TestdriveApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		C8AD071A1BC4EA9D00943844 = {
 			isa = PBXGroup;
 			children = (
+				C8ACA9F71BC5A42C001C5B20 /* EonilFileSystemEvents.xcodeproj */,
 				C8AD07251BC4EA9D00943844 /* droptogif */,
 				C8AD07381BC4EA9D00943844 /* droptogifTests */,
 				C8AD07241BC4EA9D00943844 /* Products */,
@@ -83,12 +132,15 @@
 		C8AD07251BC4EA9D00943844 /* droptogif */ = {
 			isa = PBXGroup;
 			children = (
+				C8ACAA101BC5FF0D001C5B20 /* FolderWatcher.swift */,
 				C8AD07451BC4EBF300943844 /* Scripts */,
 				C8AD07281BC4EA9D00943844 /* AppDelegate.swift */,
 				C8AD07461BC4F0BE00943844 /* ShellTasker.swift */,
 				C8AD072A1BC4EA9D00943844 /* ViewController.swift */,
+				C8ACAA0E1BC5F431001C5B20 /* MJWatchFolderTextView.swift */,
 				C8AD072C1BC4EA9D00943844 /* Images.xcassets */,
 				C8AD072E1BC4EA9D00943844 /* Main.storyboard */,
+				C8ACAA081BC5F137001C5B20 /* Util.swift */,
 				C8AD07261BC4EA9D00943844 /* Supporting Files */,
 			);
 			path = droptogif;
@@ -173,7 +225,9 @@
 		C8AD071B1BC4EA9D00943844 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Morten Just Petersen";
 				TargetAttributes = {
 					C8AD07221BC4EA9D00943844 = {
@@ -196,6 +250,12 @@
 			mainGroup = C8AD071A1BC4EA9D00943844;
 			productRefGroup = C8AD07241BC4EA9D00943844 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = C8ACA9F81BC5A42C001C5B20 /* Products */;
+					ProjectRef = C8ACA9F71BC5A42C001C5B20 /* EonilFileSystemEvents.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				C8AD07221BC4EA9D00943844 /* droptogif */,
@@ -203,6 +263,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		C8ACA9FF1BC5A42D001C5B20 /* EonilFileSystemEvents.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = EonilFileSystemEvents.framework;
+			remoteRef = C8ACA9FE1BC5A42D001C5B20 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C8ACAA011BC5A42D001C5B20 /* InternalTester */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = InternalTester;
+			remoteRef = C8ACAA001BC5A42D001C5B20 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C8ACAA031BC5A42D001C5B20 /* InternalTester4.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = InternalTester4.app;
+			remoteRef = C8ACAA021BC5A42D001C5B20 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C8ACAA051BC5A42D001C5B20 /* TestdriveApp.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = TestdriveApp.app;
+			remoteRef = C8ACAA041BC5A42D001C5B20 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		C8AD07211BC4EA9D00943844 /* Resources */ = {
@@ -231,9 +322,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8ACAA111BC5FF0D001C5B20 /* FolderWatcher.swift in Sources */,
 				C8AD072B1BC4EA9D00943844 /* ViewController.swift in Sources */,
+				C8ACAA0F1BC5F431001C5B20 /* MJWatchFolderTextView.swift in Sources */,
 				C8AD07471BC4F0BE00943844 /* ShellTasker.swift in Sources */,
 				C8AD07291BC4EA9D00943844 /* AppDelegate.swift in Sources */,
+				C8ACAA091BC5F137001C5B20 /* Util.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +382,8 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "$(SRCROOT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -333,6 +429,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "$(SRCROOT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -352,8 +449,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "$(SRCROOT)";
 				INFOPLIST_FILE = droptogif/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mortenjust.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -363,8 +462,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "$(SRCROOT)";
 				INFOPLIST_FILE = droptogif/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mortenjust.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -384,6 +485,7 @@
 				);
 				INFOPLIST_FILE = droptogifTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mortenjust.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/droptogif.app/Contents/MacOS/droptogif";
 			};
@@ -400,6 +502,7 @@
 				);
 				INFOPLIST_FILE = droptogifTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mortenjust.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/droptogif.app/Contents/MacOS/droptogif";
 			};
@@ -424,6 +527,7 @@
 				C8AD07411BC4EA9D00943844 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C8AD07421BC4EA9D00943844 /* Build configuration list for PBXNativeTarget "droptogifTests" */ = {
 			isa = XCConfigurationList;
@@ -432,6 +536,7 @@
 				C8AD07441BC4EA9D00943844 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

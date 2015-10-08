@@ -38,15 +38,19 @@ class ShellTasker: NSObject {
             return
         }
         
-        println("running \(scriptFile)")
+        print("running \(scriptFile)")
         
 
-        var sp:AnyObject = NSBundle.mainBundle().pathForResource(scriptFile, ofType: "") as! AnyObject
+        let sp:AnyObject = NSBundle.mainBundle().pathForResource(scriptFile, ofType: "") as! AnyObject
         let scriptPath = sp as! String
         
-        var resourcesPath = NSBundle.mainBundle().pathForResource("convert", ofType: "")?.stringByDeletingLastPathComponent
         
-        var bash = "/bin/bash"
+        let tempPath:String = NSBundle.mainBundle().pathForResource("convert", ofType: "")!;
+        let tempUrl:NSURL = NSURL(string: tempPath)!;
+        
+        let resourcesPath = tempUrl.URLByDeletingLastPathComponent?.path;
+        
+        let bash = "/bin/bash"
         
         task = NSTask()
         let pipe = NSPipe()
@@ -63,6 +67,9 @@ class ShellTasker: NSObject {
         }
         
         task.arguments = allArguments
+        
+        print(task.arguments);
+        
         task.standardOutput = pipe
         
         self.task.launch()
