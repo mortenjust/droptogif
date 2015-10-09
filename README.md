@@ -17,7 +17,7 @@ Tweak the frames per second setting to trade off between file size and quality
 <img width=300 src="https://raw.githubusercontent.com/mortenjust/droptogif/master/ux/demos/demo_settings.png">
 
 ## Can I contribute?
-Yes! See issues marked "Help wanted"
+Yes! See issues marked <a href="https://github.com/mortenjust/droptogif/labels/help%20wanted">Help wanted<a>
 
 ## Thanks
 * <a href="https://github.com/jclem/gifify">Gifify</a>
