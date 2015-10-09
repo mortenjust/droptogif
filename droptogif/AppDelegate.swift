@@ -43,8 +43,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, FolderWatcherDelegate {
     }
     
     func startMonitoringFolderInPrefs(){
-        let prefFolder = Util.use.getStringPref("watchFolder")!
-        FolderWatcher.use.startMonitoringFolder(prefFolder);
+        let prefFolder = Util.use.getStringPref("watchFolder")
+        if prefFolder != nil {
+            FolderWatcher.use.startMonitoringFolder(prefFolder!);
+            }
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
