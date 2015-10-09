@@ -6,11 +6,11 @@ Zero-click movie to GIF conversion
 
 ## Dragging 
 Drag a movie onto the app. The animated GIF will be saved in the same folder as the movie. 
-<img width=300 src="https://raw.githubusercontent.com/mortenjust/droptogif/master/ux/demos/demo_dragon.png">
+<img width=300 src="https://raw.githubusercontent.com/mortenjust/droptogif/master/ux/demos/demo_dragon.gif">
 
 ## Watch a folder
 Save a movie from any app into the watched folder and the app will convert it immediately
-<img width=300 src="https://raw.githubusercontent.com/mortenjust/droptogif/master/ux/demos/demo_watchfolder.png">
+<img width=300 src="https://raw.githubusercontent.com/mortenjust/droptogif/master/ux/demos/demo_watchfolder.gif">
 
 ## Settings
 Tweak the frames per second setting to trade off between file size and quality
