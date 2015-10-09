@@ -25,9 +25,6 @@ class FolderWatcher: NSObject {
     
     static let use = FolderWatcher() // singleton
     
-    func folderWatcherEvent(event: FileSystemEvent) {
-        print("Warning! Don't forget to set the delegate when instantiating this the first time");
-    }
     
     func stopAll(){
         monitors.removeAll()

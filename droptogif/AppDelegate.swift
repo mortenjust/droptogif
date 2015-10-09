@@ -12,20 +12,22 @@ import EonilFileSystemEvents
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, FolderWatcherDelegate {
-
+    @IBOutlet weak var window: NSWindow!
+    var vc:ViewController!
 
     func folderWatcherEvent(event: FileSystemEvent) {
         handleNewFile(event.path)
     }
     
-    
-    
-    func applicationDidFinishLaunching(aNotification: NSNotification) {
-        let window = NSApplication.sharedApplication().windows.first!;
+    func applicationDidFinishLaunching(aNotification: NSNotification)
+    {
+
+        let window = NSApplication.sharedApplication().windows.first!
+        
+
+        NSApplication.sharedApplication()
         
         window.titlebarAppearsTransparent = true
-        
-//        window.styleMask = NSBorderlessWindowMask
         window.title = ""
         window.movableByWindowBackground  = true
         window.canBecomeKeyWindow
@@ -34,7 +36,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, FolderWatcherDelegate {
         var windowFrame = window.frame;
         windowFrame.size.width = 260;
         window.setFrame(windowFrame, display: true, animate: true);
-        
         
         FolderWatcher.use.delegate = self;
         FolderWatcher.use.stopAll();
@@ -70,51 +71,17 @@ class AppDelegate: NSObject, NSApplicationDelegate, FolderWatcherDelegate {
     }
     
     
-    func copyFileToPasteboard(filename:String){
-//        print("copying \(filename) to paste")
-//        var pasteboard = NSPasteboard.generalPasteboard()
-//        pasteboard.clearContents()
-//        pasteboard.writeFileContents(filename);
-
-//        var gifData = NSData(contentsOfFile: filename);
-//        pasteboard.setData(gifData, forType: "com.compuserve.gif");
-//        pasteboard.setData(gifData, forType: String(kUTTypeGIF)); // crap! only copies the first frame. Worthless for us, the gif people
-        
-    }
-    
-    
-//    func startMonitoringFolder(givenFolder:String){
-//        let folder = String((NSString(string: givenFolder).stringByExpandingTildeInPath))
-//        print("going for folder: \(folder)")
-//        
-//        let onEvents = {
-//            (events: [FileSystemEvent]) -> () in
-//            dispatch_async(dispatch_get_main_queue()) {
-//                for ev in events {
-//                    if(ev.flag.contains(FileSystemEventFlag.ItemCreated) || ev.flag.contains(FileSystemEventFlag.ItemRenamed)){ // only do new or moved files
-//                        print("Event flag: Created. All flags: \(ev.flag)")
-//                        print("\(ev.path) just \(ev.description)");
-//                        self.handleNewFile(ev.path);
-//                    }
-//                }
-//            }
-//        }
-//        monitor	= FileSystemEventMonitor(pathsToWatch: [folder], latency: 0, watchRoot: false, queue: queue, callback: onEvents)
-//    }
-    
     func convertFiles(filenames: [String]){
         showNotification("Animating...", text: "");
+        vc.startLoader()
         // this one could return the path of the final file name, that way we can open the file in Finder
         for filename in filenames {
             print("let's process \(filename) ");
             ShellTasker(scriptFile: "gifify").run(arguments: [filename, "\(getFps())"], complete: { (output) -> Void in
                 print("Done with output: \(output)");
-                // remove if the shell script doesn't output as .mov.gif
-               // let fileUrl = NSURL(fileURLWithPath: filename);
-//                let gifFile = "\(fileUrl.URLByDeletingPathExtension!.path!).gif";
                 let gifFile = "\(filename).gif";
-                // self.copyFileToPasteboard(gifFile); // todo: add when this works
                 self.openAndSelectFile(gifFile)
+                self.vc.stopLoader()
             })
         }
     }

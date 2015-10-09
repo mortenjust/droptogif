@@ -7,20 +7,78 @@
 //
 
 import Cocoa
+import SpriteKit
 
-class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDelegate {
+class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDelegate, CircleDropDelegate {
     
     @IBOutlet weak var watchFolderLabel: NSTextView!
-    
     @IBOutlet weak var settingsButton: NSButton!
+    @IBOutlet weak var loaderSKView: SKView!
+    var scene:LoaderScene!
     
+    @IBOutlet weak var circleDropView: DragReceiverView!
+    var appDelegate:AppDelegate!
+    
+    @IBOutlet weak var waitForDrop: NSView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       // watchFolderLabel.folderTextViewDelegate = self;
         watchFolderLabel.delegate = self;
+        
+        scene = LoaderScene()
+        loaderSKView.allowsTransparency = true
+        loaderSKView.presentScene(scene)
+        loaderSKView.showsPhysics = false
+//        startLoader()
+        appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate;
+        appDelegate.vc = self
+        circleDropView.delegate = self;
+    }
+    
+    func startLoader(){
+        animateDropInvitationOut()
+        scene.startLoading()
+    }
+    
+    func stopLoader(){
+        animateDropInvitationIn()
+        scene.stopLoading()
+    }
+    
+    
+    // todo, subclass NSView for waitforDrop and put these funcs in there
+    func animateDropInvitationOut(){
+        waitForDrop.wantsLayer = true
+        let fadeAnim = CABasicAnimation(keyPath: "opacity")
+        fadeAnim.duration = 0.3
+        fadeAnim.fromValue = 1
+        fadeAnim.toValue = 0
+        
+        let moveAnim = CABasicAnimation(keyPath: "position.y")
+        moveAnim.byValue = -100
+        moveAnim.duration = 0.3
+        waitForDrop.layer?.addAnimation(moveAnim, forKey: "position.y")
+        waitForDrop.layer?.addAnimation(fadeAnim, forKey: "opacity")
+        waitForDrop.alphaValue = 0
+
+
+    }
+    
+    
+    func animateDropInvitationIn(){
+
+        waitForDrop.wantsLayer = true
+        let fadeAnim = CABasicAnimation(keyPath: "opacity")
+        fadeAnim.duration = 0.3
+        fadeAnim.fromValue = 0
+        fadeAnim.toValue = 1
+        
+        waitForDrop.layer?.addAnimation(fadeAnim, forKey: "opacity")
+        waitForDrop.alphaValue = 1
+
     }
 
+    
     override var representedObject: AnyObject? {
         didSet {
         // Update the view, if already loaded.
@@ -33,11 +91,8 @@ class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDeleg
     
     func toggleWindowSize(){
         let window = NSApplication.sharedApplication().windows.first;
-        
         var frame = window?.frame
-        
         print(frame?.size.width)
-        
         if frame?.size.width == 400 {
             frame?.size.width = 260
         } else {
@@ -76,5 +131,32 @@ class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDeleg
             }
         }
     }
+    
+    func circleDropDragExited() {
+        //
+        print("drag exited vc")
+        
+        animateDropInvitationIn()
+        scene.hideDragInvite()
+    }
+    
+    func circleDropDragEntered() {
+        //
+        print("drag entered vc")
+        animateDropInvitationOut()
+        scene.showDragInvite()
+    }
+    
+    func circleDropDragPerformed(filePath: String) {
+        // PASSITON
+        print("drag performed vc, filepath:\(filePath)")
+        scene.prepareForDrop()
+        appDelegate.handleNewFile(filePath)
+    }
+    
+    func circleDropUpdated(location: NSPoint) {
+        scene.updateDragPosition(location)
+    }
+    
 }
 

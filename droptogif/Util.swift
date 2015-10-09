@@ -26,6 +26,6 @@ class Util: NSObject {
         let defaults = NSUserDefaults.standardUserDefaults()
         return defaults.stringForKey(key)
     }
-    
+   
    
 }

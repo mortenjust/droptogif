@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C82E76101BC6C0430029F3AB /* LoaderScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82E760F1BC6C0430029F3AB /* LoaderScene.swift */; settings = {ASSET_TAGS = (); }; };
+		C82E76161BC6C6530029F3AB /* LoadScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C82E76151BC6C6530029F3AB /* LoadScene.sks */; settings = {ASSET_TAGS = (); }; };
+		C82E76191BC703D00029F3AB /* DragReceiverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82E76181BC703CF0029F3AB /* DragReceiverView.swift */; settings = {ASSET_TAGS = (); }; };
 		C8ACAA061BC5A46E001C5B20 /* EonilFileSystemEvents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8ACA9FF1BC5A42D001C5B20 /* EonilFileSystemEvents.framework */; };
 		C8ACAA091BC5F137001C5B20 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8ACAA081BC5F137001C5B20 /* Util.swift */; settings = {ASSET_TAGS = (); }; };
 		C8ACAA0F1BC5F431001C5B20 /* MJWatchFolderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8ACAA0E1BC5F431001C5B20 /* MJWatchFolderTextView.swift */; settings = {ASSET_TAGS = (); }; };
@@ -61,6 +64,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C82E760F1BC6C0430029F3AB /* LoaderScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoaderScene.swift; sourceTree = "<group>"; };
+		C82E76151BC6C6530029F3AB /* LoadScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LoadScene.sks; sourceTree = "<group>"; };
+		C82E76171BC6DE4A0029F3AB /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		C82E76181BC703CF0029F3AB /* DragReceiverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragReceiverView.swift; sourceTree = "<group>"; };
 		C8ACA9F71BC5A42C001C5B20 /* EonilFileSystemEvents.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = EonilFileSystemEvents.xcodeproj; path = ../thirdparty/FileSystemEvents/Project/EonilFileSystemEvents.xcodeproj; sourceTree = "<group>"; };
 		C8ACAA081BC5F137001C5B20 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		C8ACAA0E1BC5F431001C5B20 /* MJWatchFolderTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MJWatchFolderTextView.swift; sourceTree = "<group>"; };
@@ -113,6 +120,7 @@
 		C8AD071A1BC4EA9D00943844 = {
 			isa = PBXGroup;
 			children = (
+				C82E76171BC6DE4A0029F3AB /* MyPlayground.playground */,
 				C8ACA9F71BC5A42C001C5B20 /* EonilFileSystemEvents.xcodeproj */,
 				C8AD07251BC4EA9D00943844 /* droptogif */,
 				C8AD07381BC4EA9D00943844 /* droptogifTests */,
@@ -133,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				C8ACAA101BC5FF0D001C5B20 /* FolderWatcher.swift */,
+				C82E760F1BC6C0430029F3AB /* LoaderScene.swift */,
 				C8AD07451BC4EBF300943844 /* Scripts */,
 				C8AD07281BC4EA9D00943844 /* AppDelegate.swift */,
 				C8AD07461BC4F0BE00943844 /* ShellTasker.swift */,
@@ -140,7 +149,9 @@
 				C8ACAA0E1BC5F431001C5B20 /* MJWatchFolderTextView.swift */,
 				C8AD072C1BC4EA9D00943844 /* Images.xcassets */,
 				C8AD072E1BC4EA9D00943844 /* Main.storyboard */,
+				C82E76181BC703CF0029F3AB /* DragReceiverView.swift */,
 				C8ACAA081BC5F137001C5B20 /* Util.swift */,
+				C82E76151BC6C6530029F3AB /* LoadScene.sks */,
 				C8AD07261BC4EA9D00943844 /* Supporting Files */,
 			);
 			path = droptogif;
@@ -304,6 +315,7 @@
 				C8AD074B1BC4F2F400943844 /* gifify in Resources */,
 				C8AD072D1BC4EA9D00943844 /* Images.xcassets in Resources */,
 				C8AD07491BC4F2D400943844 /* ffmpeg in Resources */,
+				C82E76161BC6C6530029F3AB /* LoadScene.sks in Resources */,
 				C8AD07301BC4EA9D00943844 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -323,8 +335,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8ACAA111BC5FF0D001C5B20 /* FolderWatcher.swift in Sources */,
+				C82E76191BC703D00029F3AB /* DragReceiverView.swift in Sources */,
 				C8AD072B1BC4EA9D00943844 /* ViewController.swift in Sources */,
 				C8ACAA0F1BC5F431001C5B20 /* MJWatchFolderTextView.swift in Sources */,
+				C82E76101BC6C0430029F3AB /* LoaderScene.swift in Sources */,
 				C8AD07471BC4F0BE00943844 /* ShellTasker.swift in Sources */,
 				C8AD07291BC4EA9D00943844 /* AppDelegate.swift in Sources */,
 				C8ACAA091BC5F137001C5B20 /* Util.swift in Sources */,
