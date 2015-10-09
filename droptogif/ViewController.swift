@@ -128,6 +128,7 @@ class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDeleg
                 print("selected folder is \(path)");
                // self.watchFolderLabel.stringValue = path; //  no need when binding
                 Util.use.savePref("watchFolder", value: path)
+                FolderWatcher.use.startMonitoringFolder(path);
             }
         }
     }

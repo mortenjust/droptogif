@@ -80,7 +80,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, FolderWatcherDelegate {
             ShellTasker(scriptFile: "gifify").run(arguments: [filename, "\(getFps())"], complete: { (output) -> Void in
                 print("Done with output: \(output)");
                 let gifFile = "\(filename).gif";
-                self.openAndSelectFile(gifFile)
+                
+                if(Util.use.getBoolPref("revealInFinder")!){
+                    self.openAndSelectFile(gifFile)
+                    }
                 self.vc.stopLoader()
             })
         }
@@ -100,7 +103,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, FolderWatcherDelegate {
         let notification = NSUserNotification()
         notification.title = title;
         notification.informativeText = text
-        notification.soundName = NSUserNotificationDefaultSoundName;
+        notification.soundName = nil;
         center.deliverNotification(notification)
     }
     

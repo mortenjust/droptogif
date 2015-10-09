@@ -27,5 +27,9 @@ class Util: NSObject {
         return defaults.stringForKey(key)
     }
    
+    func getBoolPref(key:String) -> Bool? {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        return defaults.boolForKey(key)
+    }
    
 }

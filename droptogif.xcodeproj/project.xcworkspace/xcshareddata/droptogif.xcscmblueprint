@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "74E33F3DDF40ABA7CF09FF37415A2C2F3A096554",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "36160D83BA5F0FBBF1E4D427FCD25A45E887B855" : 0,
+    "74E33F3DDF40ABA7CF09FF37415A2C2F3A096554" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "6640DF05-C343-4052-86C4-35238A01C5BA",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "36160D83BA5F0FBBF1E4D427FCD25A45E887B855" : "thirdparty\/FileSystemEvents\/",
+    "74E33F3DDF40ABA7CF09FF37415A2C2F3A096554" : "droptogif\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "droptogif",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "droptogif.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Eonil\/FileSystemEvents.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "36160D83BA5F0FBBF1E4D427FCD25A45E887B855"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/mortenjust\/droptogif.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "74E33F3DDF40ABA7CF09FF37415A2C2F3A096554"
+    }
+  ]
+}

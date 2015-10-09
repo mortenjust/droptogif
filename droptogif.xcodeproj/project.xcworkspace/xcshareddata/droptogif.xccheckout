@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>6640DF05-C343-4052-86C4-35238A01C5BA</string>
+	<key>IDESourceControlProjectName</key>
+	<string>project</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>36160D83BA5F0FBBF1E4D427FCD25A45E887B855</key>
+		<string>https://github.com/Eonil/FileSystemEvents.git</string>
+		<key>74E33F3DDF40ABA7CF09FF37415A2C2F3A096554</key>
+		<string>https://github.com/mortenjust/droptogif.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>droptogif.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>36160D83BA5F0FBBF1E4D427FCD25A45E887B855</key>
+		<string>../../../thirdparty/FileSystemEvents</string>
+		<key>74E33F3DDF40ABA7CF09FF37415A2C2F3A096554</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/mortenjust/droptogif.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>74E33F3DDF40ABA7CF09FF37415A2C2F3A096554</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>74E33F3DDF40ABA7CF09FF37415A2C2F3A096554</string>
+			<key>IDESourceControlWCCName</key>
+			<string>droptogif</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>36160D83BA5F0FBBF1E4D427FCD25A45E887B855</string>
+			<key>IDESourceControlWCCName</key>
+			<string>FileSystemEvents</string>
+		</dict>
+	</array>
+</dict>
+</plist>
