@@ -5,7 +5,7 @@ Zero-click movie to GIF conversion
 
 
 ## Dragging 
-Drag a movie onto the app. The animated GIF will be saved in the same folder as the movie. 
+Drag a movie onto the app. The animated GIF will be saved in the same folder as the movie. You can also drag the file onto the app's dock icon.
 <img width=500 src="https://raw.githubusercontent.com/mortenjust/droptogif/master/ux/demos/demo_dragon.gif">
 
 ## Watch a folder
