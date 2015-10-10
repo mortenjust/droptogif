@@ -94,16 +94,17 @@ class ShellTasker: NSObject {
         NSNotificationCenter.defaultCenter().addObserverForName(NSFileHandleDataAvailableNotification, object: pipe.fileHandleForReading, queue: nil) { (notification) -> Void in
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
                 print("10: got notification")
-//                data = pipe.fileHandleForReading.readDataToEndOfFile() // use .availabledata instead to stream from the console, pretty cool
-//                output = NSString(data: data, encoding: NSUTF8StringEncoding)!
+                data = pipe.fileHandleForReading.readDataToEndOfFile() // use .availabledata instead to stream from the console, pretty cool. But this solution waits before it hands the control back
+                output = NSString(data: data, encoding: NSUTF8StringEncoding)!
                 
-                let handle = pipe.fileHandleForReading;
-                let data = handle.availableData
-                
-                if(data.length>0){
-                    let s = NSString(data: data, encoding: NSUTF8StringEncoding)
-                    print("10.5: data: \(s)")
-                }
+//                
+//                let handle = pipe.fileHandleForReading;
+//                let data = handle.availableData
+//                
+//                if(data.length>0){
+//                    let s = NSString(data: data, encoding: NSUTF8StringEncoding)
+//                    print("10.5: data: \(s)")
+//                }
                 
                 
                 print("11: output: \(output)")

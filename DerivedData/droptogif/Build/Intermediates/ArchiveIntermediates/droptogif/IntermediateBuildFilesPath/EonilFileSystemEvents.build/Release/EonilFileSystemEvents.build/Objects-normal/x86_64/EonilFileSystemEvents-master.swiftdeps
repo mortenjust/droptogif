@@ -1,5 +1,0 @@
-version: "Apple Swift version 2.0 (swiftlang-700.0.59 clang-700.0.72)"
-options: "dc70a74d89fde7d3aaa5bb3c4eb855ff"
-build_time: [497747324, 695767000]
-inputs: 
-	"/Users/mortenjust/code/thirdparty/FileSystemEvents/Project/Sources/FileSystemEventMonitor.swift": [497688530, 0]

@@ -1,5 +1,0 @@
-version: "Apple Swift version 2.0 (swiftlang-700.0.59 clang-700.0.72)"
-options: "15d507c7035e16e4af4e4e01f4bd5255"
-build_time: [497724583, 722109000]
-inputs: 
-	"/Users/mortenjust/code/thirdparty/FileSystemEvents/Project/InternalTester4/AppDelegate.swift": !dirty [497688530, 0]

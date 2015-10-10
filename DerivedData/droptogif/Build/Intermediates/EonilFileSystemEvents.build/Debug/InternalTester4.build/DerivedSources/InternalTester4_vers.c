@@ -1,1 +1,0 @@
- const unsigned char InternalTester4VersionString[] __attribute__ ((used)) = "@(#)PROGRAM:InternalTester4  PROJECT:EonilFileSystemEvents-1" "\n"; const double InternalTester4VersionNumber __attribute__ ((used)) = (double)1.;

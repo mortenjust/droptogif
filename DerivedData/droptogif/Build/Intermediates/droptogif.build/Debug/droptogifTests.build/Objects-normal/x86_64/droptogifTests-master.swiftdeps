@@ -1,5 +1,0 @@
-version: "Apple Swift version 2.0 (swiftlang-700.0.59 clang-700.0.72)"
-options: "77818d5ac5ab7e6a90b1e656ac492947"
-build_time: [497724869, 854109000]
-inputs: 
-	"/Users/mortenjust/code/droptogif/droptogifTests/droptogifTests.swift": [497512349, 0]
