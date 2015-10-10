@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import AVFoundation
 import SpriteKit
 
 class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDelegate, CircleDropDelegate {
@@ -72,7 +73,6 @@ class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDeleg
     
     
     func animateDropInvitationIn(){
-
         waitForDrop.wantsLayer = true
         let fadeAnim = CABasicAnimation(keyPath: "opacity")
         fadeAnim.duration = 0.3
@@ -147,12 +147,22 @@ class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDeleg
         scene.hideDragInvite()
     }
     
-    func circleDropDragEntered() {
+    func circleDropDragEntered(filePath: String) {
         //
         print("drag entered vc")
         animateDropInvitationOut()
+        getMetadata(filePath)
         scene.showDragInvite()
     }
+    
+    func getMetadata(filePath:String){
+        let asset = AVURLAsset(URL: NSURL(fileURLWithPath: filePath))
+        print("##dumping meta:")
+        for t in asset.tracksWithMediaType(AVMediaTypeVideo) {
+            print(t.metadata)
+        }
+    }
+    
     
     func circleDropDragPerformed(filePath: String) {
         // PASSITON

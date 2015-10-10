@@ -9,7 +9,7 @@
 import Cocoa
 
 protocol CircleDropDelegate{
-    func circleDropDragEntered()
+    func circleDropDragEntered(filePath:String)
     func circleDropDragPerformed(filePath:String)
     func circleDropDragExited()
     func circleDropUpdated(mouseAt:NSPoint)
@@ -20,7 +20,8 @@ class DragReceiverView: NSImageView {
     
     override func draggingEntered(sender: NSDraggingInfo) -> NSDragOperation {
         Swift.print("HELLO \(getPathFromBoard(sender.draggingPasteboard()))")
-        delegate?.circleDropDragEntered()
+        let path = getPathFromBoard(sender.draggingPasteboard())
+        delegate?.circleDropDragEntered(path)
         return NSDragOperation.Copy
     }
     

@@ -78,17 +78,21 @@ class AppDelegate: NSObject, NSApplicationDelegate, FolderWatcherDelegate {
         // https://ffmpeg.org/ffmpeg-filters.html#Video-Filters
         // of interest, scale (done), fade (esp. alpha? fade=in:0:25:alpha=1,), 9.86 palettegen, paletteuse, 9.124 trim, vignette, zoompan
         
-        var filterString = "-vf "
+        var filters = [String]()
+        var filterString = ""
         
         // scale
         if let p = Preferences().getScalePercentagePref(){ // 55
             let r = p/100 // 0.55
             let scaleFilter = "scale=iw*\(r):-1"
-            filterString = "\(filterString) \(scaleFilter)"
+            filters.append(scaleFilter)
         }
-        
-        
-        return filterString;
+
+        for filter in filters {
+            filterString = "\(filter)" // todo: prepare this for multiple filters
+        }
+
+        return "-vf \(filterString)";
     }
     
     func convertFiles(filenames: [String]){

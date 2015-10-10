@@ -115,7 +115,11 @@ echo "Calling ffmpeg for filename: $filename to temp: $temp with filter: $filter
 $ffmpeg -loglevel panic -i "$filename" $filter -r $fps -f image2pipe -vcodec ppm - >> $temp
 
 echo "Calling Convert"
+#cat $temp | $convert xc:none -draw "circle 100,100 100,1" -fill +dither -layers Optimize -delay $delay - "${output}.gif"
+# cat $temp | $convert  +dither -draw "circle 100,100 100,1" -layers Optimize -delay $delay - "${output}.gif"
+# cat $temp | $convert  +dither -layers Optimize -delay $delay - "${output}.gif"
 cat $temp | $convert +dither -layers Optimize -delay $delay - "${output}.gif"
+
 
 if [ $noupload -ne 1 ]; then
 # open -a CloudApp "${output}.gif"
