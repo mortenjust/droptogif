@@ -40,20 +40,33 @@ class ShellTasker: NSObject {
         
         print("running \(scriptFile)")
         
-
         let sp:AnyObject = NSBundle.mainBundle().pathForResource(scriptFile, ofType: "") as! AnyObject
+        
+        print("casting sp to string")
+        
         let scriptPath = sp as! String
+        
+        print("script path: \(scriptPath)")
         
         
         let tempPath:String = NSBundle.mainBundle().pathForResource("convert", ofType: "")!;
-        let tempUrl:NSURL = NSURL(string: tempPath)!;
         
-        let resourcesPath = tempUrl.URLByDeletingLastPathComponent?.path;
+        print("tempPath is \(tempPath)")
+        
+        let tempUrl:NSURL = NSURL(fileURLWithPath: tempPath);
+//        let tempUrl:NSURL = NSURL(string: tempPath)!;
+        
+        print("5")
+        
+        let resourcesPath = tempUrl.URLByDeletingLastPathComponent?.path!;
+        
+        print("6")
         
         let bash = "/bin/bash"
         
         task = NSTask()
         let pipe = NSPipe()
+        
         
         task.launchPath = bash
         
@@ -72,15 +85,31 @@ class ShellTasker: NSObject {
         
         task.standardOutput = pipe
         
+        print("7: launching")
         self.task.launch()
+        print("8: waitfordata")
         pipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
         
+        print("9: addobserver")
         NSNotificationCenter.defaultCenter().addObserverForName(NSFileHandleDataAvailableNotification, object: pipe.fileHandleForReading, queue: nil) { (notification) -> Void in
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
-                data = pipe.fileHandleForReading.readDataToEndOfFile() // use .availabledata instead to stream from the console, pretty cool
-                output = NSString(data: data, encoding: NSUTF8StringEncoding)!
+                print("10: got notification")
+//                data = pipe.fileHandleForReading.readDataToEndOfFile() // use .availabledata instead to stream from the console, pretty cool
+//                output = NSString(data: data, encoding: NSUTF8StringEncoding)!
+                
+                let handle = pipe.fileHandleForReading;
+                let data = handle.availableData
+                
+                if(data.length>0){
+                    let s = NSString(data: data, encoding: NSUTF8StringEncoding)
+                    print("10.5: data: \(s)")
+                }
+                
+                
+                print("11: output: \(output)")
                 
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    print("12: callback")
                     complete(output: output)
                 })
             })

@@ -1,0 +1,2 @@
+dependencies: \
+  /Users/mortenjust/code/droptogif/DerivedData/droptogif/Build/Intermediates/ArchiveIntermediates/droptogif/IntermediateBuildFilesPath/EonilFileSystemEvents.build/Release/EonilFileSystemEvents.build/DerivedSources/EonilFileSystemEvents_vers.c

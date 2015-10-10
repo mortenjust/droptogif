@@ -79,6 +79,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, FolderWatcherDelegate {
         // this one could return the path of the final file name, that way we can open the file in Finder
         for filename in filenames {
             print("let's process \(filename) ");
+            
+            let args = [filename, "\(getFps())"];
+            
+            print("shell tasking with arguments: \(args)");
+            
             ShellTasker(scriptFile: "gifify").run(arguments: [filename, "\(getFps())"], complete: { (output) -> Void in
                 print("Done with output: \(output)");
                 let gifFile = "\(filename).gif";
@@ -96,7 +101,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, FolderWatcherDelegate {
         if fps == nil {
             fps = "10"
         }
-        print("fps pref is \(fps)");
+        print("fps pref is \(fps!)");
         return fps!;
     }
     

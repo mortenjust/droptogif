@@ -1,0 +1,675 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "ShellTaskDelegate"
+- "ShellTasker"
+provides-nominal:
+- "P9droptogif17ShellTaskDelegate"
+- "C9droptogif11ShellTasker"
+provides-member:
+- ["P9droptogif17ShellTaskDelegate", ""]
+- ["C9droptogif11ShellTasker", ""]
+provides-dynamic-lookup:
+- "run"
+- "task"
+- "stop"
+- "scriptFile"
+depends-top-level:
+- "Void"
+- !private "dispatch_async"
+- !private "dispatch_get_main_queue"
+- !private "AnyObject"
+- !private ">"
+- "NSObject"
+- "ShellTaskDelegate"
+- !private "print"
+- !private "StringLiteralType"
+- !private "=="
+- !private "NSNotificationCenter"
+- !private "NSBundle"
+- !private "DISPATCH_QUEUE_PRIORITY_DEFAULT"
+- "ShellTasker"
+- !private "dispatch_get_global_queue"
+- "String"
+- !private "UnicodeScalarType"
+- !private "NSUTF8StringEncoding"
+- !private "NSURL"
+- !private "NSData"
+- !private "NSFileHandleDataAvailableNotification"
+- "NSTask"
+- !private "NSPipe"
+- "NSString"
+depends-member:
+- !private ["PSs9AnyObject", "DISPATCH_QUEUE_PRIORITY_DEFAULT"]
+- !private ["PSs9AnyObject", "NSBundle"]
+- !private ["PSs9AnyObject", "NSData"]
+- !private ["PSs9AnyObject", "NSFileHandleDataAvailableNotification"]
+- !private ["PSs9AnyObject", "NSNotificationCenter"]
+- !private ["PSs9AnyObject", "NSPipe"]
+- !private ["PSs9AnyObject", "NSString"]
+- !private ["PSs9AnyObject", "NSTask"]
+- !private ["PSs9AnyObject", "NSURL"]
+- !private ["PSs9AnyObject", "NSUTF8StringEncoding"]
+- !private ["PSs9AnyObject", "String"]
+- !private ["PSs9AnyObject", "URLByDeletingLastPathComponent"]
+- !private ["PSs9AnyObject", "addObserverForName"]
+- !private ["PSs9AnyObject", "arguments"]
+- !private ["PSs9AnyObject", "availableData"]
+- !private ["PSs9AnyObject", "defaultCenter"]
+- !private ["PSs9AnyObject", "dispatch_async"]
+- !private ["PSs9AnyObject", "dispatch_get_global_queue"]
+- !private ["PSs9AnyObject", "dispatch_get_main_queue"]
+- !private ["PSs9AnyObject", "fileHandleForReading"]
+- ["PSs9AnyObject", "init"]
+- !private ["PSs9AnyObject", "launch"]
+- !private ["PSs9AnyObject", "launchPath"]
+- !private ["PSs9AnyObject", "length"]
+- !private ["PSs9AnyObject", "mainBundle"]
+- !private ["PSs9AnyObject", "path"]
+- !private ["PSs9AnyObject", "pathForResource"]
+- !private ["PSs9AnyObject", "print"]
+- ["PSs9AnyObject", "run"]
+- ["PSs9AnyObject", "scriptFile"]
+- !private ["PSs9AnyObject", "standardOutput"]
+- ["PSs9AnyObject", "stop"]
+- ["PSs9AnyObject", "task"]
+- !private ["PSs9AnyObject", "terminate"]
+- !private ["PSs9AnyObject", "waitForDataInBackgroundAndNotify"]
+- ["PSs9AnyObject", ""]
+- !private ["Sa", "Generator"]
+- !private ["Sa", "Index"]
+- !private ["Sa", "SubSequence"]
+- !private ["Sa", "_Element"]
+- !private ["Sa", "append"]
+- !private ["Sa", "init"]
+- !private ["PSs23ArrayLiteralConvertible", "Generator"]
+- !private ["PSs23ArrayLiteralConvertible", "Index"]
+- !private ["PSs23ArrayLiteralConvertible", "SubSequence"]
+- !private ["PSs23ArrayLiteralConvertible", "_Element"]
+- !private ["PSs23ArrayLiteralConvertible", "append"]
+- !private ["PSs23ArrayLiteralConvertible", "init"]
+- !private ["VSs10ArraySlice", "Generator"]
+- !private ["VSs10ArraySlice", "Index"]
+- !private ["PSs22BidirectionalIndexType", "Distance"]
+- !private ["PSs22BidirectionalIndexType", "IntegerLiteralType"]
+- !private ["PSs21BitwiseOperationsType", "Distance"]
+- !private ["PSs21BitwiseOperationsType", "IntegerLiteralType"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["Sb", "deinit"]
+- !private ["PSs25BooleanLiteralConvertible", "_getBuiltinLogicValue"]
+- !private ["PSs11BooleanType", "_getBuiltinLogicValue"]
+- !private ["PSs11CVarArgType", "DISPATCH_QUEUE_PRIORITY_DEFAULT"]
+- !private ["PSs11CVarArgType", "Distance"]
+- !private ["PSs11CVarArgType", "IntegerLiteralType"]
+- !private ["PSs11CVarArgType", "NSBundle"]
+- !private ["PSs11CVarArgType", "NSData"]
+- !private ["PSs11CVarArgType", "NSFileHandleDataAvailableNotification"]
+- !private ["PSs11CVarArgType", "NSNotificationCenter"]
+- !private ["PSs11CVarArgType", "NSPipe"]
+- !private ["PSs11CVarArgType", "NSString"]
+- !private ["PSs11CVarArgType", "NSTask"]
+- !private ["PSs11CVarArgType", "NSURL"]
+- !private ["PSs11CVarArgType", "NSUTF8StringEncoding"]
+- !private ["PSs11CVarArgType", "String"]
+- !private ["PSs11CVarArgType", "URLByDeletingLastPathComponent"]
+- !private ["PSs11CVarArgType", "addObserverForName"]
+- !private ["PSs11CVarArgType", "arguments"]
+- !private ["PSs11CVarArgType", "availableData"]
+- !private ["PSs11CVarArgType", "defaultCenter"]
+- !private ["PSs11CVarArgType", "dispatch_async"]
+- !private ["PSs11CVarArgType", "dispatch_get_global_queue"]
+- !private ["PSs11CVarArgType", "dispatch_get_main_queue"]
+- !private ["PSs11CVarArgType", "fileHandleForReading"]
+- ["PSs11CVarArgType", "init"]
+- !private ["PSs11CVarArgType", "launch"]
+- !private ["PSs11CVarArgType", "launchPath"]
+- !private ["PSs11CVarArgType", "length"]
+- !private ["PSs11CVarArgType", "mainBundle"]
+- !private ["PSs11CVarArgType", "path"]
+- !private ["PSs11CVarArgType", "pathForResource"]
+- !private ["PSs11CVarArgType", "print"]
+- ["PSs11CVarArgType", "run"]
+- ["PSs11CVarArgType", "scriptFile"]
+- !private ["PSs11CVarArgType", "standardOutput"]
+- ["PSs11CVarArgType", "stop"]
+- ["PSs11CVarArgType", "task"]
+- !private ["PSs11CVarArgType", "terminate"]
+- !private ["PSs11CVarArgType", "waitForDataInBackgroundAndNotify"]
+- ["PSs11CVarArgType", ""]
+- !private ["VSs9Character", "deinit"]
+- !private ["PSs14CollectionType", "Generator"]
+- !private ["PSs14CollectionType", "Index"]
+- !private ["PSs14CollectionType", "SubSequence"]
+- !private ["PSs14CollectionType", "_Element"]
+- !private ["PSs14CollectionType", "append"]
+- !private ["PSs14CollectionType", "init"]
+- !private ["PSs10Comparable", "Distance"]
+- !private ["PSs10Comparable", "IntegerLiteralType"]
+- !private ["PSs10Comparable", "init"]
+- !private ["PSs28CustomDebugStringConvertible", "Generator"]
+- !private ["PSs28CustomDebugStringConvertible", "Index"]
+- !private ["PSs28CustomDebugStringConvertible", "SubSequence"]
+- !private ["PSs28CustomDebugStringConvertible", "_Element"]
+- !private ["PSs28CustomDebugStringConvertible", "append"]
+- !private ["PSs28CustomDebugStringConvertible", "init"]
+- !private ["PSs23CustomStringConvertible", "DISPATCH_QUEUE_PRIORITY_DEFAULT"]
+- !private ["PSs23CustomStringConvertible", "Distance"]
+- !private ["PSs23CustomStringConvertible", "Generator"]
+- !private ["PSs23CustomStringConvertible", "Index"]
+- !private ["PSs23CustomStringConvertible", "IntegerLiteralType"]
+- !private ["PSs23CustomStringConvertible", "NSBundle"]
+- !private ["PSs23CustomStringConvertible", "NSData"]
+- !private ["PSs23CustomStringConvertible", "NSFileHandleDataAvailableNotification"]
+- !private ["PSs23CustomStringConvertible", "NSNotificationCenter"]
+- !private ["PSs23CustomStringConvertible", "NSPipe"]
+- !private ["PSs23CustomStringConvertible", "NSString"]
+- !private ["PSs23CustomStringConvertible", "NSTask"]
+- !private ["PSs23CustomStringConvertible", "NSURL"]
+- !private ["PSs23CustomStringConvertible", "NSUTF8StringEncoding"]
+- !private ["PSs23CustomStringConvertible", "String"]
+- !private ["PSs23CustomStringConvertible", "SubSequence"]
+- !private ["PSs23CustomStringConvertible", "URLByDeletingLastPathComponent"]
+- !private ["PSs23CustomStringConvertible", "_Element"]
+- !private ["PSs23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["PSs23CustomStringConvertible", "addObserverForName"]
+- !private ["PSs23CustomStringConvertible", "append"]
+- !private ["PSs23CustomStringConvertible", "arguments"]
+- !private ["PSs23CustomStringConvertible", "availableData"]
+- !private ["PSs23CustomStringConvertible", "defaultCenter"]
+- !private ["PSs23CustomStringConvertible", "dispatch_async"]
+- !private ["PSs23CustomStringConvertible", "dispatch_get_global_queue"]
+- !private ["PSs23CustomStringConvertible", "dispatch_get_main_queue"]
+- !private ["PSs23CustomStringConvertible", "fileHandleForReading"]
+- ["PSs23CustomStringConvertible", "init"]
+- !private ["PSs23CustomStringConvertible", "launch"]
+- !private ["PSs23CustomStringConvertible", "launchPath"]
+- !private ["PSs23CustomStringConvertible", "length"]
+- !private ["PSs23CustomStringConvertible", "mainBundle"]
+- !private ["PSs23CustomStringConvertible", "path"]
+- !private ["PSs23CustomStringConvertible", "pathForResource"]
+- !private ["PSs23CustomStringConvertible", "print"]
+- ["PSs23CustomStringConvertible", "run"]
+- ["PSs23CustomStringConvertible", "scriptFile"]
+- !private ["PSs23CustomStringConvertible", "standardOutput"]
+- ["PSs23CustomStringConvertible", "stop"]
+- ["PSs23CustomStringConvertible", "task"]
+- !private ["PSs23CustomStringConvertible", "terminate"]
+- !private ["PSs23CustomStringConvertible", "waitForDataInBackgroundAndNotify"]
+- ["PSs23CustomStringConvertible", ""]
+- !private ["Sd", "deinit"]
+- !private ["PSs9Equatable", "DISPATCH_QUEUE_PRIORITY_DEFAULT"]
+- !private ["PSs9Equatable", "Distance"]
+- !private ["PSs9Equatable", "IntegerLiteralType"]
+- !private ["PSs9Equatable", "NSBundle"]
+- !private ["PSs9Equatable", "NSData"]
+- !private ["PSs9Equatable", "NSFileHandleDataAvailableNotification"]
+- !private ["PSs9Equatable", "NSNotificationCenter"]
+- !private ["PSs9Equatable", "NSPipe"]
+- !private ["PSs9Equatable", "NSString"]
+- !private ["PSs9Equatable", "NSTask"]
+- !private ["PSs9Equatable", "NSURL"]
+- !private ["PSs9Equatable", "NSUTF8StringEncoding"]
+- !private ["PSs9Equatable", "String"]
+- !private ["PSs9Equatable", "URLByDeletingLastPathComponent"]
+- !private ["PSs9Equatable", "_getBuiltinLogicValue"]
+- !private ["PSs9Equatable", "addObserverForName"]
+- !private ["PSs9Equatable", "arguments"]
+- !private ["PSs9Equatable", "availableData"]
+- !private ["PSs9Equatable", "defaultCenter"]
+- !private ["PSs9Equatable", "dispatch_async"]
+- !private ["PSs9Equatable", "dispatch_get_global_queue"]
+- !private ["PSs9Equatable", "dispatch_get_main_queue"]
+- !private ["PSs9Equatable", "fileHandleForReading"]
+- ["PSs9Equatable", "init"]
+- !private ["PSs9Equatable", "launch"]
+- !private ["PSs9Equatable", "launchPath"]
+- !private ["PSs9Equatable", "length"]
+- !private ["PSs9Equatable", "mainBundle"]
+- !private ["PSs9Equatable", "path"]
+- !private ["PSs9Equatable", "pathForResource"]
+- !private ["PSs9Equatable", "print"]
+- ["PSs9Equatable", "run"]
+- ["PSs9Equatable", "scriptFile"]
+- !private ["PSs9Equatable", "standardOutput"]
+- ["PSs9Equatable", "stop"]
+- ["PSs9Equatable", "task"]
+- !private ["PSs9Equatable", "terminate"]
+- !private ["PSs9Equatable", "waitForDataInBackgroundAndNotify"]
+- ["PSs9Equatable", ""]
+- !private ["PSs41ExtendedGraphemeClusterLiteralConvertible", "init"]
+- !private ["Sf", "deinit"]
+- !private ["PSs16ForwardIndexType", "Distance"]
+- !private ["PSs16ForwardIndexType", "IntegerLiteralType"]
+- !private ["PSs13GeneratorType", "Element"]
+- !private ["PSs8Hashable", "DISPATCH_QUEUE_PRIORITY_DEFAULT"]
+- !private ["PSs8Hashable", "Distance"]
+- !private ["PSs8Hashable", "IntegerLiteralType"]
+- !private ["PSs8Hashable", "NSBundle"]
+- !private ["PSs8Hashable", "NSData"]
+- !private ["PSs8Hashable", "NSFileHandleDataAvailableNotification"]
+- !private ["PSs8Hashable", "NSNotificationCenter"]
+- !private ["PSs8Hashable", "NSPipe"]
+- !private ["PSs8Hashable", "NSString"]
+- !private ["PSs8Hashable", "NSTask"]
+- !private ["PSs8Hashable", "NSURL"]
+- !private ["PSs8Hashable", "NSUTF8StringEncoding"]
+- !private ["PSs8Hashable", "String"]
+- !private ["PSs8Hashable", "URLByDeletingLastPathComponent"]
+- !private ["PSs8Hashable", "_getBuiltinLogicValue"]
+- !private ["PSs8Hashable", "addObserverForName"]
+- !private ["PSs8Hashable", "arguments"]
+- !private ["PSs8Hashable", "availableData"]
+- !private ["PSs8Hashable", "defaultCenter"]
+- !private ["PSs8Hashable", "dispatch_async"]
+- !private ["PSs8Hashable", "dispatch_get_global_queue"]
+- !private ["PSs8Hashable", "dispatch_get_main_queue"]
+- !private ["PSs8Hashable", "fileHandleForReading"]
+- ["PSs8Hashable", "init"]
+- !private ["PSs8Hashable", "launch"]
+- !private ["PSs8Hashable", "launchPath"]
+- !private ["PSs8Hashable", "length"]
+- !private ["PSs8Hashable", "mainBundle"]
+- !private ["PSs8Hashable", "path"]
+- !private ["PSs8Hashable", "pathForResource"]
+- !private ["PSs8Hashable", "print"]
+- ["PSs8Hashable", "run"]
+- ["PSs8Hashable", "scriptFile"]
+- !private ["PSs8Hashable", "standardOutput"]
+- ["PSs8Hashable", "stop"]
+- ["PSs8Hashable", "task"]
+- !private ["PSs8Hashable", "terminate"]
+- !private ["PSs8Hashable", "waitForDataInBackgroundAndNotify"]
+- ["PSs8Hashable", ""]
+- !private ["SQ", "deinit"]
+- !private ["PSs9Indexable", "Generator"]
+- !private ["PSs9Indexable", "Index"]
+- !private ["PSs9Indexable", "SubSequence"]
+- !private ["PSs9Indexable", "_Element"]
+- !private ["PSs9Indexable", "append"]
+- !private ["PSs9Indexable", "init"]
+- !private ["VSs17IndexingGenerator", "Element"]
+- !private ["Si", "Distance"]
+- !private ["Si", "IntegerLiteralType"]
+- !private ["Si", "deinit"]
+- !private ["VSs5Int16", "deinit"]
+- !private ["VSs5Int32", "deinit"]
+- !private ["VSs5Int64", "deinit"]
+- !private ["VSs4Int8", "deinit"]
+- !private ["PSs21IntegerArithmeticType", "Distance"]
+- !private ["PSs21IntegerArithmeticType", "IntegerLiteralType"]
+- !private ["PSs25IntegerLiteralConvertible", "Distance"]
+- !private ["PSs25IntegerLiteralConvertible", "IntegerLiteralType"]
+- !private ["PSs11IntegerType", "Distance"]
+- !private ["PSs11IntegerType", "IntegerLiteralType"]
+- !private ["PSs14MirrorPathType", "Distance"]
+- !private ["PSs14MirrorPathType", "IntegerLiteralType"]
+- !private ["PSs14MirrorPathType", "init"]
+- !private ["PSs21MutableCollectionType", "Generator"]
+- !private ["PSs21MutableCollectionType", "Index"]
+- !private ["PSs21MutableCollectionType", "SubSequence"]
+- !private ["PSs21MutableCollectionType", "_Element"]
+- !private ["PSs21MutableCollectionType", "append"]
+- !private ["PSs21MutableCollectionType", "init"]
+- !private ["PSs16MutableIndexable", "Generator"]
+- !private ["PSs16MutableIndexable", "Index"]
+- !private ["PSs16MutableIndexable", "SubSequence"]
+- !private ["PSs16MutableIndexable", "_Element"]
+- !private ["PSs16MutableIndexable", "append"]
+- !private ["PSs16MutableIndexable", "init"]
+- !private ["PSs16MutableSliceable", "Generator"]
+- !private ["PSs16MutableSliceable", "Index"]
+- !private ["PSs16MutableSliceable", "SubSequence"]
+- !private ["PSs16MutableSliceable", "_Element"]
+- !private ["PSs16MutableSliceable", "append"]
+- !private ["PSs16MutableSliceable", "init"]
+- !private ["CSo8NSBundle", "mainBundle"]
+- !private ["CSo8NSBundle", "pathForResource"]
+- !private ["PSo8NSCoding", "URLByDeletingLastPathComponent"]
+- !private ["PSo8NSCoding", "availableData"]
+- !private ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "length"]
+- !private ["PSo8NSCoding", "path"]
+- !private ["PSo8NSCoding", "waitForDataInBackgroundAndNotify"]
+- !private ["PSo9NSCopying", "URLByDeletingLastPathComponent"]
+- !private ["PSo9NSCopying", "init"]
+- !private ["PSo9NSCopying", "length"]
+- !private ["PSo9NSCopying", "path"]
+- !private ["CSo6NSData", "init"]
+- !private ["CSo6NSData", "length"]
+- !private ["CSo12NSFileHandle", "availableData"]
+- !private ["CSo12NSFileHandle", "waitForDataInBackgroundAndNotify"]
+- !private ["PSo16NSMutableCopying", "init"]
+- !private ["PSo16NSMutableCopying", "length"]
+- !private ["CSo20NSNotificationCenter", "addObserverForName"]
+- !private ["CSo20NSNotificationCenter", "defaultCenter"]
+- !private ["CSo8NSObject", "AnyObject"]
+- !private ["CSo8NSObject", "DISPATCH_QUEUE_PRIORITY_DEFAULT"]
+- !private ["CSo8NSObject", "NSBundle"]
+- !private ["CSo8NSObject", "NSData"]
+- !private ["CSo8NSObject", "NSFileHandleDataAvailableNotification"]
+- !private ["CSo8NSObject", "NSNotificationCenter"]
+- !private ["CSo8NSObject", "NSPipe"]
+- ["CSo8NSObject", "NSString"]
+- ["CSo8NSObject", "NSTask"]
+- !private ["CSo8NSObject", "NSURL"]
+- !private ["CSo8NSObject", "NSUTF8StringEncoding"]
+- ["CSo8NSObject", "String"]
+- !private ["CSo8NSObject", "URLByDeletingLastPathComponent"]
+- ["CSo8NSObject", "Void"]
+- !private ["CSo8NSObject", "addObserverForName"]
+- !private ["CSo8NSObject", "arguments"]
+- !private ["CSo8NSObject", "availableData"]
+- !private ["CSo8NSObject", "defaultCenter"]
+- !private ["CSo8NSObject", "dispatch_async"]
+- !private ["CSo8NSObject", "dispatch_get_global_queue"]
+- !private ["CSo8NSObject", "dispatch_get_main_queue"]
+- !private ["CSo8NSObject", "fileHandleForReading"]
+- ["CSo8NSObject", "init"]
+- !private ["CSo8NSObject", "launch"]
+- !private ["CSo8NSObject", "launchPath"]
+- !private ["CSo8NSObject", "length"]
+- !private ["CSo8NSObject", "mainBundle"]
+- !private ["CSo8NSObject", "path"]
+- !private ["CSo8NSObject", "pathForResource"]
+- !private ["CSo8NSObject", "print"]
+- ["CSo8NSObject", "run"]
+- ["CSo8NSObject", "scriptFile"]
+- !private ["CSo8NSObject", "standardOutput"]
+- ["CSo8NSObject", "stop"]
+- ["CSo8NSObject", "task"]
+- !private ["CSo8NSObject", "terminate"]
+- !private ["CSo8NSObject", "waitForDataInBackgroundAndNotify"]
+- ["CSo8NSObject", ""]
+- !private ["PSo16NSObjectProtocol", "DISPATCH_QUEUE_PRIORITY_DEFAULT"]
+- !private ["PSo16NSObjectProtocol", "NSBundle"]
+- !private ["PSo16NSObjectProtocol", "NSData"]
+- !private ["PSo16NSObjectProtocol", "NSFileHandleDataAvailableNotification"]
+- !private ["PSo16NSObjectProtocol", "NSNotificationCenter"]
+- !private ["PSo16NSObjectProtocol", "NSPipe"]
+- !private ["PSo16NSObjectProtocol", "NSString"]
+- !private ["PSo16NSObjectProtocol", "NSTask"]
+- !private ["PSo16NSObjectProtocol", "NSURL"]
+- !private ["PSo16NSObjectProtocol", "NSUTF8StringEncoding"]
+- !private ["PSo16NSObjectProtocol", "String"]
+- !private ["PSo16NSObjectProtocol", "URLByDeletingLastPathComponent"]
+- !private ["PSo16NSObjectProtocol", "addObserverForName"]
+- !private ["PSo16NSObjectProtocol", "arguments"]
+- !private ["PSo16NSObjectProtocol", "availableData"]
+- !private ["PSo16NSObjectProtocol", "defaultCenter"]
+- !private ["PSo16NSObjectProtocol", "dispatch_async"]
+- !private ["PSo16NSObjectProtocol", "dispatch_get_global_queue"]
+- !private ["PSo16NSObjectProtocol", "dispatch_get_main_queue"]
+- !private ["PSo16NSObjectProtocol", "fileHandleForReading"]
+- ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "launch"]
+- !private ["PSo16NSObjectProtocol", "launchPath"]
+- !private ["PSo16NSObjectProtocol", "length"]
+- !private ["PSo16NSObjectProtocol", "mainBundle"]
+- !private ["PSo16NSObjectProtocol", "path"]
+- !private ["PSo16NSObjectProtocol", "pathForResource"]
+- !private ["PSo16NSObjectProtocol", "print"]
+- ["PSo16NSObjectProtocol", "run"]
+- ["PSo16NSObjectProtocol", "scriptFile"]
+- !private ["PSo16NSObjectProtocol", "standardOutput"]
+- ["PSo16NSObjectProtocol", "stop"]
+- ["PSo16NSObjectProtocol", "task"]
+- !private ["PSo16NSObjectProtocol", "terminate"]
+- !private ["PSo16NSObjectProtocol", "waitForDataInBackgroundAndNotify"]
+- ["PSo16NSObjectProtocol", ""]
+- !private ["PSo19NSPasteboardReading", "URLByDeletingLastPathComponent"]
+- !private ["PSo19NSPasteboardReading", "init"]
+- !private ["PSo19NSPasteboardReading", "path"]
+- !private ["PSo19NSPasteboardWriting", "URLByDeletingLastPathComponent"]
+- !private ["PSo19NSPasteboardWriting", "init"]
+- !private ["PSo19NSPasteboardWriting", "path"]
+- !private ["CSo6NSPipe", "fileHandleForReading"]
+- !private ["CSo6NSPipe", "init"]
+- !private ["PSo14NSSecureCoding", "URLByDeletingLastPathComponent"]
+- !private ["PSo14NSSecureCoding", "availableData"]
+- !private ["PSo14NSSecureCoding", "init"]
+- !private ["PSo14NSSecureCoding", "length"]
+- !private ["PSo14NSSecureCoding", "path"]
+- !private ["PSo14NSSecureCoding", "waitForDataInBackgroundAndNotify"]
+- !private ["CSo8NSString", "deinit"]
+- !private ["CSo8NSString", "init"]
+- !private ["CSo6NSTask", "arguments"]
+- !private ["CSo6NSTask", "init"]
+- !private ["CSo6NSTask", "launch"]
+- !private ["CSo6NSTask", "launchPath"]
+- !private ["CSo6NSTask", "standardOutput"]
+- !private ["CSo6NSTask", "terminate"]
+- !private ["CSo5NSURL", "URLByDeletingLastPathComponent"]
+- !private ["CSo5NSURL", "init"]
+- !private ["CSo5NSURL", "path"]
+- !private ["PSo17NSURLHandleClient", "URLByDeletingLastPathComponent"]
+- !private ["PSo17NSURLHandleClient", "init"]
+- !private ["PSo17NSURLHandleClient", "path"]
+- !private ["Sq", "deinit"]
+- !private ["PSs16OutputStreamType", "init"]
+- !private ["PSs21RandomAccessIndexType", "Distance"]
+- !private ["PSs21RandomAccessIndexType", "IntegerLiteralType"]
+- !private ["PSs30RangeReplaceableCollectionType", "Generator"]
+- !private ["PSs30RangeReplaceableCollectionType", "Index"]
+- !private ["PSs30RangeReplaceableCollectionType", "SubSequence"]
+- !private ["PSs30RangeReplaceableCollectionType", "_Element"]
+- !private ["PSs30RangeReplaceableCollectionType", "append"]
+- !private ["PSs30RangeReplaceableCollectionType", "init"]
+- !private ["PSs12SequenceType", "Element"]
+- !private ["PSs12SequenceType", "Generator"]
+- !private ["PSs12SequenceType", "Index"]
+- !private ["PSs12SequenceType", "SubSequence"]
+- !private ["PSs12SequenceType", "_Element"]
+- !private ["PSs12SequenceType", "append"]
+- !private ["PSs12SequenceType", "init"]
+- ["P9droptogif17ShellTaskDelegate", "shellTaskDidBegin"]
+- ["P9droptogif17ShellTaskDelegate", "shellTaskDidFinish"]
+- !private ["C9droptogif11ShellTasker", "AnyObject"]
+- !private ["C9droptogif11ShellTasker", "DISPATCH_QUEUE_PRIORITY_DEFAULT"]
+- !private ["C9droptogif11ShellTasker", "NSBundle"]
+- !private ["C9droptogif11ShellTasker", "NSData"]
+- !private ["C9droptogif11ShellTasker", "NSFileHandleDataAvailableNotification"]
+- !private ["C9droptogif11ShellTasker", "NSNotificationCenter"]
+- !private ["C9droptogif11ShellTasker", "NSPipe"]
+- ["C9droptogif11ShellTasker", "NSString"]
+- ["C9droptogif11ShellTasker", "NSTask"]
+- !private ["C9droptogif11ShellTasker", "NSURL"]
+- !private ["C9droptogif11ShellTasker", "NSUTF8StringEncoding"]
+- ["C9droptogif11ShellTasker", "String"]
+- ["C9droptogif11ShellTasker", "Void"]
+- ["C9droptogif11ShellTasker", "deinit"]
+- !private ["C9droptogif11ShellTasker", "dispatch_async"]
+- !private ["C9droptogif11ShellTasker", "dispatch_get_global_queue"]
+- !private ["C9droptogif11ShellTasker", "dispatch_get_main_queue"]
+- ["C9droptogif11ShellTasker", "init"]
+- !private ["C9droptogif11ShellTasker", "print"]
+- ["C9droptogif11ShellTasker", "run"]
+- ["C9droptogif11ShellTasker", "scriptFile"]
+- ["C9droptogif11ShellTasker", "stop"]
+- ["C9droptogif11ShellTasker", "task"]
+- !private ["PSs17SignedIntegerType", "Distance"]
+- !private ["PSs17SignedIntegerType", "IntegerLiteralType"]
+- !private ["PSs16SignedNumberType", "Distance"]
+- !private ["PSs16SignedNumberType", "IntegerLiteralType"]
+- !private ["VSs12StaticString", "deinit"]
+- !private ["PSs10Streamable", "init"]
+- !private ["PSs10Strideable", "Distance"]
+- !private ["PSs10Strideable", "IntegerLiteralType"]
+- !private ["SS", "deinit"]
+- !private ["SS", "init"]
+- !private ["PSs30StringInterpolationConvertible", "init"]
+- !private ["PSs24StringLiteralConvertible", "init"]
+- !private ["Su", "deinit"]
+- !private ["VSs6UInt16", "deinit"]
+- !private ["VSs6UInt32", "deinit"]
+- !private ["VSs6UInt64", "deinit"]
+- !private ["VSs5UInt8", "deinit"]
+- !private ["Sc", "deinit"]
+- !private ["PSs31UnicodeScalarLiteralConvertible", "init"]
+- !private ["PSs10_ArrayType", "Generator"]
+- !private ["PSs10_ArrayType", "Index"]
+- !private ["PSs10_ArrayType", "SubSequence"]
+- !private ["PSs10_ArrayType", "_Element"]
+- !private ["PSs10_ArrayType", "append"]
+- !private ["PSs10_ArrayType", "init"]
+- !private ["PSs33_BuiltinBooleanLiteralConvertible", "_getBuiltinLogicValue"]
+- !private ["PSs49_BuiltinExtendedGraphemeClusterLiteralConvertible", "init"]
+- !private ["PSs33_BuiltinIntegerLiteralConvertible", "Distance"]
+- !private ["PSs33_BuiltinIntegerLiteralConvertible", "IntegerLiteralType"]
+- !private ["PSs32_BuiltinStringLiteralConvertible", "init"]
+- !private ["PSs37_BuiltinUTF16StringLiteralConvertible", "init"]
+- !private ["PSs39_BuiltinUnicodeScalarLiteralConvertible", "init"]
+- !private ["PSs16_CocoaStringType", "init"]
+- !private ["PSs24_DestructorSafeContainer", "Generator"]
+- !private ["PSs24_DestructorSafeContainer", "Index"]
+- !private ["PSs24_DestructorSafeContainer", "SubSequence"]
+- !private ["PSs24_DestructorSafeContainer", "_Element"]
+- !private ["PSs24_DestructorSafeContainer", "append"]
+- !private ["PSs24_DestructorSafeContainer", "init"]
+- !private ["PSs14_Incrementable", "Distance"]
+- !private ["PSs14_Incrementable", "IntegerLiteralType"]
+- !private ["PSs22_IntegerArithmeticType", "Distance"]
+- !private ["PSs22_IntegerArithmeticType", "IntegerLiteralType"]
+- !private ["PSs12_IntegerType", "Distance"]
+- !private ["PSs12_IntegerType", "IntegerLiteralType"]
+- !private ["PSs21_ObjectiveCBridgeable", "Distance"]
+- !private ["PSs21_ObjectiveCBridgeable", "Generator"]
+- !private ["PSs21_ObjectiveCBridgeable", "Index"]
+- !private ["PSs21_ObjectiveCBridgeable", "IntegerLiteralType"]
+- !private ["PSs21_ObjectiveCBridgeable", "SubSequence"]
+- !private ["PSs21_ObjectiveCBridgeable", "_Element"]
+- !private ["PSs21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- !private ["PSs21_ObjectiveCBridgeable", "append"]
+- !private ["PSs21_ObjectiveCBridgeable", "init"]
+- !private ["VSs26_OptionalNilComparisonType", "deinit"]
+- !private ["PSs22_RandomAccessAmbiguity", "Distance"]
+- !private ["PSs22_RandomAccessAmbiguity", "IntegerLiteralType"]
+- !private ["PSs12_Reflectable", "Distance"]
+- !private ["PSs12_Reflectable", "Generator"]
+- !private ["PSs12_Reflectable", "Index"]
+- !private ["PSs12_Reflectable", "IntegerLiteralType"]
+- !private ["PSs12_Reflectable", "SubSequence"]
+- !private ["PSs12_Reflectable", "URLByDeletingLastPathComponent"]
+- !private ["PSs12_Reflectable", "_Element"]
+- !private ["PSs12_Reflectable", "_getBuiltinLogicValue"]
+- !private ["PSs12_Reflectable", "append"]
+- !private ["PSs12_Reflectable", "init"]
+- !private ["PSs12_Reflectable", "path"]
+- !private ["PSs18_SignedIntegerType", "Distance"]
+- !private ["PSs18_SignedIntegerType", "IntegerLiteralType"]
+- !private ["PSs11_Strideable", "Distance"]
+- !private ["PSs11_Strideable", "IntegerLiteralType"]
+depends-nominal:
+- "PSs9AnyObject"
+- !private "Sa"
+- !private "PSs23ArrayLiteralConvertible"
+- !private "VSs10ArraySlice"
+- !private "PSs22BidirectionalIndexType"
+- !private "PSs21BitwiseOperationsType"
+- !private "Sb"
+- !private "PSs25BooleanLiteralConvertible"
+- !private "PSs11BooleanType"
+- "PSs11CVarArgType"
+- !private "VSs9Character"
+- !private "PSs14CollectionType"
+- !private "PSs10Comparable"
+- !private "PSs28CustomDebugStringConvertible"
+- "PSs23CustomStringConvertible"
+- !private "Sd"
+- "PSs9Equatable"
+- !private "PSs41ExtendedGraphemeClusterLiteralConvertible"
+- !private "Sf"
+- !private "PSs16ForwardIndexType"
+- !private "PSs13GeneratorType"
+- "PSs8Hashable"
+- !private "SQ"
+- !private "PSs9Indexable"
+- !private "VSs17IndexingGenerator"
+- !private "Si"
+- !private "VSs5Int16"
+- !private "VSs5Int32"
+- !private "VSs5Int64"
+- !private "VSs4Int8"
+- !private "PSs21IntegerArithmeticType"
+- !private "PSs25IntegerLiteralConvertible"
+- !private "PSs11IntegerType"
+- !private "PSs14MirrorPathType"
+- !private "PSs21MutableCollectionType"
+- !private "PSs16MutableIndexable"
+- !private "PSs16MutableSliceable"
+- !private "CSo8NSBundle"
+- !private "PSo8NSCoding"
+- !private "PSo9NSCopying"
+- !private "CSo6NSData"
+- !private "CSo12NSFileHandle"
+- !private "PSo16NSMutableCopying"
+- !private "CSo20NSNotificationCenter"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- !private "PSo19NSPasteboardReading"
+- !private "PSo19NSPasteboardWriting"
+- !private "CSo6NSPipe"
+- !private "PSo14NSSecureCoding"
+- !private "CSo8NSString"
+- !private "CSo6NSTask"
+- !private "CSo5NSURL"
+- !private "PSo17NSURLHandleClient"
+- !private "Sq"
+- !private "PSs16OutputStreamType"
+- !private "PSs21RandomAccessIndexType"
+- !private "PSs30RangeReplaceableCollectionType"
+- !private "PSs12SequenceType"
+- "P9droptogif17ShellTaskDelegate"
+- "C9droptogif11ShellTasker"
+- !private "PSs17SignedIntegerType"
+- !private "PSs16SignedNumberType"
+- !private "VSs12StaticString"
+- !private "PSs10Streamable"
+- !private "PSs10Strideable"
+- !private "SS"
+- !private "PSs30StringInterpolationConvertible"
+- !private "PSs24StringLiteralConvertible"
+- !private "Su"
+- !private "VSs6UInt16"
+- !private "VSs6UInt32"
+- !private "VSs6UInt64"
+- !private "VSs5UInt8"
+- !private "Sc"
+- !private "PSs31UnicodeScalarLiteralConvertible"
+- !private "PSs10_ArrayType"
+- !private "PSs33_BuiltinBooleanLiteralConvertible"
+- !private "PSs49_BuiltinExtendedGraphemeClusterLiteralConvertible"
+- !private "PSs33_BuiltinIntegerLiteralConvertible"
+- !private "PSs32_BuiltinStringLiteralConvertible"
+- !private "PSs37_BuiltinUTF16StringLiteralConvertible"
+- !private "PSs39_BuiltinUnicodeScalarLiteralConvertible"
+- !private "PSs16_CocoaStringType"
+- !private "PSs24_DestructorSafeContainer"
+- !private "PSs14_Incrementable"
+- !private "PSs22_IntegerArithmeticType"
+- !private "PSs12_IntegerType"
+- !private "PSs21_ObjectiveCBridgeable"
+- !private "VSs26_OptionalNilComparisonType"
+- !private "PSs22_RandomAccessAmbiguity"
+- !private "PSs12_Reflectable"
+- !private "PSs18_SignedIntegerType"
+- !private "PSs11_Strideable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/AppKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreData.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreImage.swiftmodule"
+- "/Users/mortenjust/code/droptogif/DerivedData/droptogif/Build/Products/Debug/EonilFileSystemEvents.framework/Modules/EonilFileSystemEvents.swiftmodule/x86_64.swiftmodule"
+- "/Users/mortenjust/code/droptogif/DerivedData/droptogif/Build/Products/Debug/EonilFileSystemEvents.framework/Headers/EonilFileSystemEvents-Swift.h"
+- "/Users/mortenjust/code/droptogif/DerivedData/droptogif/Build/Products/Debug/EonilFileSystemEvents.framework/Headers/EonilFileSystemEventStream.h"
+- "/Users/mortenjust/code/droptogif/DerivedData/droptogif/Build/Products/Debug/EonilFileSystemEvents.framework/Headers/EonilJustFSEventStreamWrapper.h"
+- "/Users/mortenjust/code/droptogif/DerivedData/droptogif/Build/Products/Debug/EonilFileSystemEvents.framework/Headers/EonilFileSystemEvents.h"
+- "/Users/mortenjust/code/droptogif/DerivedData/droptogif/Build/Products/Debug/EonilFileSystemEvents.framework/Modules/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/SpriteKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/GLKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/simd.swiftmodule"
+interface-hash: "d41cae16be82335ea149fc64c58a3af5"

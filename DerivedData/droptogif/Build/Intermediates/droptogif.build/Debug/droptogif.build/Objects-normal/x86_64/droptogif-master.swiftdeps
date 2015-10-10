@@ -1,0 +1,12 @@
+version: "Apple Swift version 2.0 (swiftlang-700.0.59 clang-700.0.72)"
+options: "efef8e9ef8f0e2f1b4fb5d4d84c48d79"
+build_time: [497740889, 104630000]
+inputs: 
+	"/Users/mortenjust/code/droptogif/droptogif/MJWatchFolderTextView.swift": [497581124, 0]
+	"/Users/mortenjust/code/droptogif/droptogif/LoaderScene.swift": [497666259, 0]
+	"/Users/mortenjust/code/droptogif/droptogif/DragReceiverView.swift": [497662665, 0]
+	"/Users/mortenjust/code/droptogif/droptogif/AppDelegate.swift": [497734840, 0]
+	"/Users/mortenjust/code/droptogif/droptogif/ViewController.swift": [497667752, 0]
+	"/Users/mortenjust/code/droptogif/droptogif/ShellTasker.swift": [497740637, 0]
+	"/Users/mortenjust/code/droptogif/droptogif/FolderWatcher.swift": [497677388, 0]
+	"/Users/mortenjust/code/droptogif/droptogif/Util.swift": [497667878, 0]

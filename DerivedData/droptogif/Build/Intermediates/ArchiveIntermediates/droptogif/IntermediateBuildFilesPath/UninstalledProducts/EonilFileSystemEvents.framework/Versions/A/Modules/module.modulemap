@@ -1,0 +1,10 @@
+framework module EonilFileSystemEvents {
+  umbrella header "EonilFileSystemEvents.h"
+
+  export *
+  module * { export * }
+}
+
+module EonilFileSystemEvents.Swift {
+    header "EonilFileSystemEvents-Swift.h"
+}

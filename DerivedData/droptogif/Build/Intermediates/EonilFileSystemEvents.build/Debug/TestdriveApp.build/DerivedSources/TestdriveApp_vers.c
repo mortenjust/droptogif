@@ -1,0 +1,1 @@
+ const unsigned char TestdriveAppVersionString[] __attribute__ ((used)) = "@(#)PROGRAM:TestdriveApp  PROJECT:EonilFileSystemEvents-1" "\n"; const double TestdriveAppVersionNumber __attribute__ ((used)) = (double)1.;

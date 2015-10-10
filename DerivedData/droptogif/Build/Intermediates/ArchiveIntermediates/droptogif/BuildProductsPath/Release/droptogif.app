@@ -1,0 +1,1 @@
+/Users/mortenjust/code/droptogif/DerivedData/droptogif/Build/Intermediates/ArchiveIntermediates/droptogif/InstallationBuildProductsLocation/Applications/droptogif.app

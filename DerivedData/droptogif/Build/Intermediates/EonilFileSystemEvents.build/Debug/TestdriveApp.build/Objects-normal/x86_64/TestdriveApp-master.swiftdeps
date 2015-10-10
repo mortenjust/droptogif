@@ -1,0 +1,5 @@
+version: "Apple Swift version 2.0 (swiftlang-700.0.59 clang-700.0.72)"
+options: "0dcf658aa41c4801486d107a9d3d64e9"
+build_time: [497724582, 88684000]
+inputs: 
+	"/Users/mortenjust/code/thirdparty/FileSystemEvents/Project/TestdriveApp/AppDelegate.swift": [497688530, 0]

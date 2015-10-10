@@ -1,0 +1,13 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [{
+    'type': 'directory',
+    'name': '/Users/mortenjust/code/droptogif/DerivedData/droptogif/Build/Products/Debug/EonilFileSystemEvents.framework/Modules'
+    'contents': [{
+      'type': 'file',
+      'name': 'module.modulemap',
+      'external-contents': '/Users/mortenjust/code/droptogif/DerivedData/droptogif/Build/Intermediates/EonilFileSystemEvents.build/Debug/EonilFileSystemEvents.build/unextended-module.modulemap',
+    }]
+  }]
+}
