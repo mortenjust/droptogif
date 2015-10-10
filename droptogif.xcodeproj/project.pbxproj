@@ -31,6 +31,7 @@
 		C8FEFFB31BC8935800398863 /* libMagick++-6.Q16.6.dylib in Resources */ = {isa = PBXBuildFile; fileRef = C8FEFFA71BC88A1C00398863 /* libMagick++-6.Q16.6.dylib */; };
 		C8FEFFB41BC8935800398863 /* libMagickWand-6.Q16.2.dylib in Resources */ = {isa = PBXBuildFile; fileRef = C8FEFFAA1BC88A1C00398863 /* libMagickWand-6.Q16.2.dylib */; };
 		C8FEFFB91BC8978700398863 /* convert in Resources */ = {isa = PBXBuildFile; fileRef = C8FEFFB51BC8978700398863 /* convert */; settings = {ASSET_TAGS = (); }; };
+		C8FEFFBE1BC89BD600398863 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FEFFBD1BC89BD600398863 /* Preferences.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +131,7 @@
 		C8FEFFB61BC8978700398863 /* libMagick++-6.Q16.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = "libMagick++-6.Q16.6.dylib"; sourceTree = "<group>"; };
 		C8FEFFB71BC8978700398863 /* libMagickCore-6.Q16.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = "libMagickCore-6.Q16.2.dylib"; sourceTree = "<group>"; };
 		C8FEFFB81BC8978700398863 /* libMagickWand-6.Q16.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = "libMagickWand-6.Q16.2.dylib"; sourceTree = "<group>"; };
+		C8FEFFBD1BC89BD600398863 /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +186,7 @@
 				C8ACAA0E1BC5F431001C5B20 /* MJWatchFolderTextView.swift */,
 				C8AD072C1BC4EA9D00943844 /* Images.xcassets */,
 				C8AD072E1BC4EA9D00943844 /* Main.storyboard */,
+				C8FEFFBD1BC89BD600398863 /* Preferences.swift */,
 				C82E76181BC703CF0029F3AB /* DragReceiverView.swift */,
 				C8ACAA081BC5F137001C5B20 /* Util.swift */,
 				C8AD07261BC4EA9D00943844 /* Supporting Files */,
@@ -420,6 +423,7 @@
 				C8AD07471BC4F0BE00943844 /* ShellTasker.swift in Sources */,
 				C8AD07291BC4EA9D00943844 /* AppDelegate.swift in Sources */,
 				C8ACAA091BC5F137001C5B20 /* Util.swift in Sources */,
+				C8FEFFBE1BC89BD600398863 /* Preferences.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

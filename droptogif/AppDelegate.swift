@@ -24,6 +24,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, FolderWatcherDelegate {
 
         let window = NSApplication.sharedApplication().windows.first!
         
+        Preferences().checkForDefaults()
 
         NSApplication.sharedApplication()
         

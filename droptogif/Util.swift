@@ -11,7 +11,7 @@ import Cocoa
 class Util: NSObject {
    static let use = Util() // singleton
     
-    func savePref(key:String, value:String){
+    func savePref(key:String, value:AnyObject){
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setObject(value, forKey: key)
         print("set to \(value)")

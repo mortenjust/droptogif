@@ -55,7 +55,7 @@ class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDeleg
         fadeAnim.toValue = 0
         
         let moveAnim = CABasicAnimation(keyPath: "position.y")
-        moveAnim.byValue = -100
+        moveAnim.byValue = -10
         moveAnim.duration = 0.3
         waitForDrop.layer?.addAnimation(moveAnim, forKey: "position.y")
         waitForDrop.layer?.addAnimation(fadeAnim, forKey: "opacity")

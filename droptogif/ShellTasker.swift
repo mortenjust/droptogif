@@ -48,7 +48,6 @@ class ShellTasker: NSObject {
         
         print("script path: \(scriptPath)")
         
-        
         let tempPath:String = NSBundle.mainBundle().pathForResource("convert", ofType: "")!;
         
         print("tempPath is \(tempPath)")

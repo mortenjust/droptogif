@@ -698,8 +698,9 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                                 <connections>
-                                    <binding destination="AeS-Eh-nfO" name="value" keyPath="values.fps" id="3MV-ef-myZ">
+                                    <binding destination="AeS-Eh-nfO" name="value" keyPath="values.fps" id="8FX-D5-Tiw">
                                         <dictionary key="options">
+                                            <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                             <string key="NSNoSelectionPlaceholder">24</string>
                                             <string key="NSNullPlaceholder">24</string>
                                         </dictionary>
@@ -729,8 +730,9 @@
                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </textFieldCell>
                                 <connections>
-                                    <binding destination="AeS-Eh-nfO" name="value" keyPath="values.watchFolder" id="33a-IE-dVC">
+                                    <binding destination="AeS-Eh-nfO" name="value" keyPath="values.watchFolder" id="FnY-Lj-Cpq">
                                         <dictionary key="options">
+                                            <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                             <string key="NSNoSelectionPlaceholder">~/Desktop</string>
                                         </dictionary>
                                     </binding>
