@@ -9,7 +9,7 @@
 import Cocoa
 
 class Preferences: NSObject {
-    var fps:String = "24";
+    var fps:String = "25";
     var revealInFinder:Bool = true;
     var watchFolder:String? // optional as it could be intrusive
     
