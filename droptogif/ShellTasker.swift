@@ -75,12 +75,20 @@ class ShellTasker: NSObject {
         allArguments.append(resourcesPath!) // the script sees this as $1
 
         for arg in args {
+            print("##argadded:\(arg)")
             allArguments.append(arg)
         }
         
         task.arguments = allArguments
         
-        print(task.arguments);
+        print("let's do these arguments:")
+        
+        var i = 0
+        for a in task.arguments! {
+            print("argument \(i++): \(a)")
+        }
+        
+        print(task.arguments!);
         
         task.standardOutput = pipe
         

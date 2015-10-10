@@ -14,16 +14,22 @@ class Preferences: NSObject {
     var watchFolder:String? // optional as it could be intrusive
     
     func checkForDefaults(){
-        let _fps = getFpsPref()
-        let _revealInFinder = getRevealInFinderPref()
         
-        if _fps == nil {
+        if getFpsPref() == nil {
             setFpsPref("24")
         }
         
-        if _revealInFinder == false {
+        if getRevealInFinderPref() == false {
             setRevealInFinderPref(true)
         }
+     
+        
+        print("testing getscalepercentagepref: \(getScalePercentagePref())");
+        if (getScalePercentagePref()! == 0.0)  {
+            setScalePercentagePref(100)
+        }
+        
+        
     }
     
     // todo: write getters and setters for named preferences here, and use them instead of the raw string values elsewhere in the app
@@ -51,4 +57,14 @@ class Preferences: NSObject {
     func setWatchFolderPref(w:String){
         Util.use.savePref("watchFolder", value: w)
     }
+    
+    func getScalePercentagePref() -> Float? {
+        return Util.use.getFloatPref("scalePercentage")
+    }
+    
+    func setScalePercentagePref(s:Float) {
+        Util.use.savePref("scalePercentage", value: s)
+    }
+
+    
 }

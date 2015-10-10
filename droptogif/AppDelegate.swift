@@ -74,6 +74,23 @@ class AppDelegate: NSObject, NSApplicationDelegate, FolderWatcherDelegate {
     }
     
     
+    func getFilters() -> String {
+        // https://ffmpeg.org/ffmpeg-filters.html#Video-Filters
+        // of interest, scale (done), fade (esp. alpha? fade=in:0:25:alpha=1,), 9.86 palettegen, paletteuse, 9.124 trim, vignette, zoompan
+        
+        var filterString = "-vf "
+        
+        // scale
+        if let p = Preferences().getScalePercentagePref(){ // 55
+            let r = p/100 // 0.55
+            let scaleFilter = "scale=iw*\(r):-1"
+            filterString = "\(filterString) \(scaleFilter)"
+        }
+        
+        
+        return filterString;
+    }
+    
     func convertFiles(filenames: [String]){
         showNotification("Animating...", text: "");
         vc.startLoader()
@@ -81,11 +98,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, FolderWatcherDelegate {
         for filename in filenames {
             print("let's process \(filename) ");
             
-            let args = [filename, "\(getFps())"];
+            let args = [filename, getFps(), getFilters()];
             
             print("shell tasking with arguments: \(args)");
             
-            ShellTasker(scriptFile: "gifify").run(arguments: [filename, "\(getFps())"], complete: { (output) -> Void in
+            ShellTasker(scriptFile: "gifify").run(arguments: args, complete: { (output) -> Void in
                 print("Done with output: \(output)");
                 let gifFile = "\(filename).gif";
                 

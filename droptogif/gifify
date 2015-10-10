@@ -2,23 +2,25 @@
 
 echo "hellos $(whoami)"
 
-
-
-
 thisdir=$1
 filename=$2 # changed to $2 since $1 now contains the working folder
+fps=$3
+filter=$4
+
 convert=$thisdir/convert
 ffmpeg=$thisdir/ffmpeg
 noupload=0
-fps=$3
 speed=1
 echo "creating temp"
-temp=$(mktemp $thisdir/tempfile.XXXXXXXXX)
+#temp=$(mktemp $thisdir/tempfile.XXXXXXXXX)
+temp=$(mktemp /tmp/tempfile.XXXXXXXXX)
 whoami=$(whoami)
 
+
+#todo: this is probably not necessary, try and remove it in an isolated experiment
 export DYLD_LIBRARY_PATH=$thisdir:$DYLD_LIBRARY_PATH
 
-echo "hello from the modified gifify"
+echo "****** hello from the modified gifify"
 echo "----"
 echo "thisdir:      $thisdir"
 echo "filename:     $filename"
@@ -27,7 +29,9 @@ echo "ffmpeg:       $ffmpeg"
 echo "fps:          $fps"
 echo "temp:         $temp"
 echo "whoami:       $whoami"
-echo "dyldpath      $DYLD_LIBRARY_PATH"
+echo "dyldpath:      $DYLD_LIBRARY_PATH"
+echo "filter:        $filter"
+
 echo "----"
 echo "Let's begin"
 
@@ -84,17 +88,17 @@ else
   crop=
 fi
 
-if [ $scale ]; then
-  scale="scale=${scale}"
-else
-  scale=
-fi
-
-if [ $scale ] || [ $crop ]; then
-  filter="-vf $scale$crop"
-else
-  filter=
-fi
+#if [ $scale ]; then
+#  scale="scale=${scale}"
+#else
+#  scale=
+#fi
+#
+#if [ $scale ] || [ $crop ]; then
+#  filter="-vf $scale$crop"
+#else
+#  filter=
+#fi
 
 # -delay uses time per tick (a tick defaults to 1/100 of a second)
 # so 60fps == -delay 1.666666 which is rounded to 2 because convert
@@ -107,10 +111,7 @@ echo "Exporting movie with fps: $fps"
 
 delay=$(bc -l <<< "100/$fps/$speed")
 
-
-
-
-echo "Calling ffmpeg for filename: $filename to temp: $temp"
+echo "Calling ffmpeg for filename: $filename to temp: $temp with filter: $filter"
 $ffmpeg -loglevel panic -i "$filename" $filter -r $fps -f image2pipe -vcodec ppm - >> $temp
 
 echo "Calling Convert"

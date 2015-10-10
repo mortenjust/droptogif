@@ -681,7 +681,7 @@
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="drawer" id="SRd-XC-57f"/>
                             </imageView>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L8m-up-glN">
-                                <rect key="frame" x="267" y="35" width="125" height="19"/>
+                                <rect key="frame" x="270" y="35" width="125" height="19"/>
                                 <buttonCell key="cell" type="roundRect" title="Select watch folder" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="nSx-pv-cLw">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="cellTitle"/>
@@ -690,25 +690,8 @@
                                     <action selector="watchFolderPressed:" target="XfG-lQ-9wD" id="Aex-6K-hQO"/>
                                 </connections>
                             </button>
-                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jsy-RR-Q5e">
-                                <rect key="frame" x="267" y="206" width="48" height="22"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="right" title="24" drawsBackground="YES" id="pNj-JU-YIE">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                                <connections>
-                                    <binding destination="AeS-Eh-nfO" name="value" keyPath="values.fps" id="8FX-D5-Tiw">
-                                        <dictionary key="options">
-                                            <bool key="NSContinuouslyUpdatesValue" value="YES"/>
-                                            <string key="NSNoSelectionPlaceholder">24</string>
-                                            <string key="NSNullPlaceholder">24</string>
-                                        </dictionary>
-                                    </binding>
-                                </connections>
-                            </textField>
                             <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v6F-ed-Fx4">
-                                <rect key="frame" x="265" y="170" width="129" height="30"/>
+                                <rect key="frame" x="270" y="214" width="129" height="30"/>
                                 <buttonCell key="cell" type="check" title="Auto reveal" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="g3Z-Re-fdk">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -760,8 +743,16 @@
                                 </subviews>
                             </customView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UPt-NS-z5x">
-                                <rect key="frame" x="317" y="208" width="24" height="17"/>
+                                <rect key="frame" x="319" y="158" width="24" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="fps" id="VAh-5v-k0p">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QI2-f8-mzG">
+                                <rect key="frame" x="270" y="125" width="124" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Original size" id="VR6-Lo-atk">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -791,12 +782,39 @@
                                     <action selector="settingsClicked:" target="XfG-lQ-9wD" id="hiE-QP-ZMq"/>
                                 </connections>
                             </button>
+                            <slider toolTip="Adjust size" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qlk-tu-07x">
+                                <rect key="frame" x="270" y="107" width="124" height="20"/>
+                                <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="100" doubleValue="100" tickMarkPosition="above" sliderType="linear" id="9To-aO-qlc"/>
+                                <connections>
+                                    <action selector="sizeChanged:" target="XfG-lQ-9wD" id="BTr-25-ghR"/>
+                                    <binding destination="AeS-Eh-nfO" name="value" keyPath="values.scalePercentage" id="Vl0-SI-0WN"/>
+                                </connections>
+                            </slider>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jsy-RR-Q5e">
+                                <rect key="frame" x="270" y="155" width="48" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="right" title="24" drawsBackground="YES" id="pNj-JU-YIE">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <binding destination="AeS-Eh-nfO" name="value" keyPath="values.fps" id="8FX-D5-Tiw">
+                                        <dictionary key="options">
+                                            <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                            <string key="NSNoSelectionPlaceholder">24</string>
+                                            <string key="NSNullPlaceholder">24</string>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="circleDropView" destination="WjP-nX-Gru" id="Qfn-Rb-kmB"/>
                         <outlet property="loaderSKView" destination="hfb-W5-vZc" id="WRL-Ol-4hK"/>
                         <outlet property="settingsButton" destination="l8T-P8-xjc" id="2t0-Ea-ijw"/>
+                        <outlet property="sizeLabel" destination="QI2-f8-mzG" id="ev8-Cw-Gke"/>
+                        <outlet property="sizeSlider" destination="Qlk-tu-07x" id="yag-5S-rJz"/>
                         <outlet property="waitForDrop" destination="OAJ-FX-zKP" id="XSe-Lo-Puo"/>
                         <outlet property="watchFolderLabel" destination="psE-GP-WjW" id="tXN-HH-z47"/>
                     </connections>

@@ -14,7 +14,7 @@ class Util: NSObject {
     func savePref(key:String, value:AnyObject){
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setObject(value, forKey: key)
-        print("set to \(value)")
+        print("\(key) set to \(value)")
     }
     
     func getPref(key:String) -> AnyObject? {
@@ -30,6 +30,16 @@ class Util: NSObject {
     func getBoolPref(key:String) -> Bool? {
         let defaults = NSUserDefaults.standardUserDefaults()
         return defaults.boolForKey(key)
+    }
+    
+    func getIntPref(key:String) -> Int? {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        return defaults.integerForKey(key)
+    }
+
+    func getFloatPref(key:String) -> Float? {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        return defaults.floatForKey(key)
     }
    
 }

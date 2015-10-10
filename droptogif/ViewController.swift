@@ -16,6 +16,9 @@ class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDeleg
     @IBOutlet weak var loaderSKView: SKView!
     var scene:LoaderScene!
     
+    @IBOutlet weak var sizeSlider: NSSlider!
+    @IBOutlet weak var sizeLabel: NSTextField!
+    
     @IBOutlet weak var circleDropView: DragReceiverView!
     var appDelegate:AppDelegate!
     
@@ -33,6 +36,7 @@ class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDeleg
         appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate;
         appDelegate.vc = self
         circleDropView.delegate = self;
+        sizeChanged(sizeSlider)
     }
     
     func startLoader(){
@@ -45,6 +49,10 @@ class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDeleg
         scene.stopLoading()
     }
     
+    @IBAction func sizeChanged(sender: NSSlider) {
+        let ratio = sender.integerValue
+        sizeLabel.stringValue = "\(ratio)% of original"
+    }
     
     // todo, subclass NSView for waitforDrop and put these funcs in there
     func animateDropInvitationOut(){
@@ -60,8 +68,6 @@ class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDeleg
         waitForDrop.layer?.addAnimation(moveAnim, forKey: "position.y")
         waitForDrop.layer?.addAnimation(fadeAnim, forKey: "opacity")
         waitForDrop.alphaValue = 0
-
-
     }
     
     
