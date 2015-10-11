@@ -151,17 +151,24 @@ class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDeleg
         //
         print("drag entered vc")
         animateDropInvitationOut()
-        getMetadata(filePath)
-        scene.showDragInvite()
+        print("getting file size and showing invite")
+        scene.showDragInvite(getFileSize(filePath))
     }
     
-    func getMetadata(filePath:String){
-        let asset = AVURLAsset(URL: NSURL(fileURLWithPath: filePath))
-        print("##dumping meta:")
-        for t in asset.tracksWithMediaType(AVMediaTypeVideo) {
-            print(t.metadata)
+    func getFileSize(filePath:String) -> UInt64 {
+        
+        do {
+            let atts:NSDictionary = try NSFileManager.defaultManager().attributesOfItemAtPath(filePath)
+            let f = atts.fileSize()
+            print("fsize: \(f)")
+            return atts.fileSize()
+        } catch _ {
         }
+        
+        return 1
     }
+    
+
     
     
     func circleDropDragPerformed(filePath: String) {

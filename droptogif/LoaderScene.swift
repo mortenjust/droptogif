@@ -56,20 +56,23 @@ class LoaderScene: SKScene {
         runAction(repeatAction, withKey: REPEAT_ACTION)
     }
     
-    func showDragInvite(){
-
+    func showDragInvite(fileSize:UInt64){
+        print("show drag invite, filesize: \(fileSize)")
+        let balls = Int(fileSize/100000)
+        print("balls is \(balls)")
+        
         // add a bunch of balls at random locations
         setInviteGravity()
         
         // then a force that will follow the mouse
         radial = SKFieldNode.radialGravityField()
-        radial.strength = 0.5
-        radial.falloff = 0
-        radial.animationSpeed = 0.1
+        radial.strength = 3.5
+        radial.falloff = 0.01
+        radial.animationSpeed = 10.1
         radial.position = CGPointMake(size.width/2, size.height/2)
         addChild(radial)
         
-        for(var i = 0; i<50; i++){
+        for(var i = 0; i<balls; i++){
 //            let height = UInt32(size.height);
 //            let width = UInt32(size.width);
 //            let x = CGFloat((arc4random()+(width/2)+5) % width/2);
@@ -91,10 +94,10 @@ class LoaderScene: SKScene {
     
     func prepareForDrop(){
         physicsWorld.gravity = CGVectorMake(0, 20)
-        radial.animationSpeed = 1
+        radial.animationSpeed = 10
         radial.position = CGPointMake(size.width, size.height+100)
         let scaleAction = SKAction.scaleTo(0, duration: 0.1)
-        let opacityAction = SKAction.fadeAlphaTo(0.5, duration: 0.1)
+        let opacityAction = SKAction.fadeAlphaTo(0.9, duration: 0.1)
         let goAwayAction = SKAction.group([scaleAction, opacityAction])
         
         for child in children{

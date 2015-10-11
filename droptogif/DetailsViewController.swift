@@ -23,8 +23,10 @@ class DetailsViewController: NSViewController {
         NSNotificationCenter.defaultCenter().addObserverForName("mj.newData", object: nil, queue: nil) { (notif) -> Void in
             print("just got a notification")
             
-            let s = notif.object as! String
-            self.detailsTextView.append(s)
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                let s = notif.object as! String
+                self.detailsTextView.append(s)
+            })
         }
         
     }
