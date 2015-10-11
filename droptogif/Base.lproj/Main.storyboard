@@ -613,6 +613,12 @@
                                                 <action selector="performZoom:" target="Ady-hI-5gd" id="DIl-cC-cCs"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem title="Details" id="WE9-lO-zdY">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <segue destination="27g-cf-UkE" kind="show" id="dF4-QU-3db"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="eu3-7i-yIM"/>
                                         <menuItem title="Bring All to Front" id="LE2-aR-0XJ">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -663,6 +669,84 @@
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="blk-4p-dlV">
+            <objects>
+                <windowController id="27g-cf-UkE" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="hdB-Sq-Lml">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+                    </window>
+                    <connections>
+                        <segue destination="GI9-OV-1NV" kind="relationship" relationship="window.shadowedContentViewController" id="OFh-at-x84"/>
+                    </connections>
+                </windowController>
+                <customObject id="yCF-rT-oEb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="674" y="162"/>
+        </scene>
+        <!--Details View Controller-->
+        <scene sceneID="tRi-22-SCH">
+            <objects>
+                <viewController id="GI9-OV-1NV" customClass="DetailsViewController" customModule="droptogif" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="CRu-J1-JLu">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbs-AB-JYb">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                                <clipView key="contentView" id="BCH-OY-4s3">
+                                    <rect key="frame" x="1" y="1" width="463" height="268"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textView editable="NO" importsGraphics="NO" findStyle="panel" verticallyResizable="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="NXh-hx-VUt">
+                                            <rect key="frame" x="0.0" y="0.0" width="469" height="268"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <size key="minSize" width="463" height="268"/>
+                                            <size key="maxSize" width="469" height="10000000"/>
+                                            <attributedString key="textStorage">
+                                                <fragment content="asdfasdfasdfasdfasfs">
+                                                    <attributes>
+                                                        <font key="NSFont" size="13" name="Courier"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <size key="minSize" width="463" height="268"/>
+                                            <size key="maxSize" width="469" height="10000000"/>
+                                        </textView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="K5e-E7-IoG">
+                                    <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="WZa-vW-JwG">
+                                    <rect key="frame" x="464" y="1" width="15" height="268"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="zbs-AB-JYb" firstAttribute="top" secondItem="CRu-J1-JLu" secondAttribute="top" id="IFQ-D6-s1K"/>
+                            <constraint firstAttribute="bottom" secondItem="zbs-AB-JYb" secondAttribute="bottom" id="TC0-fV-5r8"/>
+                            <constraint firstItem="zbs-AB-JYb" firstAttribute="leading" secondItem="CRu-J1-JLu" secondAttribute="leading" id="Yas-3f-GCd"/>
+                            <constraint firstAttribute="trailing" secondItem="zbs-AB-JYb" secondAttribute="trailing" id="ZlM-E8-oeP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="detailsTextView" destination="NXh-hx-VUt" id="teK-W3-a5O"/>
+                    </connections>
+                </viewController>
+                <customObject id="q8d-XO-373" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1305" y="132"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">

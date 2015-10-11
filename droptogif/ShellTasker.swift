@@ -55,20 +55,13 @@ class ShellTasker: NSObject {
         let tempUrl:NSURL = NSURL(fileURLWithPath: tempPath);
 //        let tempUrl:NSURL = NSURL(string: tempPath)!;
         
-        print("5")
         
         let resourcesPath = tempUrl.URLByDeletingLastPathComponent?.path!;
-        
-        print("6")
-        
         let bash = "/bin/bash"
-        
         task = NSTask()
         let pipe = NSPipe()
-        
-        
         task.launchPath = bash
-        
+
         // build entire command as arguments to /bin/bash
         var allArguments = [String]()
         allArguments.append("\(scriptPath)") //
@@ -91,36 +84,42 @@ class ShellTasker: NSObject {
         print(task.arguments!);
         
         task.standardOutput = pipe
-        
-        print("7: launching")
         self.task.launch()
-        print("8: waitfordata")
         pipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
         
-        print("9: addobserver")
+        
         NSNotificationCenter.defaultCenter().addObserverForName(NSFileHandleDataAvailableNotification, object: pipe.fileHandleForReading, queue: nil) { (notification) -> Void in
+            
+            var isEOF = false;
+            let handle = notification.object as! NSFileHandle
+            var data = handle.availableData
+            print("data length: \(data.length)")
+            
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
-                print("10: got notification")
-                data = pipe.fileHandleForReading.readDataToEndOfFile() // use .availabledata instead to stream from the console, pretty cool. But this solution waits before it hands the control back
-                output = NSString(data: data, encoding: NSUTF8StringEncoding)!
+//
                 
-//                
-//                let handle = pipe.fileHandleForReading;
-//                let data = handle.availableData
-//                
-//                if(data.length>0){
-//                    let s = NSString(data: data, encoding: NSUTF8StringEncoding)
-//                    print("10.5: data: \(s)")
-//                }
-                
-                
-                print("11: output: \(output)")
-                
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    print("12: callback")
-                    complete(output: output)
+                if(data.length>0){
+                    let s = NSString(data: data, encoding: NSUTF8StringEncoding)
+                    print("new data: \(s!)")
+                    NSNotificationCenter.defaultCenter().postNotificationName("mj.newData", object: s!)
+
+                } else {
+                    isEOF = true
+                    // EOF, so leat's read the whole thing and send it back via complete()
+                    
+                    data = handle.readDataToEndOfFile()
+                    output = NSString(data: data, encoding: NSUTF8StringEncoding)!
+
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        print("12: callback and thanks")
+                        complete(output: output)
                 })
+                }
             })
+            
+            if isEOF == false {
+                handle.waitForDataInBackgroundAndNotify()
+                }
         }
         
         

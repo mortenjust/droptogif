@@ -92,7 +92,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, FolderWatcherDelegate {
             filterString = "\(filter)" // todo: prepare this for multiple filters
         }
 
-        return "-vf \(filterString)";
+//        return "-vf \(filterString),fade=in:0:15";
+          return "-vf \(filterString)";
     }
     
     func convertFiles(filenames: [String]){
