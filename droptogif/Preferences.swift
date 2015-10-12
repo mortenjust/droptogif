@@ -23,13 +23,13 @@ class Preferences: NSObject {
             setRevealInFinderPref(true)
         }
      
-        
-        print("testing getscalepercentagepref: \(getScalePercentagePref())");
         if (getScalePercentagePref()! == 0.0)  {
             setScalePercentagePref(100)
         }
         
-        
+        if(getPosterizePref()! == 0.0) {
+            setPosterizePref(50) //
+        }
     }
     
     // todo: write getters and setters for named preferences here, and use them instead of the raw string values elsewhere in the app
@@ -66,5 +66,13 @@ class Preferences: NSObject {
         Util.use.savePref("scalePercentage", value: s)
     }
 
+    func setPosterizePref(t:Float){
+        Util.use.savePref("posterize", value: t)
+    }
+    
+    func getPosterizePref() -> Float? {
+        return Util.use.getFloatPref("posterize")
+    }
+    
     
 }

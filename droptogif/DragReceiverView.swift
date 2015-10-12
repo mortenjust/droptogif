@@ -19,7 +19,8 @@ class DragReceiverView: NSImageView {
     var delegate:CircleDropDelegate?
     
     override func draggingEntered(sender: NSDraggingInfo) -> NSDragOperation {
-        Swift.print("HELLO \(getPathFromBoard(sender.draggingPasteboard()))")
+        
+//        Swift.print("HELLO \(getPathFromBoard(sender.draggingPasteboard()))")
         let path = getPathFromBoard(sender.draggingPasteboard())
         delegate?.circleDropDragEntered(path)
         return NSDragOperation.Copy

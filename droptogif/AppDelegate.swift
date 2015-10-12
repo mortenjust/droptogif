@@ -11,18 +11,34 @@ import EonilFileSystemEvents
 
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate, FolderWatcherDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, FolderWatcherDelegate, ShellTaskDelegate {
     @IBOutlet weak var window: NSWindow!
-    var vc:ViewController!
+    var vc:ViewController! // it's safe, the VC sets it from its viewdidload
 
     func folderWatcherEvent(event: FileSystemEvent) {
         handleNewFile(event.path)
     }
     
+    func applicationWillResignActive(notification: NSNotification) {
+        if vc != nil {
+            vc.willBecomeInactive();
+            }
+    }
+    
+    
+    func applicationWillBecomeActive(notification: NSNotification) {
+        if vc != nil {
+        vc.willBecomeActive();
+        }
+    }
+    
+
     func applicationDidFinishLaunching(aNotification: NSNotification)
     {
 
         let window = NSApplication.sharedApplication().windows.first!
+        
+
         
         Preferences().checkForDefaults()
 
@@ -32,7 +48,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, FolderWatcherDelegate {
         window.title = ""
         window.movableByWindowBackground  = true
         window.canBecomeKeyWindow
-        window.backgroundColor = NSColor(red:0.286, green:0.294, blue:0.329, alpha:1);
+        
+        
+  //      window.backgroundColor = NSColor(red:0.286, green:0.294, blue:0.329, alpha:1);
+        window.backgroundColor = NSColor(hue: 229/255, saturation: 13/255, brightness: 50/255, alpha: 1)
+        
         
         var windowFrame = window.frame;
         windowFrame.size.width = 260;
@@ -67,16 +87,32 @@ class AppDelegate: NSObject, NSApplicationDelegate, FolderWatcherDelegate {
         if filetype == nil { return; } // no extension, get the fuck out
         
         if filetype == "mov" || filetype == "avi" || filetype == "mp4" {
-            print("It's a movie, convert");
+//            print("It's a movie, convert");
             convertFiles([filePath]);
         }
 
+    }
+    
+    func getImageMagickOptions() -> String {
+        var options = [String]()
+        
+        if let p = Preferences().getPosterizePref() {
+            if p < C.DISABLED_POSTERIZE {
+                options.append("-posterize \(p)")
+                }
+        }
+        var optionsString = ""
+        for option in options {
+            optionsString = "\(optionsString) \(option)"
+        }
+        return optionsString
     }
     
     
     func getFilters() -> String {
         // https://ffmpeg.org/ffmpeg-filters.html#Video-Filters
         // of interest, scale (done), fade (esp. alpha? fade=in:0:25:alpha=1,), 9.86 palettegen, paletteuse, 9.124 trim, vignette, zoompan
+        
         
         var filters = [String]()
         var filterString = ""
@@ -101,14 +137,17 @@ class AppDelegate: NSObject, NSApplicationDelegate, FolderWatcherDelegate {
         vc.startLoader()
         // this one could return the path of the final file name, that way we can open the file in Finder
         for filename in filenames {
-            print("let's process \(filename) ");
+//            print("let's process \(filename) ");
             
-            let args = [filename, getFps(), getFilters()];
+            let args = [filename, getFps(), getFilters(), getImageMagickOptions()];
             
-            print("shell tasking with arguments: \(args)");
+      //      print("shell tasking with arguments: \(args)");
             
-            ShellTasker(scriptFile: "gifify").run(arguments: args, complete: { (output) -> Void in
-                print("Done with output: \(output)");
+            let gifShellTasker = ShellTasker(scriptFile: "gifify")
+            gifShellTasker.delegate = self
+            
+            gifShellTasker.run(arguments: args, complete: { (output) -> Void in
+        //        print("Done with output: \(output)");
                 let gifFile = "\(filename).gif";
                 
                 if(Util.use.getBoolPref("revealInFinder")!){
@@ -119,12 +158,26 @@ class AppDelegate: NSObject, NSApplicationDelegate, FolderWatcherDelegate {
         }
     }
     
+    
+    func shellTaskDidUpdate(update: String) {
+        vc.scene.addSlice(atLocation: nil, isProgressFeedback: true)
+    }
+    
+    func shellTaskDidFinish(output: String) {
+        
+    }
+    
+    func shellTaskDidBegin() {
+        
+    }
+    
+    
     func getFps() -> String {
         var fps = Util.use.getStringPref("fps")
         if fps == nil {
             fps = "10"
         }
-        print("fps pref is \(fps!)");
+        
         return fps!;
     }
     

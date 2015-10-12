@@ -748,12 +748,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="407" height="248"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CQO-yx-u9H" userLabel="canvas">
-                                <rect key="frame" x="-282" y="-253" width="1045" height="753"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="coloredcanvas" id="xVf-Li-dVs"/>
-                            </imageView>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BSg-f4-X8A" userLabel="drawer">
-                                <rect key="frame" x="244" y="-50" width="208" height="309"/>
+                                <rect key="frame" x="244" y="-42" width="208" height="309"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="drawer" id="SRd-XC-57f"/>
                             </imageView>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L8m-up-glN">
@@ -805,8 +801,8 @@
                                 <rect key="frame" x="20" y="11" width="212" height="212"/>
                                 <subviews>
                                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z4k-bN-FpY" userLabel="video icon">
-                                        <rect key="frame" x="59" y="59" width="94" height="94"/>
-                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="ic_video_library_black_24px" id="mKG-Ir-n6I"/>
+                                        <rect key="frame" x="30" y="38" width="150" height="150"/>
+                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="placeholderArrow" id="mKG-Ir-n6I"/>
                                     </imageView>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M3O-3q-Kff">
                                         <rect key="frame" x="31" y="16" width="149" height="22"/>
@@ -819,25 +815,17 @@
                                 </subviews>
                             </customView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UPt-NS-z5x">
-                                <rect key="frame" x="319" y="158" width="24" height="17"/>
+                                <rect key="frame" x="319" y="187" width="24" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="fps" id="VAh-5v-k0p">
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" size="11" name=".HelveticaNeueDeskInterface-Regular"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QI2-f8-mzG">
-                                <rect key="frame" x="270" y="125" width="124" height="17"/>
+                                <rect key="frame" x="270" y="150" width="124" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Original size" id="VR6-Lo-atk">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2a6-gz-Lld">
-                                <rect key="frame" x="270" y="62" width="83" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Auto convert" id="L8a-PA-R6d">
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" size="11" name=".HelveticaNeueDeskInterface-Regular"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -858,16 +846,8 @@
                                     <action selector="settingsClicked:" target="XfG-lQ-9wD" id="hiE-QP-ZMq"/>
                                 </connections>
                             </button>
-                            <slider toolTip="Adjust size" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qlk-tu-07x">
-                                <rect key="frame" x="270" y="107" width="124" height="20"/>
-                                <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="100" doubleValue="100" tickMarkPosition="above" sliderType="linear" id="9To-aO-qlc"/>
-                                <connections>
-                                    <action selector="sizeChanged:" target="XfG-lQ-9wD" id="BTr-25-ghR"/>
-                                    <binding destination="AeS-Eh-nfO" name="value" keyPath="values.scalePercentage" id="Vl0-SI-0WN"/>
-                                </connections>
-                            </slider>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jsy-RR-Q5e">
-                                <rect key="frame" x="270" y="155" width="48" height="22"/>
+                                <rect key="frame" x="270" y="186" width="48" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="right" title="24" drawsBackground="YES" id="pNj-JU-YIE">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -883,11 +863,39 @@
                                     </binding>
                                 </connections>
                             </textField>
+                            <slider toolTip="Adjust size" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qlk-tu-07x">
+                                <rect key="frame" x="268" y="124" width="124" height="26"/>
+                                <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="100" doubleValue="100" tickMarkPosition="below" numberOfTickMarks="11" allowsTickMarkValuesOnly="YES" sliderType="linear" id="9To-aO-qlc"/>
+                                <connections>
+                                    <action selector="sizeChanged:" target="XfG-lQ-9wD" id="BTr-25-ghR"/>
+                                    <binding destination="AeS-Eh-nfO" name="value" keyPath="values.scalePercentage" id="Vl0-SI-0WN"/>
+                                </connections>
+                            </slider>
+                            <slider toolTip="Adjust size" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xbe-F7-cVf">
+                                <rect key="frame" x="270" y="68" width="124" height="25"/>
+                                <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="5" maxValue="50" doubleValue="50" tickMarkPosition="below" numberOfTickMarks="5" allowsTickMarkValuesOnly="YES" sliderType="linear" id="Bej-1R-5yL"/>
+                                <connections>
+                                    <action selector="posterizeChanged:" target="XfG-lQ-9wD" id="2kb-2s-73e"/>
+                                    <binding destination="AeS-Eh-nfO" name="value" keyPath="values.posterize" id="2h9-3e-v5v"/>
+                                </connections>
+                            </slider>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yjl-8a-DHo">
+                                <rect key="frame" x="269" y="93" width="124" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Nice, but large" id="748-h5-U9X">
+                                    <font key="font" size="11" name=".HelveticaNeueDeskInterface-Regular"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="arrowIcon" destination="Z4k-bN-FpY" id="FHb-8u-OwM"/>
+                        <outlet property="bigCircle" destination="zjW-Jr-0Ti" id="wyn-Zx-ShQ"/>
                         <outlet property="circleDropView" destination="WjP-nX-Gru" id="Qfn-Rb-kmB"/>
                         <outlet property="loaderSKView" destination="hfb-W5-vZc" id="WRL-Ol-4hK"/>
+                        <outlet property="posterizeLabel" destination="Yjl-8a-DHo" id="7bS-Tn-h5T"/>
+                        <outlet property="posterizeSlider" destination="Xbe-F7-cVf" id="xGD-M6-p6T"/>
                         <outlet property="settingsButton" destination="l8T-P8-xjc" id="2t0-Ea-ijw"/>
                         <outlet property="sizeLabel" destination="QI2-f8-mzG" id="ev8-Cw-Gke"/>
                         <outlet property="sizeSlider" destination="Qlk-tu-07x" id="yag-5S-rJz"/>
@@ -902,10 +910,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="coloredcanvas" width="459" height="300"/>
         <image name="drawer" width="190" height="300"/>
-        <image name="ic_video_library_black_24px" width="88" height="88"/>
-        <image name="oval" width="224" height="224"/>
+        <image name="oval" width="243" height="240"/>
+        <image name="placeholderArrow" width="129" height="143"/>
         <image name="settings" width="33" height="35"/>
     </resources>
 </document>

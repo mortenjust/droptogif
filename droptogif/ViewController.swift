@@ -25,6 +25,17 @@ class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDeleg
     
     @IBOutlet weak var waitForDrop: NSView!
     
+    @IBOutlet weak var bigCircle: NSImageView!
+    @IBOutlet weak var canvasView: NSImageView!
+    
+    @IBOutlet weak var posterizeSlider: NSSlider!
+    
+    @IBOutlet weak var posterizeLabel: NSTextField!
+    
+    
+    @IBOutlet weak var arrowIcon: NSImageView!
+    var activeFromDragging = false;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         watchFolderLabel.delegate = self;
@@ -33,46 +44,124 @@ class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDeleg
         loaderSKView.allowsTransparency = true
         loaderSKView.presentScene(scene)
         loaderSKView.showsPhysics = false
-//        startLoader()
         appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate;
         appDelegate.vc = self
         circleDropView.delegate = self;
         sizeChanged(sizeSlider)
+       // scene.enterInviteState()
+
+        setBaseColor()
+    }
+    
+    
+    func willBecomeInactive(){
+        print("willBecomeInactive")
+        showPlaceholderArrow()
+        scene.enterInactiveState()
+        loaderSKView.hidden = true
+        activeFromDragging = false;
+    }
+    
+    func willBecomeActive(fromDragging:Bool=false){
+        print("willbecomeactive")
+        hidePlaceholderArrow()
+        loaderSKView.hidden = false;
+        
+        self.activeFromDragging = fromDragging
+        
+        if !activeFromDragging { // dragging is a few hundred ms behind, so annoying
+             scene.enterInviteState()
+        } else {
+            // do absolutely nothing, yet
+        }
+    }
+    
+    func setBaseColor(){
+        bigCircle.alphaValue = 0.1
+        
     }
     
     func startLoader(){
-        animateDropInvitationOut()
+        print("startLoader")
+        //animateDropInvitationOut()
         scene.startLoading()
     }
     
     func stopLoader(){
+        print("stoploader")
         animateDropInvitationIn()
         scene.stopLoading()
     }
     
+    func showPlaceholderArrow(){
+        print("showPlaceholderArrow")
+        arrowIcon.alphaValue = 1.0
+        loaderSKView.hidden = true
+    }
+    func hidePlaceholderArrow(){
+        print("hideplaceholderarrw")
+        arrowIcon.alphaValue = 0.0
+        loaderSKView.hidden = false
+    }
+    
+    
+    @IBAction func posterizeChanged(sender: NSSlider) {
+        switch sender.integerValue {
+        case 0..<5:
+            posterizeLabel.stringValue = "Don't go there"
+        case 5..<16:
+            posterizeLabel.stringValue = "Tiny and distorted"
+        case 16..<27:
+            posterizeLabel.stringValue = "Okay & Small"
+        case 27..<38:
+            posterizeLabel.stringValue = "So-so"
+        case 38..<49:
+            posterizeLabel.stringValue = "Great, but big"
+        case Int(C.DISABLED_POSTERIZE):
+            posterizeLabel.stringValue = "Best quality, large file"
+        default:
+            posterizeLabel.stringValue = "Good"
+        }
+    }
+    
+    
     @IBAction func sizeChanged(sender: NSSlider) {
         let ratio = sender.integerValue
-        sizeLabel.stringValue = "\(ratio)% of original"
+        sizeLabel.stringValue = "Scale \(ratio)%"
     }
     
     // todo, subclass NSView for waitforDrop and put these funcs in there
     func animateDropInvitationOut(){
+        print("animateDropInvitationOut")
         waitForDrop.wantsLayer = true
         let fadeAnim = CABasicAnimation(keyPath: "opacity")
         fadeAnim.duration = 0.3
         fadeAnim.fromValue = 1
         fadeAnim.toValue = 0
-        
-        let moveAnim = CABasicAnimation(keyPath: "position.y")
-        moveAnim.byValue = -10
-        moveAnim.duration = 0.3
-        waitForDrop.layer?.addAnimation(moveAnim, forKey: "position.y")
         waitForDrop.layer?.addAnimation(fadeAnim, forKey: "opacity")
+        
+//        let moveAnim = CABasicAnimation(keyPath: "position.y")
+//        moveAnim.byValue = -10
+//        moveAnim.duration = 0.3
+//        waitForDrop.layer?.addAnimation(moveAnim, forKey: "position.y")
+
+        let scale = CABasicAnimation(keyPath: "transform")
+        var tr = CATransform3DIdentity
+        tr = CATransform3DTranslate(tr, waitForDrop.bounds.size.width/2, waitForDrop.bounds.size.height/2, 0);
+        tr = CATransform3DScale(tr, 0.5, 0.5, 1);
+        tr = CATransform3DTranslate(tr, -waitForDrop.bounds.size.width/2, -waitForDrop.bounds.size.height/2, 0);
+        scale.toValue = NSValue(CATransform3D: tr)
+        
+        waitForDrop.layer?.addAnimation(scale, forKey: "transform")
+        
         waitForDrop.alphaValue = 0
     }
     
     
+    
     func animateDropInvitationIn(){
+        scene.enterInviteState()
+        print("animateDropInvitationIn")
         waitForDrop.wantsLayer = true
         let fadeAnim = CABasicAnimation(keyPath: "opacity")
         fadeAnim.duration = 0.3
@@ -84,7 +173,6 @@ class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDeleg
 
     }
 
-    
     override var representedObject: AnyObject? {
         didSet {
         // Update the view, if already loaded.
@@ -96,6 +184,7 @@ class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDeleg
     }
     
     func toggleWindowSize(){
+        print("toggleWindowSize")
         let window = NSApplication.sharedApplication().windows.first;
         var frame = window?.frame
         print(frame?.size.width)
@@ -140,18 +229,22 @@ class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDeleg
     }
     
     func circleDropDragExited() {
-        //
-        print("drag exited vc")
+        print("circleDropDragExited")
         
+//        animateDropInvitationIn()
+//        scene.hideDragInvite()
+//        willBecomeInactive()
+//        scene.enterInviteState()
+        showPlaceholderArrow()
         animateDropInvitationIn()
-        scene.hideDragInvite()
     }
     
     func circleDropDragEntered(filePath: String) {
-        //
-        print("drag entered vc")
+        willBecomeActive(true)
+        loaderSKView.hidden = false
+        scene.useCircleBody()
+        print("circleDropDragEntered")
         animateDropInvitationOut()
-        print("getting file size and showing invite")
         scene.showDragInvite(getFileSize(filePath))
     }
     
@@ -159,8 +252,6 @@ class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDeleg
         
         do {
             let atts:NSDictionary = try NSFileManager.defaultManager().attributesOfItemAtPath(filePath)
-            let f = atts.fileSize()
-            print("fsize: \(f)")
             return atts.fileSize()
         } catch _ {
         }

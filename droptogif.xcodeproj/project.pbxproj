@@ -15,6 +15,7 @@
 		C841FFAE1BC98122003BAF34 /* materialnomid.png in Resources */ = {isa = PBXBuildFile; fileRef = C841FFAD1BC98122003BAF34 /* materialnomid.png */; settings = {ASSET_TAGS = (); }; };
 		C841FFB01BC98366003BAF34 /* limitedmaterial.gif in Resources */ = {isa = PBXBuildFile; fileRef = C841FFAF1BC98366003BAF34 /* limitedmaterial.gif */; settings = {ASSET_TAGS = (); }; };
 		C841FFD11BCA47E3003BAF34 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C841FFD01BCA47E3003BAF34 /* DetailsViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		C841FFD51BCB85CF003BAF34 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C841FFD41BCB85CF003BAF34 /* Constants.swift */; settings = {ASSET_TAGS = (); }; };
 		C8ACAA091BC5F137001C5B20 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8ACAA081BC5F137001C5B20 /* Util.swift */; settings = {ASSET_TAGS = (); }; };
 		C8ACAA0F1BC5F431001C5B20 /* MJWatchFolderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8ACAA0E1BC5F431001C5B20 /* MJWatchFolderTextView.swift */; settings = {ASSET_TAGS = (); }; };
 		C8ACAA111BC5FF0D001C5B20 /* FolderWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8ACAA101BC5FF0D001C5B20 /* FolderWatcher.swift */; settings = {ASSET_TAGS = (); }; };
@@ -114,6 +115,7 @@
 		C841FFAD1BC98122003BAF34 /* materialnomid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = materialnomid.png; sourceTree = "<group>"; };
 		C841FFAF1BC98366003BAF34 /* limitedmaterial.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = limitedmaterial.gif; sourceTree = "<group>"; };
 		C841FFD01BCA47E3003BAF34 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		C841FFD41BCB85CF003BAF34 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C8ACAA081BC5F137001C5B20 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		C8ACAA0E1BC5F431001C5B20 /* MJWatchFolderTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MJWatchFolderTextView.swift; sourceTree = "<group>"; };
 		C8ACAA101BC5FF0D001C5B20 /* FolderWatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderWatcher.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				C8FEFF6A1BC7974600398863 /* Products */,
 				C8ACAA101BC5FF0D001C5B20 /* FolderWatcher.swift */,
 				C82E760F1BC6C0430029F3AB /* LoaderScene.swift */,
+				C841FFD41BCB85CF003BAF34 /* Constants.swift */,
 				C8AD07451BC4EBF300943844 /* Scripts */,
 				C8AD07281BC4EA9D00943844 /* AppDelegate.swift */,
 				C8AD07461BC4F0BE00943844 /* ShellTasker.swift */,
@@ -439,6 +442,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8ACAA111BC5FF0D001C5B20 /* FolderWatcher.swift in Sources */,
+				C841FFD51BCB85CF003BAF34 /* Constants.swift in Sources */,
 				C82E76191BC703D00029F3AB /* DragReceiverView.swift in Sources */,
 				C8AD072B1BC4EA9D00943844 /* ViewController.swift in Sources */,
 				C8ACAA0F1BC5F431001C5B20 /* MJWatchFolderTextView.swift in Sources */,
