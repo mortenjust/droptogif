@@ -1,8 +1,9 @@
 # Drop to GIF
-Zero-click movie to GIF conversion
+Zero-click movie to GIF conversion. Select a folder to watch and every movie saved or moved into that folder will be converted to an animated GIF. 
 
 <img width=300 src="https://raw.githubusercontent.com/mortenjust/droptogif/master/ux/demos/demo_app.png">
 
+### <a href="https://github.com/mortenjust/droptogif/releases">Download for OSX 10.10+</a>
 
 ## Dragging 
 Drag a movie onto the app. The animated GIF will be saved in the same folder as the movie. You can also drag the file onto the app's dock icon.
