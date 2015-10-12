@@ -47,12 +47,22 @@ class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDeleg
         appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate;
         appDelegate.vc = self
         circleDropView.delegate = self;
-        sizeChanged(sizeSlider)
-       // scene.enterInviteState()
-
         setBaseColor()
     }
     
+    override func viewDidAppear() {
+        // wait 1s for UI to become ready, then update labels
+        dispatch_after(1, dispatch_get_main_queue()) { () -> Void in
+            self.updateUILabels()
+        }
+
+    }
+    
+    func updateUILabels(){
+        // trigger updating of labels
+        sizeChanged(sizeSlider)
+        posterizeChanged(posterizeSlider)
+    }
     
     func willBecomeInactive(){
         print("willBecomeInactive")
@@ -160,7 +170,7 @@ class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDeleg
     
     
     func animateDropInvitationIn(){
-        scene.enterInviteState()
+        //scene.enterInviteState()
         print("animateDropInvitationIn")
         waitForDrop.wantsLayer = true
         let fadeAnim = CABasicAnimation(keyPath: "opacity")

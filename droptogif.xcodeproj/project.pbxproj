@@ -119,7 +119,7 @@
 		C8ACAA081BC5F137001C5B20 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		C8ACAA0E1BC5F431001C5B20 /* MJWatchFolderTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MJWatchFolderTextView.swift; sourceTree = "<group>"; };
 		C8ACAA101BC5FF0D001C5B20 /* FolderWatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderWatcher.swift; sourceTree = "<group>"; };
-		C8AD07231BC4EA9D00943844 /* droptogif.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = droptogif.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8AD07231BC4EA9D00943844 /* Drop to GIF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Drop to GIF.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8AD07271BC4EA9D00943844 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C8AD07281BC4EA9D00943844 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8AD072A1BC4EA9D00943844 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -181,7 +181,7 @@
 		C8AD07241BC4EA9D00943844 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C8AD07231BC4EA9D00943844 /* droptogif.app */,
+				C8AD07231BC4EA9D00943844 /* Drop to GIF.app */,
 				C8AD07351BC4EA9D00943844 /* droptogifTests.xctest */,
 			);
 			name = Products;
@@ -289,9 +289,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		C8AD07221BC4EA9D00943844 /* droptogif */ = {
+		C8AD07221BC4EA9D00943844 /* Drop to GIF */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C8AD073F1BC4EA9D00943844 /* Build configuration list for PBXNativeTarget "droptogif" */;
+			buildConfigurationList = C8AD073F1BC4EA9D00943844 /* Build configuration list for PBXNativeTarget "Drop to GIF" */;
 			buildPhases = (
 				C8AD071F1BC4EA9D00943844 /* Sources */,
 				C8AD07201BC4EA9D00943844 /* Frameworks */,
@@ -304,9 +304,9 @@
 			);
 			dependencies = (
 			);
-			name = droptogif;
+			name = "Drop to GIF";
 			productName = droptogif;
-			productReference = C8AD07231BC4EA9D00943844 /* droptogif.app */;
+			productReference = C8AD07231BC4EA9D00943844 /* Drop to GIF.app */;
 			productType = "com.apple.product-type.application";
 		};
 		C8AD07341BC4EA9D00943844 /* droptogifTests */ = {
@@ -367,7 +367,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				C8AD07221BC4EA9D00943844 /* droptogif */,
+				C8AD07221BC4EA9D00943844 /* Drop to GIF */,
 				C8AD07341BC4EA9D00943844 /* droptogifTests */,
 			);
 		};
@@ -468,7 +468,7 @@
 /* Begin PBXTargetDependency section */
 		C8AD07371BC4EA9D00943844 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C8AD07221BC4EA9D00943844 /* droptogif */;
+			target = C8AD07221BC4EA9D00943844 /* Drop to GIF */;
 			targetProxy = C8AD07361BC4EA9D00943844 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -676,7 +676,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C8AD073F1BC4EA9D00943844 /* Build configuration list for PBXNativeTarget "droptogif" */ = {
+		C8AD073F1BC4EA9D00943844 /* Build configuration list for PBXNativeTarget "Drop to GIF" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C8AD07401BC4EA9D00943844 /* Debug */,

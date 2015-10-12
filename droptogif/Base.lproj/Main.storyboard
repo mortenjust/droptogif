@@ -647,7 +647,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="droptogif" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Drop_to_GIF" customModuleProvider="target"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
@@ -691,7 +691,7 @@
         <!--Details View Controller-->
         <scene sceneID="tRi-22-SCH">
             <objects>
-                <viewController id="GI9-OV-1NV" customClass="DetailsViewController" customModule="droptogif" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="GI9-OV-1NV" customClass="DetailsViewController" customModule="Drop_to_GIF" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="CRu-J1-JLu">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -699,18 +699,18 @@
                             <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbs-AB-JYb">
                                 <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                                 <clipView key="contentView" id="BCH-OY-4s3">
-                                    <rect key="frame" x="1" y="1" width="463" height="268"/>
+                                    <rect key="frame" x="1" y="1" width="478" height="268"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView editable="NO" importsGraphics="NO" findStyle="panel" verticallyResizable="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="NXh-hx-VUt">
-                                            <rect key="frame" x="0.0" y="0.0" width="469" height="268"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="484" height="268"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <size key="minSize" width="463" height="268"/>
-                                            <size key="maxSize" width="469" height="10000000"/>
+                                            <size key="minSize" width="478" height="268"/>
+                                            <size key="maxSize" width="484" height="10000000"/>
                                             <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                            <size key="minSize" width="463" height="268"/>
-                                            <size key="maxSize" width="469" height="10000000"/>
+                                            <size key="minSize" width="478" height="268"/>
+                                            <size key="maxSize" width="484" height="10000000"/>
                                         </textView>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -720,7 +720,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="WZa-vW-JwG">
-                                    <rect key="frame" x="464" y="1" width="15" height="268"/>
+                                    <rect key="frame" x="463" y="1" width="16" height="268"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -743,7 +743,7 @@
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController showSeguePresentationStyle="single" id="XfG-lQ-9wD" customClass="ViewController" customModule="droptogif" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController showSeguePresentationStyle="single" id="XfG-lQ-9wD" customClass="ViewController" customModule="Drop_to_GIF" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="407" height="248"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -833,7 +833,7 @@
                             <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hfb-W5-vZc" userLabel="SpriteKit" customClass="SKView">
                                 <rect key="frame" x="20" y="11" width="212" height="212"/>
                             </customView>
-                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WjP-nX-Gru" userLabel="Drag Receiver" customClass="DragReceiverView" customModule="droptogif" customModuleProvider="target">
+                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WjP-nX-Gru" userLabel="Drag Receiver" customClass="DragReceiverView" customModule="Drop_to_GIF" customModuleProvider="target">
                                 <rect key="frame" x="31" y="20" width="173" height="208"/>
                             </customView>
                             <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l8T-P8-xjc">

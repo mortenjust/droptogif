@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C8AD07221BC4EA9D00943844"
-               BuildableName = "droptogif.app"
-               BlueprintName = "droptogif"
+               BuildableName = "Drop to GIF.app"
+               BlueprintName = "Drop to GIF"
                ReferencedContainer = "container:droptogif.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -57,8 +57,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C8AD07221BC4EA9D00943844"
-            BuildableName = "droptogif.app"
-            BlueprintName = "droptogif"
+            BuildableName = "Drop to GIF.app"
+            BlueprintName = "Drop to GIF"
             ReferencedContainer = "container:droptogif.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -80,8 +80,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C8AD07221BC4EA9D00943844"
-            BuildableName = "droptogif.app"
-            BlueprintName = "droptogif"
+            BuildableName = "Drop to GIF.app"
+            BlueprintName = "Drop to GIF"
             ReferencedContainer = "container:droptogif.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -99,8 +99,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C8AD07221BC4EA9D00943844"
-            BuildableName = "droptogif.app"
-            BlueprintName = "droptogif"
+            BuildableName = "Drop to GIF.app"
+            BlueprintName = "Drop to GIF"
             ReferencedContainer = "container:droptogif.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

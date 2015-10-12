@@ -27,6 +27,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, FolderWatcherDelegate, Shell
     }
     
     
+    func applicationWillFinishLaunching(notification: NSNotification) {
+        Preferences().checkForDefaults()
+    }
+    
     func applicationWillBecomeActive(notification: NSNotification) {
         if vc != nil && taskRunning == false{
         vc.willBecomeActive();
@@ -38,10 +42,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, FolderWatcherDelegate, Shell
     {
 
         let window = NSApplication.sharedApplication().windows.first!
-        
-
-        
-        Preferences().checkForDefaults()
 
         NSApplication.sharedApplication()
         
@@ -150,6 +150,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, FolderWatcherDelegate, Shell
                     self.openAndSelectFile(gifFile)
                     }
                 self.vc.stopLoader()
+                self.vc.showPlaceholderArrow()
             })
         }
     }
