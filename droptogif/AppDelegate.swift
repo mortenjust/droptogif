@@ -14,20 +14,21 @@ import EonilFileSystemEvents
 class AppDelegate: NSObject, NSApplicationDelegate, FolderWatcherDelegate, ShellTaskDelegate {
     @IBOutlet weak var window: NSWindow!
     var vc:ViewController! // it's safe, the VC sets it from its viewdidload
+    var taskRunning = false;
 
     func folderWatcherEvent(event: FileSystemEvent) {
         handleNewFile(event.path)
     }
     
     func applicationWillResignActive(notification: NSNotification) {
-        if vc != nil {
+        if vc != nil && taskRunning == false {
             vc.willBecomeInactive();
             }
     }
     
     
     func applicationWillBecomeActive(notification: NSNotification) {
-        if vc != nil {
+        if vc != nil && taskRunning == false{
         vc.willBecomeActive();
         }
     }
@@ -137,19 +138,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, FolderWatcherDelegate, Shell
         vc.startLoader()
         // this one could return the path of the final file name, that way we can open the file in Finder
         for filename in filenames {
-//            print("let's process \(filename) ");
-            
             let args = [filename, getFps(), getFilters(), getImageMagickOptions()];
-            
-      //      print("shell tasking with arguments: \(args)");
-            
             let gifShellTasker = ShellTasker(scriptFile: "gifify")
             gifShellTasker.delegate = self
             
+            taskRunning = true;
             gifShellTasker.run(arguments: args, complete: { (output) -> Void in
-        //        print("Done with output: \(output)");
                 let gifFile = "\(filename).gif";
-                
+                self.taskRunning = false
                 if(Util.use.getBoolPref("revealInFinder")!){
                     self.openAndSelectFile(gifFile)
                     }
