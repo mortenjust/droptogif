@@ -14,36 +14,68 @@ protocol MovieConverterDelegate {
     func movieConverterDidFinish(resultingFilePath:String)
 }
 
+struct GifQuality {
+    var fps:Int
+    var posterize:Int
+    var scale:Int
+}
+
 
 class MovieConverter: ShellTaskDelegate {
     var delegate : MovieConverterDelegate!
     var taskRunning = false;
+    var fps:String = ""
     
     init(delegate : MovieConverterDelegate){
         self.delegate = delegate
     }
     
-    func convertFiles(filenames: [String]){
-        Util.use.showNotification("Animating...", text: "");
-        // this one could return the path of the final file name, that way we can open the file in Finder
-        for filename in filenames {
-            delegate.movieConverterDidStart(filename)
-            let args = [filename, getFps(), getFilters(), getImageMagickOptions(), getAlphaPrefs()];
-            let gifShellTasker = ShellTasker(scriptFile: "gifify")
-            gifShellTasker.delegate = self
-            
-            taskRunning = true;
-            gifShellTasker.run(arguments: args, complete: { (output) -> Void in
-                let gifFile = "\(filename).gif"; // TODO: This resulting file name gets generated twice. Here, and in gifify.sh
-                self.taskRunning = false
-                if(Util.use.getBoolPref("revealInFinder")!){
-                    Util.use.openAndSelectFile(gifFile)
-                }
-                
-                self.delegate.movieConverterDidFinish(gifFile)
-            })
+    
+    func convertFile(filename:String, maxSize:Int = -1){
+        print("convertfile for \(filename) with size \(maxSize)")
+        
+        if maxSize == -1 {
+            let p = Preferences();
+            let fps = Int(p.getFpsPref()!)
+            let posterize = Int(p.getPosterizePref()!)
+            let scale = Int(p.getScalePercentagePref()!)
+            executeConversion(filename, fps: fps!, posterize: posterize, scale: scale)
+        } else {
+            // call a function that loops over maxsize
         }
     }
+
+    func executeConversion(filename: String, fps:Int, posterize:Int, scale:Int){
+        // maybe make a fork in the road here. If maxsize!=null, call normal converter, else call size converter
+
+        let r:Float = Float(scale)/100 // 0.55
+        let scaleArg:String = "-vf scale=iw*\(r):-1"
+        let posterizeArg:String = "-posterize \(posterize)"
+        let fpsArg:String = "\(fps)"
+
+        let args = [filename, fpsArg, scaleArg, posterizeArg];
+        let gifShellTasker = ShellTasker(scriptFile: "gifify")
+
+        gifShellTasker.delegate = self
+        
+        delegate.movieConverterDidStart(filename)
+        
+        taskRunning = true;
+        gifShellTasker.run(arguments: args, complete: { (output) -> Void in
+            let gifFile = "\(filename).gif"; // TODO: This resulting file name gets generated twice. Here, and in gifify.sh
+            self.taskRunning = false
+            if(Util.use.getBoolPref("revealInFinder")!){
+                Util.use.openAndSelectFile(gifFile)
+            }
+            
+            // TODO: Maybe Also return the nwe file's size so that the coming convertFilesToMaxSize function will
+            // be able to determine if it wants to try another pass at a smaller size
+            self.delegate.movieConverterDidFinish(gifFile)
+        })
+
+    }
+    
+
     
     
     func shellTaskDidUpdate(update: String) {
@@ -71,7 +103,7 @@ class MovieConverter: ShellTaskDelegate {
         return alphaArgument
     }
     
-    func getFilters() -> String {
+    func getScale() -> String {
         // https://ffmpeg.org/ffmpeg-filters.html#Video-Filters
         // of interest, scale (done), fade (esp. alpha? fade=in:0:25:alpha=1,), 9.86 palettegen, paletteuse, 9.124 trim, vignette, zoompan
         
@@ -90,7 +122,7 @@ class MovieConverter: ShellTaskDelegate {
             filterString = "\(filter)" // todo: prepare this for multiple filters
         }
         
-        return "-vf \(filterString)";
+        return "\(filterString)";
     }
 
     func getFps() -> String {
@@ -103,12 +135,12 @@ class MovieConverter: ShellTaskDelegate {
     }
     
     
-    private func getImageMagickOptions() -> String {
+    private func getPosterize() -> String {
         var options = [String]()
         
         if let p = Preferences().getPosterizePref() {
             if p < C.DISABLED_POSTERIZE {
-                options.append("-posterize \(p)")
+                options.append("\(p)")
             }
         }
         var optionsString = ""

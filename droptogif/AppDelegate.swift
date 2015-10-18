@@ -42,19 +42,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, FolderWatcherDelegate, Movie
     {
 
         let window = NSApplication.sharedApplication().windows.first!
-
         NSApplication.sharedApplication()
-        
         window.titlebarAppearsTransparent = true
         window.title = ""
         window.movableByWindowBackground  = true
         window.canBecomeKeyWindow
-        
-        
-  //      window.backgroundColor = NSColor(red:0.286, green:0.294, blue:0.329, alpha:1);
         window.backgroundColor = NSColor(hue: 229/255, saturation: 13/255, brightness: 50/255, alpha: 1)
-        
-        
         var windowFrame = window.frame;
         windowFrame.size.width = 260;
         window.setFrame(windowFrame, display: true, animate: true);
@@ -78,7 +71,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, FolderWatcherDelegate, Movie
     
     // when dragging a file onto the dock icon
     func application(sender: NSApplication, openFiles filenames: [String]) {
-        MovieConverter(delegate:self).convertFiles(filenames)
+        for filename in filenames {
+            MovieConverter(delegate:self).convertFile(filename)
+            }
     }
     
     func handleNewFile(filePath:String){
@@ -87,10 +82,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, FolderWatcherDelegate, Movie
         if filetype == nil { return; } // no extension, get the fuck out
         
         if filetype == "mov" || filetype == "avi" || filetype == "mp4" || filetype == "gif" {
-//            print("It's a movie, convert");
-            MovieConverter(delegate:self).convertFiles([filePath]);
-            
-        }
+            MovieConverter(delegate:self).convertFile(filePath); // calls delegate methods
+            }
 
     }
     
@@ -101,6 +94,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, FolderWatcherDelegate, Movie
     
     func movieConverterDidStart(filename: String) {
         vc.startLoader(filename)
+        Util.use.showNotification("Animating...", text: "");
         taskRunning = true;
     }
     
