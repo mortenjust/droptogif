@@ -30,6 +30,7 @@ class Preferences: NSObject {
         if(getPosterizePref()! == 0.0) {
             setPosterizePref(50) //
         }
+        
     }
     
     // todo: write getters and setters for named preferences here, and use them instead of the raw string values elsewhere in the app
@@ -49,6 +50,24 @@ class Preferences: NSObject {
     func setRevealInFinderPref(r:Bool){
         Util.use.savePref("revealInFinder", value: r)
     }
+    
+    func setAlphaOn(r:Bool){
+        Util.use.savePref("alphaOn", value: r)
+    }
+    
+    func getAlphaOn() -> Bool? {
+        return Util.use.getBoolPref("alphaOn")
+    }
+
+    
+    func getAlphaColor() -> NSColor? {
+        return Util.use.getColorPref("alphaColor")
+    }
+    
+    func setAlphaColor(color:NSColor) {
+        Util.use.saveColorPref("alphaColor", color: color)
+    }
+    
     
     func getWatchFolderPref() -> String? {
         return Util.use.getStringPref("watchFolder")
@@ -73,6 +92,9 @@ class Preferences: NSObject {
     func getPosterizePref() -> Float? {
         return Util.use.getFloatPref("posterize")
     }
+    
+    
+    
     
     
 }

@@ -7,6 +7,7 @@ filename=$2 # changed to $2 since $1 now contains the working folder
 fps=$3
 filter=$4
 magickoptions=$5
+alphaColor=$6
 
 convert=$thisdir/convert
 ffmpeg=$thisdir/ffmpeg
@@ -32,7 +33,7 @@ echo "temp:         $temp"
 echo "whoami:       $whoami"
 echo "dyldpath:      $DYLD_LIBRARY_PATH"
 echo "filter:        $filter"
-
+echo "alphaColor:  $alphaColor"
 echo "----"
 echo "Let's begin"
 
@@ -89,6 +90,8 @@ else
   crop=
 fi
 
+
+
 #if [ $scale ]; then
 #  scale="scale=${scale}"
 #else
@@ -118,7 +121,15 @@ echo "Calling ffmpeg for filename: $filename to temp: $temp with filter: $filter
 echo "Calling Convert"
 
 #cat $temp | $convert +dither -layers Optimize -remap $thisdir/limitedmaterial.gif -delay $delay - "${output}.gif"
+#echo "cat "$temp" | "$convert" +dither -layers Optimize $magickoptions $colorOptions -delay $delay - "${output}.gif""
 cat "$temp" | "$convert" +dither -layers Optimize $magickoptions -delay $delay - "${output}.gif"
+
+# run an extra pass if the user has chosen an alphacolor
+if [ ! -z $alphaColor ]; then
+    echo "Calling Convert again for transparency of $alphaColor"
+    echo     $convert "${output}.gif" -transparent "\"#$alphaColor\"" "${output}-alpha.gif"
+    $convert "${output}.gif" -transparent "\"#$alphaColor\" "${output}-alpha.gif"
+fi
 
 
 if [ $noupload -ne 1 ]; then

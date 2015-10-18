@@ -87,7 +87,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, FolderWatcherDelegate, Shell
         let filetype = file.pathExtension
         if filetype == nil { return; } // no extension, get the fuck out
         
-        if filetype == "mov" || filetype == "avi" || filetype == "mp4" {
+        if filetype == "mov" || filetype == "avi" || filetype == "mp4" || filetype == "gif" {
 //            print("It's a movie, convert");
             convertFiles([filePath]);
         }
@@ -109,6 +109,17 @@ class AppDelegate: NSObject, NSApplicationDelegate, FolderWatcherDelegate, Shell
         return optionsString
     }
     
+    func getAlphaPrefs() -> String {
+        var alphaArgument = ""
+        if let alphaOn = Preferences().getAlphaOn(){
+            if alphaOn {
+                let alphaColor = Preferences().getAlphaColor()
+                let alphaColorHex = Util.use.NSColorToHex(alphaColor!)
+                alphaArgument = "\(alphaColorHex)\""
+            }
+        }
+        return alphaArgument
+    }
     
     func getFilters() -> String {
         // https://ffmpeg.org/ffmpeg-filters.html#Video-Filters
@@ -135,10 +146,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, FolderWatcherDelegate, Shell
     
     func convertFiles(filenames: [String]){
         showNotification("Animating...", text: "");
-        vc.startLoader()
         // this one could return the path of the final file name, that way we can open the file in Finder
         for filename in filenames {
-            let args = [filename, getFps(), getFilters(), getImageMagickOptions()];
+            vc.startLoader(filename)
+            let args = [filename, getFps(), getFilters(), getImageMagickOptions(), getAlphaPrefs()];
             let gifShellTasker = ShellTasker(scriptFile: "gifify")
             gifShellTasker.delegate = self
             

@@ -16,13 +16,16 @@ class LoaderScene: SKScene, SKPhysicsContactDelegate {
     
     func getAddSliceAction() -> SKAction {
         let x = size.width/2
-        let y = size.height-1
+        let y = size.height/2
         
         let action = SKAction.runBlock { () -> Void in
             self.addSlice(atLocation: CGPointMake(x, y))
         }
         
-        return action
+        let wait = SKAction.waitForDuration(1)
+        let remove = SKAction.removeFromParent()
+        let actionGroup = SKAction.group([action, wait, remove])
+        return actionGroup
     }
     
     func addSlice(atLocation loc:CGPoint? = nil, isProgressFeedback:Bool=false){
@@ -69,6 +72,9 @@ class LoaderScene: SKScene, SKPhysicsContactDelegate {
     
     func didBeginContact(contact: SKPhysicsContact) {
         var firstBody: SKPhysicsBody
+        
+        return() // disabling for now, after trying this on JP's old fart of a mac
+        
     //    var secondBody: SKPhysicsBody
         
         if (contact.bodyA.categoryBitMask == contact.bodyB.categoryBitMask)
@@ -111,30 +117,32 @@ class LoaderScene: SKScene, SKPhysicsContactDelegate {
     }
     
     
-    func startLoading(){
-        let waitAction = SKAction.waitForDuration(0.4);
+    func startLoading(filePath:String){
+        let waitAction = SKAction.waitForDuration(0.04);
             let addAndWait = SKAction.sequence([getAddSliceAction(), waitAction])
-                let repeatAction = SKAction.repeatAction(addAndWait, count: 200)
-
+                let repeatAction = SKAction.repeatActionForever(addAndWait)
+        
+        // set gravity according to filesize
+        let fileSize = Util.use.getFileSize(filePath)
+        
+        useArrowBody()
+        setFileSizeGravity(fileSize)
         runAction(repeatAction, withKey: REPEAT_ACTION)
     }
+    
     
     func showDragInvite(fileSize:UInt64){ // shown onMoiseOver
         print("showDragInvite")
         removeAllChildren()
         useCircleBody()
-        let balls = Int(fileSize/100000)
+        var balls = Int(fileSize/100000)
+        if balls > 100 { balls = 100 }
         
         // add a bunch of balls at random locations
         setInviteGravity()
         
         // then a force that will follow the mouse
-        radial = SKFieldNode.radialGravityField()
-        radial.strength = 3.5
-        radial.falloff = 0.01
-        radial.animationSpeed = 10.1
-        radial.position = CGPointMake(size.width/2, size.height/2)
-        addChild(radial)
+        setRadialGravity()
         
 
         let add = SKAction.runBlock { () -> Void in
@@ -149,7 +157,7 @@ class LoaderScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func enterDragOverState(){
-        setStandardGravity()
+//        setStandardGravity()
         removeAllChildren()
     }
     
@@ -164,7 +172,7 @@ class LoaderScene: SKScene, SKPhysicsContactDelegate {
         
         for child in children{
             child.runAction(goAwayAction, completion: { () -> Void in
-                self.setStandardGravity()
+               // self.setStandardGravity()
             })
         }
     }
@@ -175,20 +183,39 @@ class LoaderScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    override func mouseMoved(theEvent: NSEvent) {
+        updateDragPosition(theEvent.locationInNode(self))
+    }
+    
     
     func stopLoading(){
         // todo: do something sexier here
+        if children.count > 0 {
         removeAllChildren()
+            }
         removeActionForKey(REPEAT_ACTION)
     }
     
     
     func setInviteGravity(){
-        physicsWorld.gravity = CGVectorMake(0, 0)
+        physicsWorld.gravity = CGVectorMake(0, 0.4)
     }
     
     func setStandardGravity(){
-        physicsWorld.gravity = CGVectorMake(0, -20)
+        physicsWorld.gravity = CGVectorMake(0, -0.5)
+    }
+    
+    func setFileSizeGravity(size:UInt64){
+        physicsWorld.gravity = CGVectorMake(0, -(CGFloat(size)/200000))
+    }
+    
+    func setRadialGravity(){
+        radial = SKFieldNode.radialGravityField()
+        radial.strength = 3.5
+        radial.falloff = 0.01
+        radial.animationSpeed = 10.1
+        radial.position = CGPointMake(size.width/2, size.height/2)
+        addChild(radial)
     }
     
     override func didMoveToView(view: SKView) {
@@ -196,6 +223,7 @@ class LoaderScene: SKScene, SKPhysicsContactDelegate {
         size = view.frame.size
         backgroundColor = SKColor.clearColor()
         setStandardGravity()
+        
     }
     
     func enterInviteState(){
@@ -218,6 +246,14 @@ class LoaderScene: SKScene, SKPhysicsContactDelegate {
 //        removeAllChildren()
     }
     
+    func useRollerCoasterBody(){
+        print("useRollerCoasterBody")
+        self.physicsBody = SKPhysicsBody()
+        let nodes = RollerCoasterGenerator().getAllNodes()
+        for node in nodes {
+            self.addChild(node)
+        }
+    }
     
     func useArrowBody(){
         print("useArrowBody")
@@ -254,6 +290,9 @@ class LoaderScene: SKScene, SKPhysicsContactDelegate {
         return path
 //        sprite.physicsBody = SKPhysicsBody(polygonFromPath: path)
     }
+    
+    
+    
     
 }
 
