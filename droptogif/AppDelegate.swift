@@ -11,7 +11,7 @@ import EonilFileSystemEvents
 
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate, FolderWatcherDelegate, ShellTaskDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, FolderWatcherDelegate, MovieConverterDelegate {
     @IBOutlet weak var window: NSWindow!
     var vc:ViewController! // it's safe, the VC sets it from its viewdidload
     var taskRunning = false;
@@ -78,8 +78,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, FolderWatcherDelegate, Shell
     
     // when dragging a file onto the dock icon
     func application(sender: NSApplication, openFiles filenames: [String]) {
-        convertFiles(filenames)
-
+        MovieConverter(delegate:self).convertFiles(filenames)
     }
     
     func handleNewFile(filePath:String){
@@ -89,119 +88,24 @@ class AppDelegate: NSObject, NSApplicationDelegate, FolderWatcherDelegate, Shell
         
         if filetype == "mov" || filetype == "avi" || filetype == "mp4" || filetype == "gif" {
 //            print("It's a movie, convert");
-            convertFiles([filePath]);
-        }
-
-    }
-    
-    func getImageMagickOptions() -> String {
-        var options = [String]()
-        
-        if let p = Preferences().getPosterizePref() {
-            if p < C.DISABLED_POSTERIZE {
-                options.append("-posterize \(p)")
-                }
-        }
-        var optionsString = ""
-        for option in options {
-            optionsString = "\(optionsString) \(option)"
-        }
-        return optionsString
-    }
-    
-    func getAlphaPrefs() -> String {
-        var alphaArgument = ""
-        if let alphaOn = Preferences().getAlphaOn(){
-            if alphaOn {
-                let alphaColor = Preferences().getAlphaColor()
-                let alphaColorHex = Util.use.NSColorToHex(alphaColor!)
-                alphaArgument = "\(alphaColorHex)\""
-            }
-        }
-        return alphaArgument
-    }
-    
-    func getFilters() -> String {
-        // https://ffmpeg.org/ffmpeg-filters.html#Video-Filters
-        // of interest, scale (done), fade (esp. alpha? fade=in:0:25:alpha=1,), 9.86 palettegen, paletteuse, 9.124 trim, vignette, zoompan
-        
-        
-        var filters = [String]()
-        var filterString = ""
-        
-        // scale
-        if let p = Preferences().getScalePercentagePref(){ // 55
-            let r = p/100 // 0.55
-            let scaleFilter = "scale=iw*\(r):-1"
-            filters.append(scaleFilter)
-        }
-
-        for filter in filters {
-            filterString = "\(filter)" // todo: prepare this for multiple filters
-        }
-
-//        return "-vf \(filterString),fade=in:0:15";
-          return "-vf \(filterString)";
-    }
-    
-    func convertFiles(filenames: [String]){
-        showNotification("Animating...", text: "");
-        // this one could return the path of the final file name, that way we can open the file in Finder
-        for filename in filenames {
-            vc.startLoader(filename)
-            let args = [filename, getFps(), getFilters(), getImageMagickOptions(), getAlphaPrefs()];
-            let gifShellTasker = ShellTasker(scriptFile: "gifify")
-            gifShellTasker.delegate = self
+            MovieConverter(delegate:self).convertFiles([filePath]);
             
-            taskRunning = true;
-            gifShellTasker.run(arguments: args, complete: { (output) -> Void in
-                let gifFile = "\(filename).gif";
-                self.taskRunning = false
-                if(Util.use.getBoolPref("revealInFinder")!){
-                    self.openAndSelectFile(gifFile)
-                    }
-                self.vc.stopLoader()
-                self.vc.showPlaceholderArrow()
-            })
         }
+
     }
     
+    func movieConverterDidFinish(resultingFilePath: String) {
+        self.vc.stopLoader()
+        self.vc.showPlaceholderArrow()
+    }
     
-    func shellTaskDidUpdate(update: String) {
+    func movieConverterDidStart(filename: String) {
+        vc.startLoader(filename)
+        taskRunning = true;
+    }
+    
+    func movieConverterDidUpdate() {
         vc.scene.addSlice(atLocation: nil, isProgressFeedback: true)
     }
-    
-    func shellTaskDidFinish(output: String) {
-        
-    }
-    
-    func shellTaskDidBegin() {
-        
-    }
-    
-    
-    func getFps() -> String {
-        var fps = Util.use.getStringPref("fps")
-        if fps == nil {
-            fps = "10"
-        }
-        
-        return fps!;
-    }
-    
-    func showNotification(title:String, text:String){
-        let center = NSUserNotificationCenter.defaultUserNotificationCenter()
-        let notification = NSUserNotification()
-        notification.title = title;
-        notification.informativeText = text
-        notification.soundName = nil;
-        center.deliverNotification(notification)
-    }
-    
-    func openAndSelectFile(filename:String){
-        let files = [NSURL(fileURLWithPath: filename)];
-        NSWorkspace.sharedWorkspace().activateFileViewerSelectingURLs(files);
-    }
-
 }
 

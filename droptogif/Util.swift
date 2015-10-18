@@ -90,8 +90,24 @@ class Util: NSObject {
         // println(rHex+gHex+bHex)
         return hexColor
     }
+    
+    func showNotification(title:String, text:String){
+        let center = NSUserNotificationCenter.defaultUserNotificationCenter()
+        let notification = NSUserNotification()
+        notification.title = title;
+        notification.informativeText = text
+        notification.soundName = nil;
+        center.deliverNotification(notification)
+    }
+    
+    func openAndSelectFile(filePath:String){
+        let files = [NSURL(fileURLWithPath: filePath)];
+        NSWorkspace.sharedWorkspace().activateFileViewerSelectingURLs(files);
+    }
 }
 
+
+// -----
 
 extension NSUserDefaults {
     
@@ -112,5 +128,7 @@ extension NSUserDefaults {
         }
         setObject(colorData, forKey: key)
     }
+    
+    
     
 }

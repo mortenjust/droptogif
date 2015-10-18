@@ -16,6 +16,7 @@
 		C841FFB01BC98366003BAF34 /* limitedmaterial.gif in Resources */ = {isa = PBXBuildFile; fileRef = C841FFAF1BC98366003BAF34 /* limitedmaterial.gif */; settings = {ASSET_TAGS = (); }; };
 		C841FFD11BCA47E3003BAF34 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C841FFD01BCA47E3003BAF34 /* DetailsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		C841FFD51BCB85CF003BAF34 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C841FFD41BCB85CF003BAF34 /* Constants.swift */; settings = {ASSET_TAGS = (); }; };
+		C87469621BCCCF3E0017456E /* RollerCoasterGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87469611BCCCF3E0017456E /* RollerCoasterGenerator.swift */; settings = {ASSET_TAGS = (); }; };
 		C8ACAA091BC5F137001C5B20 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8ACAA081BC5F137001C5B20 /* Util.swift */; settings = {ASSET_TAGS = (); }; };
 		C8ACAA0F1BC5F431001C5B20 /* MJWatchFolderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8ACAA0E1BC5F431001C5B20 /* MJWatchFolderTextView.swift */; settings = {ASSET_TAGS = (); }; };
 		C8ACAA111BC5FF0D001C5B20 /* FolderWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8ACAA101BC5FF0D001C5B20 /* FolderWatcher.swift */; settings = {ASSET_TAGS = (); }; };
@@ -25,6 +26,7 @@
 		C8AD07301BC4EA9D00943844 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8AD072E1BC4EA9D00943844 /* Main.storyboard */; };
 		C8AD073C1BC4EA9D00943844 /* droptogifTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AD073B1BC4EA9D00943844 /* droptogifTests.swift */; };
 		C8AD07471BC4F0BE00943844 /* ShellTasker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AD07461BC4F0BE00943844 /* ShellTasker.swift */; };
+		C8EE39121BD323E1007AAAF9 /* MovieConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EE39111BD323E1007AAAF9 /* MovieConverter.swift */; settings = {ASSET_TAGS = (); }; };
 		C8FEFF921BC79AF000398863 /* EonilFileSystemEvents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8FEFF8B1BC79ADE00398863 /* EonilFileSystemEvents.framework */; };
 		C8FEFF941BC79B0300398863 /* EonilFileSystemEvents.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = C8FEFF8B1BC79ADE00398863 /* EonilFileSystemEvents.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C8FEFF9B1BC8514800398863 /* gifify in CopyFiles */ = {isa = PBXBuildFile; fileRef = C8AD074A1BC4F2F400943844 /* gifify */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -116,6 +118,7 @@
 		C841FFAF1BC98366003BAF34 /* limitedmaterial.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = limitedmaterial.gif; sourceTree = "<group>"; };
 		C841FFD01BCA47E3003BAF34 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		C841FFD41BCB85CF003BAF34 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C87469611BCCCF3E0017456E /* RollerCoasterGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RollerCoasterGenerator.swift; sourceTree = "<group>"; };
 		C8ACAA081BC5F137001C5B20 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		C8ACAA0E1BC5F431001C5B20 /* MJWatchFolderTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MJWatchFolderTextView.swift; sourceTree = "<group>"; };
 		C8ACAA101BC5FF0D001C5B20 /* FolderWatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderWatcher.swift; sourceTree = "<group>"; };
@@ -130,6 +133,7 @@
 		C8AD073B1BC4EA9D00943844 /* droptogifTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = droptogifTests.swift; sourceTree = "<group>"; };
 		C8AD07461BC4F0BE00943844 /* ShellTasker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShellTasker.swift; sourceTree = "<group>"; };
 		C8AD074A1BC4F2F400943844 /* gifify */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = gifify; sourceTree = "<group>"; };
+		C8EE39111BD323E1007AAAF9 /* MovieConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovieConverter.swift; path = Images.xcassets/MovieConverter.swift; sourceTree = "<group>"; };
 		C8FEFF681BC7974600398863 /* EonilFileSystemEvents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = EonilFileSystemEvents.framework; path = /Users/mortenjust/code/droptogif/DerivedData/droptogif/Build/Products/Debug/EonilFileSystemEvents.framework; sourceTree = "<absolute>"; };
 		C8FEFF831BC79ADE00398863 /* EonilFileSystemEvents.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = EonilFileSystemEvents.xcodeproj; path = ../thirdparty/FileSystemEvents/Project/EonilFileSystemEvents.xcodeproj; sourceTree = "<group>"; };
 		C8FEFF9C1BC87CC300398863 /* ffmpeg */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = ffmpeg; path = /Users/mortenjust/code/droptogif/droptogif/ffmpeg; sourceTree = "<absolute>"; };
@@ -170,6 +174,7 @@
 		C8AD071A1BC4EA9D00943844 = {
 			isa = PBXGroup;
 			children = (
+				C87469611BCCCF3E0017456E /* RollerCoasterGenerator.swift */,
 				C8FEFF831BC79ADE00398863 /* EonilFileSystemEvents.xcodeproj */,
 				C82E76171BC6DE4A0029F3AB /* MyPlayground.playground */,
 				C8AD07251BC4EA9D00943844 /* droptogif */,
@@ -194,6 +199,7 @@
 				C8ACAA101BC5FF0D001C5B20 /* FolderWatcher.swift */,
 				C82E760F1BC6C0430029F3AB /* LoaderScene.swift */,
 				C841FFD41BCB85CF003BAF34 /* Constants.swift */,
+				C8EE39111BD323E1007AAAF9 /* MovieConverter.swift */,
 				C8AD07451BC4EBF300943844 /* Scripts */,
 				C8AD07281BC4EA9D00943844 /* AppDelegate.swift */,
 				C8AD07461BC4F0BE00943844 /* ShellTasker.swift */,
@@ -446,8 +452,10 @@
 				C82E76191BC703D00029F3AB /* DragReceiverView.swift in Sources */,
 				C8AD072B1BC4EA9D00943844 /* ViewController.swift in Sources */,
 				C8ACAA0F1BC5F431001C5B20 /* MJWatchFolderTextView.swift in Sources */,
+				C8EE39121BD323E1007AAAF9 /* MovieConverter.swift in Sources */,
 				C82E76101BC6C0430029F3AB /* LoaderScene.swift in Sources */,
 				C8AD07471BC4F0BE00943844 /* ShellTasker.swift in Sources */,
+				C87469621BCCCF3E0017456E /* RollerCoasterGenerator.swift in Sources */,
 				C8AD07291BC4EA9D00943844 /* AppDelegate.swift in Sources */,
 				C8ACAA091BC5F137001C5B20 /* Util.swift in Sources */,
 				C8FEFFBE1BC89BD600398863 /* Preferences.swift in Sources */,
