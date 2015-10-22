@@ -72,7 +72,6 @@ class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDeleg
         // trigger updating of labels
         sizeChanged(sizeSlider)
         posterizeChanged(posterizeSlider)
-        alphaCheckboxChanged(alphaCheckbox)
     }
     
     func willBecomeInactive(){
@@ -145,27 +144,9 @@ class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDeleg
         }
     }
     
-    func enableAlphaControls(){
-        alphaLabel.alphaValue = 1.0
-        alphaPicker.enabled = true
-    }
-    
-    func disableAlphaControls(){
-        alphaLabel.alphaValue = 0.3
-        alphaPicker.enabled = false
-    }
-    
-    @IBAction func alphaCheckboxChanged(sender: NSButton) {
-        if sender.state == NSOnState {
-            enableAlphaControls();
-        } else {
-            disableAlphaControls();
-        }        
-    }
-    
     @IBAction func sizeChanged(sender: NSSlider) {
-        let ratio = sender.integerValue
-        sizeLabel.stringValue = "Scale \(ratio)%"
+        let maxSegmentWidth = sender.integerValue
+        sizeLabel.stringValue = "Max \(maxSegmentWidth) px"
     }
     
     // todo, subclass NSView for waitforDrop and put these funcs in there

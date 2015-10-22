@@ -38,50 +38,73 @@ class MovieConverter: ShellTaskDelegate {
             let p = Preferences();
             let fps = Int(p.getFpsPref()!)
             let posterize = Int(p.getPosterizePref()!)
-            let scale = Int(p.getScalePercentagePref()!)
-            executeConversion(filename, fps: fps!, posterize: posterize, scale: scale)
+            let maxWidth = Int(p.getSegmentMaxWidth()!)
+            
+            calculateScaleWithMaxWidth(filename, maxWidth: maxWidth, completion: { (dimensions) -> Void in
+                self.executeConversion(filename, fps: fps!, posterize: posterize, dim:dimensions)
+            })
         } else {
-            optimizeForSize(filename, maxSize: maxSize)
+            // todo: Some kind of magic auto file size estimator/optimizer
         }
     }
     
-    func optimizeForSize(filename:String, maxSize:UInt64){
-//        var thisSize:UInt64 = 0;
-//        var lastSize:UInt64 = 0;
-//        
-//        print("let's see wha tthe worst thinkable settings will get us")
-//        var fps:Int = 30
-//        var posterize:Int = 50
-//        var scale:Int = 10
-//        
-//        // recursive function that calls this function until we hit a good size
-//        tryConversionForSize(filename, fps: <#T##Int#>, posterize: <#T##Int#>, scale: <#T##Int#>, completionWithSize: <#T##(UInt64) -> Void#>)
-//        
+    func calculateScaleWithMaxWidth(filepath:String, maxWidth:Int, completion:((Int, Int)) -> Void) {
+        dimensionsForFilepath(filepath) { (width, height) -> Void in
+            print("we're ready to deal with width: \(width) wheight: \(height)  ")
+
+            var dim = (width:width, height:height)
+            let biggestSeg = max(dim.width, dim.height)
+            let factor = Float(biggestSeg)/Float(maxWidth)
+            if factor > 1 {
+                dim = (Int(Float(dim.width)/factor), Int(Float(dim.height)/factor))
+            }
+            
+            completion(dim)
+        }
     }
     
-    func tryConversionForSize(filename:String, fps:Int, posterize:Int, scale:Int, completionWithSize: (UInt64) -> Void){
-        let r:Float = Float(scale)/100 // 0.55
-        let scaleArg:String = "-vf scale=iw*\(r):-1"
-        let posterizeArg:String = "-posterize \(posterize)"
-        let fpsArg:String = "\(fps)"
-        
-        let args = [filename, fpsArg, scaleArg, posterizeArg];
-        let gifShellTasker = ShellTasker(scriptFile: "gifify")
-        
-        gifShellTasker.run(arguments: args, complete: { (output) -> Void in
-            let gifFile = "\(filename).gif"; // TODO: This resulting file name gets generated twice. Here, and in gifify.sh
-            let gifSize = Util.use.getFileSize(gifFile)
-            
-            completionWithSize(gifSize)
-            self.taskRunning = false
-        })
+    func dimensionsForFilepath(filepath:String, completion:(Int, Int) -> Void ){
+        print("we're in the deepest of dimensionsforfile, will now attempt shelltasker")
+        let args = [filepath, "2>&1 | /usr/bin/grep Stream"]
+        ShellTasker(scriptFile: "getsize.sh").run(arguments: args) { (output) -> Void in
+            print("ffmpeg is done and returned this: \(output)")
+            let dimensions:(Int, Int) = self.extractDimensionsFromFfmpegInfo(String(output))
+            print("dimensions: \(dimensions)")
+            completion(dimensions)
+        }
     }
+    
+    
+    func extractDimensionsFromFfmpegInfo(info:String) -> (Int, Int) {
+        
+        do {
+        let re = try NSRegularExpression(pattern: ", (\\d.{0,}?)x(\\d.{0,}?), ",
+            options: NSRegularExpressionOptions.CaseInsensitive)
+            
+            let matches = re.matchesInString(info,
+                options: NSMatchingOptions.ReportProgress,
+                range:
+                NSRange(location: 0, length: info.utf16.count))
+            
+            matches.count
+            
+            let width = (info as NSString).substringWithRange(matches[0].rangeAtIndex(1))
+            let height = (info as NSString).substringWithRange(matches[0].rangeAtIndex(2))
+            return (Int(width)!, Int(height)!)
+            
+        } catch {
+            print("Problem! Abort! Returning 0,0 from extract Dimensions")
+            return (0,0)
+        }
+        
+        
 
-    func executeConversion(filename: String, fps:Int, posterize:Int, scale:Int) {
-        // maybe make a fork in the road here. If maxsize!=null, call normal converter, else call size converter
+    }
+    
 
-        let r:Float = Float(scale)/100 // 0.55
-        let scaleArg:String = "-vf scale=iw*\(r):-1"
+    func executeConversion(filename: String, fps:Int, posterize:Int, dim:(width:Int, height:Int)) {
+        let scaleArg:String = "-vf scale=\(dim.width):\(dim.height)"
+        
         let posterizeArg:String = "-posterize \(posterize)"
         let fpsArg:String = "\(fps)"
 
@@ -143,7 +166,7 @@ class MovieConverter: ShellTaskDelegate {
         var filterString = ""
         
         // scale
-        if let p = Preferences().getScalePercentagePref(){ // 55
+        if let p = Preferences().getSegmentMaxWidth(){ // 55
             let r = p/100 // 0.55
             let scaleFilter = "scale=iw*\(r):-1"
             filters.append(scaleFilter)

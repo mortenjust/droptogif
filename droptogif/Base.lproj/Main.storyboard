@@ -800,24 +800,16 @@
                                 </subviews>
                             </customView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UPt-NS-z5x">
-                                <rect key="frame" x="302" y="181" width="24" height="17"/>
+                                <rect key="frame" x="302" y="184" width="24" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="fps" id="VAh-5v-k0p">
                                     <font key="font" size="11" name=".HelveticaNeueDeskInterface-Regular"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4ND-t7-uYr">
-                                <rect key="frame" x="330" y="197" width="63" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Alpha color" id="MtC-B1-6XS">
-                                    <font key="font" size="9" name=".HelveticaNeueDeskInterface-Regular"/>
-                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QI2-f8-mzG">
-                                <rect key="frame" x="270" y="150" width="124" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Original size" id="VR6-Lo-atk">
+                                <rect key="frame" x="270" y="150" width="69" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Max 1500px" id="VR6-Lo-atk">
                                     <font key="font" size="11" name=".HelveticaNeueDeskInterface-Regular"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -840,7 +832,7 @@
                                 </connections>
                             </button>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jsy-RR-Q5e">
-                                <rect key="frame" x="272" y="181" width="29" height="22"/>
+                                <rect key="frame" x="272" y="185" width="29" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="right" title="24" drawsBackground="YES" id="pNj-JU-YIE">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -857,15 +849,15 @@
                                 </connections>
                             </textField>
                             <slider toolTip="Adjust size" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qlk-tu-07x">
-                                <rect key="frame" x="268" y="124" width="124" height="25"/>
-                                <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="100" doubleValue="100" tickMarkPosition="below" numberOfTickMarks="11" allowsTickMarkValuesOnly="YES" sliderType="linear" id="9To-aO-qlc"/>
+                                <rect key="frame" x="270" y="124" width="119" height="25"/>
+                                <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="100" maxValue="1500" doubleValue="1500" tickMarkPosition="below" numberOfTickMarks="15" allowsTickMarkValuesOnly="YES" sliderType="linear" id="9To-aO-qlc"/>
                                 <connections>
                                     <action selector="sizeChanged:" target="XfG-lQ-9wD" id="BTr-25-ghR"/>
-                                    <binding destination="AeS-Eh-nfO" name="value" keyPath="values.scalePercentage" id="Vl0-SI-0WN"/>
+                                    <binding destination="AeS-Eh-nfO" name="value" keyPath="values.segmentMaxWIdth" id="vij-1u-umo"/>
                                 </connections>
                             </slider>
                             <slider toolTip="Adjust size" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xbe-F7-cVf">
-                                <rect key="frame" x="270" y="68" width="124" height="25"/>
+                                <rect key="frame" x="270" y="68" width="119" height="25"/>
                                 <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="5" maxValue="50" doubleValue="50" tickMarkPosition="below" numberOfTickMarks="5" allowsTickMarkValuesOnly="YES" sliderType="linear" id="Bej-1R-5yL"/>
                                 <connections>
                                     <action selector="posterizeChanged:" target="XfG-lQ-9wD" id="2kb-2s-73e"/>
@@ -881,7 +873,7 @@
                                 </textFieldCell>
                             </textField>
                             <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v6F-ed-Fx4">
-                                <rect key="frame" x="270" y="218" width="139" height="32"/>
+                                <rect key="frame" x="270" y="213" width="139" height="32"/>
                                 <buttonCell key="cell" type="check" title="Auto reveal" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="g3Z-Re-fdk">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" size="11" name=".HelveticaNeueDeskInterface-Regular"/>
@@ -895,38 +887,12 @@
                                     </binding>
                                 </connections>
                             </button>
-                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y8u-9O-L9I">
-                                <rect key="frame" x="330" y="180" width="22" height="18"/>
-                                <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" alignment="left" continuous="YES" inset="2" id="Neh-10-QD7">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="alphaCheckboxChanged:" target="XfG-lQ-9wD" id="rhy-b1-sev"/>
-                                    <binding destination="AeS-Eh-nfO" name="value" keyPath="values.alphaOn" id="Wup-hh-3Oa"/>
-                                </connections>
-                            </button>
-                            <colorWell fixedFrame="YES" enabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3oV-ve-Zm0">
-                                <rect key="frame" x="352" y="181" width="39" height="17"/>
-                                <color key="color" red="0.43976865413327282" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <binding destination="AeS-Eh-nfO" name="value" keyPath="values.alphaColor" id="Jyu-YN-tbY">
-                                        <dictionary key="options">
-                                            <string key="NSValueTransformerName">NSUnarchiveFromData</string>
-                                        </dictionary>
-                                    </binding>
-                                </connections>
-                            </colorWell>
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="alphaCheckbox" destination="Y8u-9O-L9I" id="jQF-h4-hgB"/>
-                        <outlet property="alphaLabel" destination="4ND-t7-uYr" id="naG-A8-Q25"/>
-                        <outlet property="alphaPicker" destination="3oV-ve-Zm0" id="ce8-5w-NK9"/>
                         <outlet property="arrowIcon" destination="Z4k-bN-FpY" id="FHb-8u-OwM"/>
                         <outlet property="bigCircle" destination="zjW-Jr-0Ti" id="wyn-Zx-ShQ"/>
                         <outlet property="circleDropView" destination="WjP-nX-Gru" id="Qfn-Rb-kmB"/>
-                        <outlet property="colorPicker" destination="3oV-ve-Zm0" id="Gx1-Zy-zmX"/>
                         <outlet property="loaderSKView" destination="hfb-W5-vZc" id="WRL-Ol-4hK"/>
                         <outlet property="posterizeLabel" destination="Yjl-8a-DHo" id="7bS-Tn-h5T"/>
                         <outlet property="posterizeSlider" destination="Xbe-F7-cVf" id="xGD-M6-p6T"/>

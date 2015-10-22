@@ -26,7 +26,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, FolderWatcherDelegate, Movie
             }
     }
     
-    
     func applicationWillFinishLaunching(notification: NSNotification) {
         Preferences().checkForDefaults()
     }

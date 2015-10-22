@@ -23,8 +23,8 @@ class Preferences: NSObject {
             setRevealInFinderPref(true)
         }
      
-        if (getScalePercentagePref()! == 0.0)  {
-            setScalePercentagePref(100)
+        if (getSegmentMaxWidth()! == 0.0)  {
+            setSegmentMaxWidth(500)
         }
         
         if(getPosterizePref()! == 0.0) {
@@ -77,12 +77,12 @@ class Preferences: NSObject {
         Util.use.savePref("watchFolder", value: w)
     }
     
-    func getScalePercentagePref() -> Float? {
-        return Util.use.getFloatPref("scalePercentage")
+    func getSegmentMaxWidth() -> Float? {
+        return Util.use.getFloatPref("segmentMaxWIdth")
     }
     
-    func setScalePercentagePref(s:Float) {
-        Util.use.savePref("scalePercentage", value: s)
+    func setSegmentMaxWidth(s:Float) {
+        Util.use.savePref("segmentMaxWidth", value: s)
     }
 
     func setPosterizePref(t:Float){
@@ -92,9 +92,5 @@ class Preferences: NSObject {
     func getPosterizePref() -> Float? {
         return Util.use.getFloatPref("posterize")
     }
-    
-    
-    
-    
-    
+
 }

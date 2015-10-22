@@ -18,8 +18,10 @@ protocol ShellTaskDelegate {
 class ShellTasker: NSObject {
     var scriptFile:String!
     var task:NSTask!
-    var delegate:ShellTaskDelegate!
+    var delegate:ShellTaskDelegate?
     var observer:NSObjectProtocol!
+    var entireOutput:String = ""
+
 
     
     init(scriptFile:String){
@@ -57,64 +59,58 @@ class ShellTasker: NSObject {
         var allArguments = [String]()
         allArguments.append("\(scriptPath)") //
         allArguments.append(resourcesPath!) // the script sees this as $1
-
+        
         for arg in args {
             allArguments.append(arg)
         }
         
         task.arguments = allArguments
         
-//        var i = 0
-//        for a in task.arguments! {
-//            print("argument \(i++): \(a)")
-//        }
-        
-        print(task.arguments!);
+        var cmd=""
+        for arg in task.arguments! {
+            cmd="\(cmd) '\(arg)'"
+        }
         
         task.standardOutput = pipe
         self.task.launch()
-        delegate.shellTaskDidBegin()
-        
+        delegate?.shellTaskDidBegin()
         
         pipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
-        
-        
+                
         observer = NSNotificationCenter.defaultCenter().addObserverForName(NSFileHandleDataAvailableNotification, object: pipe.fileHandleForReading, queue: nil) { (notification) -> Void in
-            
-            self.updateOrEndOfFile(notification, complete: complete)
-        
+            self.updateOrEndOfFile(notification, complete: { (output) -> Void in
+                print("mj.eof and output: \(output)")
+                complete(output: output)
+            })
         }
-        
-  
     }
     
     
     private func updateOrEndOfFile(notification:NSNotification, complete:(output:NSString) -> Void){
         var isEOF = false;
         let handle = notification.object as! NSFileHandle
-        var data = handle.availableData
+        let data = handle.availableData
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
             
-            if(data.length>0){
-                let s = NSString(data: data, encoding: NSUTF8StringEncoding)
-
-                self.delegate.shellTaskDidUpdate(s! as String)
+            if(data.length>0 && isEOF == false){
+                // here we are, let's debug
                 
+                let s = NSString(data: data, encoding: NSUTF8StringEncoding)
+                self.delegate?.shellTaskDidUpdate(s! as String)
                 NSNotificationCenter.defaultCenter().postNotificationName("mj.newData", object: s!)
+                self.entireOutput = "\(self.entireOutput)\(s)"
                 isEOF = false
             } else {
                 isEOF = true
-                data = handle.readDataToEndOfFile()
-                var output = NSString()
-                output = NSString(data: data, encoding: NSUTF8StringEncoding)!
+                let output = ""
                 
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
-
                     // todo: make sure this one only gets called once per file
-                    self.delegate.shellTaskDidFinish(output as String)
+                    self.delegate?.shellTaskDidFinish(output as String)
                     NSNotificationCenter.defaultCenter().removeObserver(self.observer)
-                    complete(output: output)
+                    complete(output: self.entireOutput)
+                    self.entireOutput = ""
                 })
             }
         })

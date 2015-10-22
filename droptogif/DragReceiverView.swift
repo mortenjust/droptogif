@@ -47,7 +47,7 @@ class DragReceiverView: NSImageView {
     func getPathFromBoard(board:NSPasteboard) -> String {
         let url = NSURL(fromPasteboard: board)
         let path = url?.path!
-        Swift.print("dragged item: \(path)")
+//        Swift.print("dragged item: \(path)")
         return path!;
     }
     

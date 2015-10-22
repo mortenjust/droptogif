@@ -27,11 +27,12 @@
 		C8AD073C1BC4EA9D00943844 /* droptogifTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AD073B1BC4EA9D00943844 /* droptogifTests.swift */; };
 		C8AD07471BC4F0BE00943844 /* ShellTasker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AD07461BC4F0BE00943844 /* ShellTasker.swift */; };
 		C8EE39121BD323E1007AAAF9 /* MovieConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EE39111BD323E1007AAAF9 /* MovieConverter.swift */; settings = {ASSET_TAGS = (); }; };
+		C8EE39181BD457C9007AAAF9 /* getsize.sh in CopyFiles */ = {isa = PBXBuildFile; fileRef = C8EE39171BD456D2007AAAF9 /* getsize.sh */; };
 		C8FEFF921BC79AF000398863 /* EonilFileSystemEvents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8FEFF8B1BC79ADE00398863 /* EonilFileSystemEvents.framework */; };
 		C8FEFF941BC79B0300398863 /* EonilFileSystemEvents.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = C8FEFF8B1BC79ADE00398863 /* EonilFileSystemEvents.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		C8FEFF9B1BC8514800398863 /* gifify in CopyFiles */ = {isa = PBXBuildFile; fileRef = C8AD074A1BC4F2F400943844 /* gifify */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		C8FEFF9B1BC8514800398863 /* gifify in CopyFiles */ = {isa = PBXBuildFile; fileRef = C8AD074A1BC4F2F400943844 /* gifify */; };
 		C8FEFF9E1BC87CCE00398863 /* ffmpeg in CopyFiles */ = {isa = PBXBuildFile; fileRef = C8FEFF9C1BC87CC300398863 /* ffmpeg */; };
-		C8FEFFA11BC87D7300398863 /* convert in CopyFiles */ = {isa = PBXBuildFile; fileRef = C8FEFF9F1BC87D6800398863 /* convert */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		C8FEFFA11BC87D7300398863 /* convert in CopyFiles */ = {isa = PBXBuildFile; fileRef = C8FEFF9F1BC87D6800398863 /* convert */; };
 		C8FEFFA31BC8805800398863 /* ffmpeg in Resources */ = {isa = PBXBuildFile; fileRef = C8FEFFA21BC8805800398863 /* ffmpeg */; settings = {ASSET_TAGS = (); }; };
 		C8FEFFA61BC8883B00398863 /* libMagickCore-6.Q16.2.dylib in Resources */ = {isa = PBXBuildFile; fileRef = C8FEFFA41BC887A500398863 /* libMagickCore-6.Q16.2.dylib */; };
 		C8FEFFAD1BC88A1C00398863 /* libMagick++-6.Q16.la in Resources */ = {isa = PBXBuildFile; fileRef = C8FEFFA81BC88A1C00398863 /* libMagick++-6.Q16.la */; settings = {ASSET_TAGS = (); }; };
@@ -99,6 +100,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				C8EE39181BD457C9007AAAF9 /* getsize.sh in CopyFiles */,
 				C8FEFFA11BC87D7300398863 /* convert in CopyFiles */,
 				C8FEFF9E1BC87CCE00398863 /* ffmpeg in CopyFiles */,
 				C8FEFF9B1BC8514800398863 /* gifify in CopyFiles */,
@@ -134,6 +136,7 @@
 		C8AD07461BC4F0BE00943844 /* ShellTasker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShellTasker.swift; sourceTree = "<group>"; };
 		C8AD074A1BC4F2F400943844 /* gifify */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = gifify; sourceTree = "<group>"; };
 		C8EE39111BD323E1007AAAF9 /* MovieConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovieConverter.swift; path = Images.xcassets/MovieConverter.swift; sourceTree = "<group>"; };
+		C8EE39171BD456D2007AAAF9 /* getsize.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = getsize.sh; sourceTree = "<group>"; };
 		C8FEFF681BC7974600398863 /* EonilFileSystemEvents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = EonilFileSystemEvents.framework; path = /Users/mortenjust/code/droptogif/DerivedData/droptogif/Build/Products/Debug/EonilFileSystemEvents.framework; sourceTree = "<absolute>"; };
 		C8FEFF831BC79ADE00398863 /* EonilFileSystemEvents.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = EonilFileSystemEvents.xcodeproj; path = ../thirdparty/FileSystemEvents/Project/EonilFileSystemEvents.xcodeproj; sourceTree = "<group>"; };
 		C8FEFF9C1BC87CC300398863 /* ffmpeg */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = ffmpeg; path = /Users/mortenjust/code/droptogif/droptogif/ffmpeg; sourceTree = "<absolute>"; };
@@ -258,6 +261,7 @@
 				C8FEFFAB1BC88A1C00398863 /* libMagickWand-6.Q16.la */,
 				C8FEFFA21BC8805800398863 /* ffmpeg */,
 				C8AD074A1BC4F2F400943844 /* gifify */,
+				C8EE39171BD456D2007AAAF9 /* getsize.sh */,
 			);
 			name = Scripts;
 			sourceTree = "<group>";
@@ -601,6 +605,7 @@
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mortenjust.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "ed6a30d1-393e-407e-b920-837867761f99";
 				SDKROOT = macosx10.11;
 			};
 			name = Debug;
@@ -630,6 +635,7 @@
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mortenjust.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "ed6a30d1-393e-407e-b920-837867761f99";
 				SDKROOT = macosx10.11;
 			};
 			name = Release;
