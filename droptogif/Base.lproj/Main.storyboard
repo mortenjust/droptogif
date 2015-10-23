@@ -853,7 +853,7 @@
                                 <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="100" maxValue="1500" doubleValue="1500" tickMarkPosition="below" numberOfTickMarks="15" allowsTickMarkValuesOnly="YES" sliderType="linear" id="9To-aO-qlc"/>
                                 <connections>
                                     <action selector="sizeChanged:" target="XfG-lQ-9wD" id="BTr-25-ghR"/>
-                                    <binding destination="AeS-Eh-nfO" name="value" keyPath="values.segmentMaxWIdth" id="vij-1u-umo"/>
+                                    <binding destination="AeS-Eh-nfO" name="value" keyPath="values.segmentMaxWidth" id="OMk-xG-njD"/>
                                 </connections>
                             </slider>
                             <slider toolTip="Adjust size" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xbe-F7-cVf">

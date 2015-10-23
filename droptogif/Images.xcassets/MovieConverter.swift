@@ -69,8 +69,12 @@ class MovieConverter: ShellTaskDelegate {
         ShellTasker(scriptFile: "getsize.sh").run(arguments: args) { (output) -> Void in
             print("ffmpeg is done and returned this: \(output)")
             let dimensions:(Int, Int) = self.extractDimensionsFromFfmpegInfo(String(output))
-            print("dimensions: \(dimensions)")
-            completion(dimensions)
+            print("2 checking dims")
+            if dimensions.0 != 0 && dimensions.1 != 0 {
+                print("dimensions: \(dimensions)")
+                print("call completion")
+                completion(dimensions)
+                }
         }
     }
     
@@ -86,11 +90,15 @@ class MovieConverter: ShellTaskDelegate {
                 range:
                 NSRange(location: 0, length: info.utf16.count))
             
-            matches.count
-            
-            let width = (info as NSString).substringWithRange(matches[0].rangeAtIndex(1))
-            let height = (info as NSString).substringWithRange(matches[0].rangeAtIndex(2))
-            return (Int(width)!, Int(height)!)
+            if matches.count != 0 {
+                let width = (info as NSString).substringWithRange(matches[0].rangeAtIndex(1))
+                let height = (info as NSString).substringWithRange(matches[0].rangeAtIndex(2))
+                return (Int(width)!, Int(height)!)
+                }
+            else {
+                return (0,0)
+            }
+                
             
         } catch {
             print("Problem! Abort! Returning 0,0 from extract Dimensions")
@@ -133,14 +141,17 @@ class MovieConverter: ShellTaskDelegate {
     
     
     func shellTaskDidUpdate(update: String) {
+        print("shell task update")
         self.delegate.movieConverterDidUpdate()
     }
     
     func shellTaskDidFinish(output: String) {
+        print("shell task finish")
         // we're calling did finish from convertfile method instead
     }
     
     func shellTaskDidBegin() {
+        print("Shell task betgin")
         // we're calling did begin from convertfile method instead
     }
     
@@ -201,6 +212,7 @@ class MovieConverter: ShellTaskDelegate {
         for option in options {
             optionsString = "\(optionsString) \(option)"
         }
+        
         return optionsString
     }
 

@@ -78,7 +78,7 @@ class Preferences: NSObject {
     }
     
     func getSegmentMaxWidth() -> Float? {
-        return Util.use.getFloatPref("segmentMaxWIdth")
+        return Util.use.getFloatPref("segmentMaxWidth")
     }
     
     func setSegmentMaxWidth(s:Float) {

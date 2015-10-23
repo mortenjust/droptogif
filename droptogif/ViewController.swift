@@ -70,6 +70,7 @@ class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDeleg
     
     func updateUILabels(){
         // trigger updating of labels
+        
         sizeChanged(sizeSlider)
         posterizeChanged(posterizeSlider)
     }
