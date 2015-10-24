@@ -24,7 +24,6 @@
 		C8AD072B1BC4EA9D00943844 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AD072A1BC4EA9D00943844 /* ViewController.swift */; };
 		C8AD072D1BC4EA9D00943844 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8AD072C1BC4EA9D00943844 /* Images.xcassets */; };
 		C8AD07301BC4EA9D00943844 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8AD072E1BC4EA9D00943844 /* Main.storyboard */; };
-		C8AD073C1BC4EA9D00943844 /* droptogifTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AD073B1BC4EA9D00943844 /* droptogifTests.swift */; };
 		C8AD07471BC4F0BE00943844 /* ShellTasker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AD07461BC4F0BE00943844 /* ShellTasker.swift */; };
 		C8EE39121BD323E1007AAAF9 /* MovieConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EE39111BD323E1007AAAF9 /* MovieConverter.swift */; settings = {ASSET_TAGS = (); }; };
 		C8EE39181BD457C9007AAAF9 /* getsize.sh in CopyFiles */ = {isa = PBXBuildFile; fileRef = C8EE39171BD456D2007AAAF9 /* getsize.sh */; };
@@ -45,13 +44,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C8AD07361BC4EA9D00943844 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C8AD071B1BC4EA9D00943844 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C8AD07221BC4EA9D00943844;
-			remoteInfo = droptogif;
-		};
 		C8FEFF8A1BC79ADE00398863 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C8FEFF831BC79ADE00398863 /* EonilFileSystemEvents.xcodeproj */;
@@ -130,7 +122,6 @@
 		C8AD072A1BC4EA9D00943844 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C8AD072C1BC4EA9D00943844 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C8AD072F1BC4EA9D00943844 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C8AD07351BC4EA9D00943844 /* droptogifTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = droptogifTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8AD073A1BC4EA9D00943844 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C8AD073B1BC4EA9D00943844 /* droptogifTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = droptogifTests.swift; sourceTree = "<group>"; };
 		C8AD07461BC4F0BE00943844 /* ShellTasker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShellTasker.swift; sourceTree = "<group>"; };
@@ -164,13 +155,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C8AD07321BC4EA9D00943844 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -190,7 +174,6 @@
 			isa = PBXGroup;
 			children = (
 				C8AD07231BC4EA9D00943844 /* Drop to GIF.app */,
-				C8AD07351BC4EA9D00943844 /* droptogifTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -319,24 +302,6 @@
 			productReference = C8AD07231BC4EA9D00943844 /* Drop to GIF.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C8AD07341BC4EA9D00943844 /* droptogifTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C8AD07421BC4EA9D00943844 /* Build configuration list for PBXNativeTarget "droptogifTests" */;
-			buildPhases = (
-				C8AD07311BC4EA9D00943844 /* Sources */,
-				C8AD07321BC4EA9D00943844 /* Frameworks */,
-				C8AD07331BC4EA9D00943844 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C8AD07371BC4EA9D00943844 /* PBXTargetDependency */,
-			);
-			name = droptogifTests;
-			productName = droptogifTests;
-			productReference = C8AD07351BC4EA9D00943844 /* droptogifTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -351,10 +316,6 @@
 					C8AD07221BC4EA9D00943844 = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = UDGLB23X37;
-					};
-					C8AD07341BC4EA9D00943844 = {
-						CreatedOnToolsVersion = 6.4;
-						TestTargetID = C8AD07221BC4EA9D00943844;
 					};
 				};
 			};
@@ -378,7 +339,6 @@
 			projectRoot = "";
 			targets = (
 				C8AD07221BC4EA9D00943844 /* Drop to GIF */,
-				C8AD07341BC4EA9D00943844 /* droptogifTests */,
 			);
 		};
 /* End PBXProject section */
@@ -437,13 +397,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C8AD07331BC4EA9D00943844 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -467,23 +420,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C8AD07311BC4EA9D00943844 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C8AD073C1BC4EA9D00943844 /* droptogifTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		C8AD07371BC4EA9D00943844 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C8AD07221BC4EA9D00943844 /* Drop to GIF */;
-			targetProxy = C8AD07361BC4EA9D00943844 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C8AD072E1BC4EA9D00943844 /* Main.storyboard */ = {
@@ -640,44 +577,6 @@
 			};
 			name = Release;
 		};
-		C8AD07431BC4EA9D00943844 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = droptogifTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mortenjust.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/droptogif.app/Contents/MacOS/droptogif";
-			};
-			name = Debug;
-		};
-		C8AD07441BC4EA9D00943844 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = droptogifTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mortenjust.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/droptogif.app/Contents/MacOS/droptogif";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -695,15 +594,6 @@
 			buildConfigurations = (
 				C8AD07401BC4EA9D00943844 /* Debug */,
 				C8AD07411BC4EA9D00943844 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C8AD07421BC4EA9D00943844 /* Build configuration list for PBXNativeTarget "droptogifTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C8AD07431BC4EA9D00943844 /* Debug */,
-				C8AD07441BC4EA9D00943844 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

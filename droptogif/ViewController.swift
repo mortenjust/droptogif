@@ -81,11 +81,13 @@ class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDeleg
         scene.enterInactiveState()
         loaderSKView.hidden = true
         activeFromDragging = false;
+        loaderSKView.presentScene(nil)
     }
     
     func willBecomeActive(fromDragging:Bool=false){
         print("willbecomeactive")
         hidePlaceholderArrow()
+        loaderSKView.presentScene(scene)
         loaderSKView.hidden = false;
         
         self.activeFromDragging = fromDragging

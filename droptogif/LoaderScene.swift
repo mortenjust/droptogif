@@ -242,8 +242,10 @@ class LoaderScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func enterInactiveState(){ // save cpu
-        print("enterInactiveState (noop)")
-//        removeAllChildren()
+        print("enterInactiveState")
+        if self.children.count > 0 {
+            removeAllChildren()
+            }
     }
     
     func useRollerCoasterBody(){
