@@ -105,7 +105,7 @@
 /* Begin PBXFileReference section */
 		C81CAF9B1BDC9EC500D13FEC /* regexp.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = regexp.playground; sourceTree = "<group>"; };
 		C82E760F1BC6C0430029F3AB /* LoaderScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoaderScene.swift; sourceTree = "<group>"; };
-		C82E76171BC6DE4A0029F3AB /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		C82E76171BC6DE4A0029F3AB /* spritekit.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = spritekit.playground; sourceTree = "<group>"; };
 		C82E76181BC703CF0029F3AB /* DragReceiverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragReceiverView.swift; sourceTree = "<group>"; };
 		C841FFA31BC97DC7003BAF34 /* materialcolors.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = materialcolors.png; sourceTree = "<group>"; };
 		C841FFA91BC97F21003BAF34 /* material255.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = material255.png; sourceTree = "<group>"; };
@@ -164,10 +164,10 @@
 		C8AD071A1BC4EA9D00943844 = {
 			isa = PBXGroup;
 			children = (
+				C82E76171BC6DE4A0029F3AB /* spritekit.playground */,
 				C81CAF9B1BDC9EC500D13FEC /* regexp.playground */,
 				C87469611BCCCF3E0017456E /* RollerCoasterGenerator.swift */,
 				C8FEFF831BC79ADE00398863 /* EonilFileSystemEvents.xcodeproj */,
-				C82E76171BC6DE4A0029F3AB /* MyPlayground.playground */,
 				C8AD07251BC4EA9D00943844 /* droptogif */,
 				C8AD07381BC4EA9D00943844 /* droptogifTests */,
 				C8AD07241BC4EA9D00943844 /* Products */,

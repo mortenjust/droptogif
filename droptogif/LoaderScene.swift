@@ -223,6 +223,7 @@ class LoaderScene: SKScene, SKPhysicsContactDelegate {
         size = view.frame.size
         backgroundColor = SKColor.blueColor() 
         setStandardGravity()
+        enterInviteState()
     }
     
     func enterInviteState(){

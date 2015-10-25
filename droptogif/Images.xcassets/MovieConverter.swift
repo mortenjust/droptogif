@@ -54,7 +54,7 @@ class MovieConverter: ShellTaskDelegate {
     
     
     func calculateScaleWithMaxWidth(filepath:String, maxWidth:Int, completion:((Int, Int)) -> Void) {
-    MovieMetadataExtractor(forMovie: filepath) { (metadata) -> Void in
+    _ = MovieMetadataExtractor(forMovie: filepath) { (metadata) -> Void in
             var dim = (width:metadata.size.width, height:metadata.size.height)
             let biggestSeg = max(dim.width, dim.height)
             let factor = Float(biggestSeg)/Float(maxWidth)
@@ -152,7 +152,7 @@ class MovieConverter: ShellTaskDelegate {
         // match movie fps?
         if (Preferences().getMatchFps() == true) {
             print("# Let's match the original")
-            MovieMetadataExtractor(forMovie: filepath, completion: { (metadata) -> Void in
+            _ = MovieMetadataExtractor(forMovie: filepath, completion: { (metadata) -> Void in
                 finalFps = metadata.fps
                 print("extracted fps is \(metadata.fps)")
                 completion(finalFps)

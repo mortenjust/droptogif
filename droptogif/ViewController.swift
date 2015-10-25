@@ -51,14 +51,30 @@ class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDeleg
         watchFolderLabel.delegate = self;
         
         scene = LoaderScene()
-        loaderSKView.hidden = false
-        loaderSKView.allowsTransparency = true
-        loaderSKView.presentScene(scene)
-        loaderSKView.showsPhysics = true
+ 
         appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate;
         appDelegate.vc = self
         circleDropView.delegate = self;
         setBaseColor()
+        
+        // self.scene.startLoading()
+        
+//let newSKView = SKView(frame: self.view.bounds)
+//self.view.addSubview(newSKView)
+//
+//let testScene = SKScene(size: self.view.bounds.size)
+//newSKView.presentScene(testScene)
+//
+//let redBox:SKSpriteNode = SKSpriteNode(color: SKColor.redColor(), size:CGSizeMake(300, 300))
+//redBox.position = CGPointMake(512, 384)
+//redBox.runAction(SKAction.repeatActionForever(SKAction.rotateByAngle(6, duration: 2)))
+//testScene.addChild(redBox)
+        
+        
+//
+// weird. None of this works. Seems to be a bug in El Capitan. Leaving for now
+        
+        
     }
     
     override func viewDidAppear() {
@@ -66,7 +82,8 @@ class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDeleg
         dispatch_after(1, dispatch_get_main_queue()) { () -> Void in
             self.updateUILabels()
 
-            // self.scene.startLoading()
+            
+            
         }
 
     }

@@ -44,12 +44,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, FolderWatcherDelegate, Movie
         NSApplication.sharedApplication()
         window.titlebarAppearsTransparent = true
         window.title = ""
-        window.movableByWindowBackground  = true
         window.canBecomeKeyWindow
         window.backgroundColor = NSColor(hue: 229/255, saturation: 13/255, brightness: 50/255, alpha: 1)
         var windowFrame = window.frame;
         windowFrame.size.width = 260;
         window.setFrame(windowFrame, display: true, animate: true);
+        window.movableByWindowBackground  = true
         
         FolderWatcher.use.delegate = self;
         FolderWatcher.use.stopAll();
