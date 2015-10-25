@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8191"/>
     </dependencies>
@@ -705,23 +705,28 @@
                                         <textView editable="NO" importsGraphics="NO" findStyle="panel" verticallyResizable="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="NXh-hx-VUt">
                                             <rect key="frame" x="0.0" y="0.0" width="484" height="268"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <animations/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <size key="minSize" width="478" height="268"/>
+                                            <size key="minSize" width="463" height="268"/>
                                             <size key="maxSize" width="486" height="10000000"/>
                                             <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                            <size key="minSize" width="478" height="268"/>
+                                            <size key="minSize" width="463" height="268"/>
                                             <size key="maxSize" width="486" height="10000000"/>
                                         </textView>
                                     </subviews>
+                                    <animations/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </clipView>
+                                <animations/>
                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="K5e-E7-IoG">
                                     <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
                                 </scroller>
                                 <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="WZa-vW-JwG">
-                                    <rect key="frame" x="463" y="1" width="16" height="268"/>
+                                    <rect key="frame" x="464" y="1" width="15" height="268"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
                                 </scroller>
                             </scrollView>
                         </subviews>
@@ -731,6 +736,7 @@
                             <constraint firstItem="zbs-AB-JYb" firstAttribute="leading" secondItem="CRu-J1-JLu" secondAttribute="leading" id="Yas-3f-GCd"/>
                             <constraint firstAttribute="trailing" secondItem="zbs-AB-JYb" secondAttribute="trailing" id="ZlM-E8-oeP"/>
                         </constraints>
+                        <animations/>
                     </view>
                     <connections>
                         <outlet property="detailsTextView" destination="NXh-hx-VUt" id="teK-W3-a5O"/>
@@ -750,10 +756,12 @@
                         <subviews>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BSg-f4-X8A" userLabel="drawer">
                                 <rect key="frame" x="244" y="-42" width="208" height="309"/>
+                                <animations/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="drawer" id="SRd-XC-57f"/>
                             </imageView>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L8m-up-glN">
                                 <rect key="frame" x="270" y="35" width="125" height="19"/>
+                                <animations/>
                                 <buttonCell key="cell" type="roundRect" title="Select watch folder" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="nSx-pv-cLw">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="cellTitle"/>
@@ -764,6 +772,7 @@
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="psE-GP-WjW">
                                 <rect key="frame" x="270" y="11" width="119" height="17"/>
+                                <animations/>
                                 <textFieldCell key="cell" lineBreakMode="truncatingHead" sendsActionOnEndEditing="YES" title="/Users/mortenjust/Desktop/Droptogif" id="lbK-Ud-0RO">
                                     <font key="font" size="10" name=".HelveticaNeueDeskInterface-Regular"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -780,6 +789,7 @@
                             </textField>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zjW-Jr-0Ti" userLabel="circle">
                                 <rect key="frame" x="20" y="11" width="212" height="212"/>
+                                <animations/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="oval" id="cEJ-lk-nZB"/>
                             </imageView>
                             <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OAJ-FX-zKP" userLabel="waitForDrop">
@@ -787,10 +797,12 @@
                                 <subviews>
                                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z4k-bN-FpY" userLabel="video icon">
                                         <rect key="frame" x="30" y="38" width="150" height="150"/>
+                                        <animations/>
                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="placeholderArrow" id="mKG-Ir-n6I"/>
                                     </imageView>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M3O-3q-Kff">
                                         <rect key="frame" x="31" y="16" width="149" height="22"/>
+                                        <animations/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Drop a video" id="VwO-8V-QtX">
                                             <font key="font" size="11" name=".HelveticaNeueDeskInterface-Regular"/>
                                             <color key="textColor" white="0.75" alpha="0.52000000000000002" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -798,10 +810,12 @@
                                         </textFieldCell>
                                     </textField>
                                 </subviews>
+                                <animations/>
                             </customView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UPt-NS-z5x">
-                                <rect key="frame" x="302" y="184" width="24" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="fps" id="VAh-5v-k0p">
+                                <rect key="frame" x="303" y="184" width="24" height="17"/>
+                                <animations/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" enabled="NO" sendsActionOnEndEditing="YES" title="fps" id="VAh-5v-k0p">
                                     <font key="font" size="11" name=".HelveticaNeueDeskInterface-Regular"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -809,6 +823,7 @@
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QI2-f8-mzG">
                                 <rect key="frame" x="270" y="150" width="69" height="17"/>
+                                <animations/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Max 1500px" id="VR6-Lo-atk">
                                     <font key="font" size="11" name=".HelveticaNeueDeskInterface-Regular"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -817,12 +832,15 @@
                             </textField>
                             <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hfb-W5-vZc" userLabel="SpriteKit" customClass="SKView">
                                 <rect key="frame" x="20" y="11" width="212" height="212"/>
+                                <animations/>
                             </customView>
                             <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WjP-nX-Gru" userLabel="Drag Receiver" customClass="DragReceiverView" customModule="Drop_to_GIF" customModuleProvider="target">
                                 <rect key="frame" x="31" y="20" width="173" height="208"/>
+                                <animations/>
                             </customView>
                             <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l8T-P8-xjc">
                                 <rect key="frame" x="212" y="11" width="36" height="36"/>
+                                <animations/>
                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="settings" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="wc9-cA-ujf">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -833,12 +851,18 @@
                             </button>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jsy-RR-Q5e">
                                 <rect key="frame" x="272" y="185" width="29" height="22"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="right" title="24" drawsBackground="YES" id="pNj-JU-YIE">
+                                <animations/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" continuous="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="right" title="24" drawsBackground="YES" id="pNj-JU-YIE">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                                 <connections>
+                                    <binding destination="AeS-Eh-nfO" name="enabled" keyPath="values.matchFps" id="Q3d-nK-7FB">
+                                        <dictionary key="options">
+                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                        </dictionary>
+                                    </binding>
                                     <binding destination="AeS-Eh-nfO" name="value" keyPath="values.fps" id="8FX-D5-Tiw">
                                         <dictionary key="options">
                                             <bool key="NSContinuouslyUpdatesValue" value="YES"/>
@@ -850,6 +874,7 @@
                             </textField>
                             <slider toolTip="Adjust size" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qlk-tu-07x">
                                 <rect key="frame" x="270" y="124" width="119" height="25"/>
+                                <animations/>
                                 <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="100" maxValue="1500" doubleValue="1500" tickMarkPosition="below" numberOfTickMarks="15" allowsTickMarkValuesOnly="YES" sliderType="linear" id="9To-aO-qlc"/>
                                 <connections>
                                     <action selector="sizeChanged:" target="XfG-lQ-9wD" id="BTr-25-ghR"/>
@@ -858,6 +883,7 @@
                             </slider>
                             <slider toolTip="Adjust size" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xbe-F7-cVf">
                                 <rect key="frame" x="270" y="68" width="119" height="25"/>
+                                <animations/>
                                 <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="5" maxValue="50" doubleValue="50" tickMarkPosition="below" numberOfTickMarks="5" allowsTickMarkValuesOnly="YES" sliderType="linear" id="Bej-1R-5yL"/>
                                 <connections>
                                     <action selector="posterizeChanged:" target="XfG-lQ-9wD" id="2kb-2s-73e"/>
@@ -866,6 +892,7 @@
                             </slider>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yjl-8a-DHo">
                                 <rect key="frame" x="269" y="93" width="124" height="17"/>
+                                <animations/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Nice, but large" id="748-h5-U9X">
                                     <font key="font" size="11" name=".HelveticaNeueDeskInterface-Regular"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -874,6 +901,7 @@
                             </textField>
                             <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v6F-ed-Fx4">
                                 <rect key="frame" x="270" y="213" width="139" height="32"/>
+                                <animations/>
                                 <buttonCell key="cell" type="check" title="Auto reveal" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="g3Z-Re-fdk">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" size="11" name=".HelveticaNeueDeskInterface-Regular"/>
@@ -887,13 +915,43 @@
                                     </binding>
                                 </connections>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rZa-DW-CsS">
+                                <rect key="frame" x="345" y="169" width="41" height="17"/>
+                                <animations/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" enabled="NO" sendsActionOnEndEditing="YES" title="original" id="ZiO-Re-cLN">
+                                    <font key="font" size="11" name=".HelveticaNeueDeskInterface-Regular"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zKa-nb-hda">
+                                <rect key="frame" x="328" y="184" width="54" height="18"/>
+                                <animations/>
+                                <buttonCell key="cell" type="check" title="Match" bezelStyle="regularSquare" imagePosition="left" alignment="left" continuous="YES" state="on" inset="2" id="Swh-9L-n3i">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" size="11" name=".HelveticaNeueDeskInterface-Regular"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="matchFpsPressed:" target="XfG-lQ-9wD" id="1eY-nY-1lA"/>
+                                    <binding destination="AeS-Eh-nfO" name="value" keyPath="values.matchFps" id="zqh-sr-qAH">
+                                        <dictionary key="options">
+                                            <integer key="NSNoSelectionPlaceholder" value="1"/>
+                                            <integer key="NSNullPlaceholder" value="1"/>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
+                            </button>
                         </subviews>
+                        <animations/>
                     </view>
                     <connections>
                         <outlet property="arrowIcon" destination="Z4k-bN-FpY" id="FHb-8u-OwM"/>
                         <outlet property="bigCircle" destination="zjW-Jr-0Ti" id="wyn-Zx-ShQ"/>
                         <outlet property="circleDropView" destination="WjP-nX-Gru" id="Qfn-Rb-kmB"/>
+                        <outlet property="fpsLabel" destination="UPt-NS-z5x" id="3Qs-jc-7Ba"/>
+                        <outlet property="fpsTextField" destination="Jsy-RR-Q5e" id="JMB-Gz-DA9"/>
                         <outlet property="loaderSKView" destination="hfb-W5-vZc" id="WRL-Ol-4hK"/>
+                        <outlet property="matchFpsCheckBox" destination="zKa-nb-hda" id="i3E-Zw-7Pj"/>
                         <outlet property="posterizeLabel" destination="Yjl-8a-DHo" id="7bS-Tn-h5T"/>
                         <outlet property="posterizeSlider" destination="Xbe-F7-cVf" id="xGD-M6-p6T"/>
                         <outlet property="settingsButton" destination="l8T-P8-xjc" id="2t0-Ea-ijw"/>

@@ -15,12 +15,18 @@ class Preferences: NSObject {
     
     func checkForDefaults(){
         
-        if getFpsPref() == nil {
-            setFpsPref("24")
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        if defaults.valueForKey(C.PREF_MATCH_FPS) == nil {
+            setMatchFps(true)
         }
         
-        if getRevealInFinderPref() == false {
+        if defaults.valueForKey(C.PREF_REVEAL_IN_FINDER) == nil {
             setRevealInFinderPref(true)
+        }
+        
+        if getFpsPref() == nil {
+            setFpsPref("30")
         }
      
         if (getSegmentMaxWidth()! == 0.0)  {
@@ -36,19 +42,19 @@ class Preferences: NSObject {
     // todo: write getters and setters for named preferences here, and use them instead of the raw string values elsewhere in the app
     
     func getFpsPref() -> String? {
-        return Util.use.getStringPref("fps")
+        return Util.use.getStringPref(C.PREF_FPS)
     }
     
     func setFpsPref(fps:String){
-        Util.use.savePref("fps", value: fps)
+        Util.use.savePref(C.PREF_FPS, value: fps)
     }
     
     func getRevealInFinderPref() -> Bool? {
-        return Util.use.getBoolPref("revealInFinder")
+        return Util.use.getBoolPref(C.PREF_REVEAL_IN_FINDER)
     }
     
     func setRevealInFinderPref(r:Bool){
-        Util.use.savePref("revealInFinder", value: r)
+        Util.use.savePref(C.PREF_REVEAL_IN_FINDER, value: r)
     }
     
     func setAlphaOn(r:Bool){
@@ -57,6 +63,14 @@ class Preferences: NSObject {
     
     func getAlphaOn() -> Bool? {
         return Util.use.getBoolPref("alphaOn")
+    }
+    
+    func setMatchFps(r:Bool){
+        Util.use.savePref(C.PREF_MATCH_FPS, value: r)
+    }
+    
+    func getMatchFps() -> Bool? {
+        return Util.use.getBoolPref(C.PREF_MATCH_FPS)
     }
 
     
@@ -70,27 +84,27 @@ class Preferences: NSObject {
     
     
     func getWatchFolderPref() -> String? {
-        return Util.use.getStringPref("watchFolder")
+        return Util.use.getStringPref(C.PREF_WATCHFOLDER)
     }
     
     func setWatchFolderPref(w:String){
-        Util.use.savePref("watchFolder", value: w)
+        Util.use.savePref(C.PREF_WATCHFOLDER, value: w)
     }
     
     func getSegmentMaxWidth() -> Float? {
-        return Util.use.getFloatPref("segmentMaxWidth")
+        return Util.use.getFloatPref(C.PREF_SEGMENT_MAX_WIDTH)
     }
     
     func setSegmentMaxWidth(s:Float) {
-        Util.use.savePref("segmentMaxWidth", value: s)
+        Util.use.savePref(C.PREF_SEGMENT_MAX_WIDTH, value: s)
     }
 
     func setPosterizePref(t:Float){
-        Util.use.savePref("posterize", value: t)
+        Util.use.savePref(C.PREF_POSTERIZE, value: t)
     }
     
     func getPosterizePref() -> Float? {
-        return Util.use.getFloatPref("posterize")
+        return Util.use.getFloatPref(C.PREF_POSTERIZE)
     }
 
 }

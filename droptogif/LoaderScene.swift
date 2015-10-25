@@ -221,9 +221,8 @@ class LoaderScene: SKScene, SKPhysicsContactDelegate {
     override func didMoveToView(view: SKView) {
         print("didMoveToView")
         size = view.frame.size
-        backgroundColor = SKColor.clearColor()
+        backgroundColor = SKColor.blueColor() 
         setStandardGravity()
-        
     }
     
     func enterInviteState(){
@@ -243,9 +242,9 @@ class LoaderScene: SKScene, SKPhysicsContactDelegate {
     
     func enterInactiveState(){ // save cpu
         print("enterInactiveState")
-        if self.children.count > 0 {
-            removeAllChildren()
-            }
+//        if self.children.count > 0 {
+//            removeAllChildren()
+//            }
     }
     
     func useRollerCoasterBody(){

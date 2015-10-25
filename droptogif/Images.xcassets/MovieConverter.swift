@@ -36,23 +36,26 @@ class MovieConverter: ShellTaskDelegate {
         
         if maxSize == 0 {
             let p = Preferences();
-            let fps = Int(p.getFpsPref()!)
             let posterize = Int(p.getPosterizePref()!)
             let maxWidth = Int(p.getSegmentMaxWidth()!)
             
             calculateScaleWithMaxWidth(filename, maxWidth: maxWidth, completion: { (dimensions) -> Void in
-                self.executeConversion(filename, fps: fps!, posterize: posterize, dim:dimensions)
+                self.getFps(filename, completion: { (fps) -> Void in
+                    self.executeConversion(filename, fps: fps, posterize: posterize, dim:dimensions)
+                })
+                
             })
         } else {
             // todo: Some kind of magic auto file size estimator/optimizer
         }
     }
+
+    
+    
     
     func calculateScaleWithMaxWidth(filepath:String, maxWidth:Int, completion:((Int, Int)) -> Void) {
-        dimensionsForFilepath(filepath) { (width, height) -> Void in
-            print("we're ready to deal with width: \(width) wheight: \(height)  ")
-
-            var dim = (width:width, height:height)
+    MovieMetadataExtractor(forMovie: filepath) { (metadata) -> Void in
+            var dim = (width:metadata.size.width, height:metadata.size.height)
             let biggestSeg = max(dim.width, dim.height)
             let factor = Float(biggestSeg)/Float(maxWidth)
             if factor > 1 {
@@ -62,55 +65,8 @@ class MovieConverter: ShellTaskDelegate {
             completion(dim)
         }
     }
-    
-    func dimensionsForFilepath(filepath:String, completion:(Int, Int) -> Void ){
-        print("we're in the deepest of dimensionsforfile, will now attempt shelltasker")
-        let args = [filepath, "2>&1 | /usr/bin/grep Stream"]
-        ShellTasker(scriptFile: "getsize.sh").run(arguments: args) { (output) -> Void in
-            print("ffmpeg is done and returned this: \(output)")
-            let dimensions:(Int, Int) = self.extractDimensionsFromFfmpegInfo(String(output))
-            print("2 checking dims")
-            if dimensions.0 != 0 && dimensions.1 != 0 {
-                print("dimensions: \(dimensions)")
-                print("call completion")
-                completion(dimensions)
-                }
-        }
-    }
-    
-    
-    func extractDimensionsFromFfmpegInfo(info:String) -> (Int, Int) {
-        
-        do {
-        let re = try NSRegularExpression(pattern: ", (\\d.{0,}?)x(\\d.{0,}?), ",
-            options: NSRegularExpressionOptions.CaseInsensitive)
-            
-            let matches = re.matchesInString(info,
-                options: NSMatchingOptions.ReportProgress,
-                range:
-                NSRange(location: 0, length: info.utf16.count))
-            
-            if matches.count != 0 {
-                let width = (info as NSString).substringWithRange(matches[0].rangeAtIndex(1))
-                let height = (info as NSString).substringWithRange(matches[0].rangeAtIndex(2))
-                return (Int(width)!, Int(height)!)
-                }
-            else {
-                return (0,0)
-            }
-                
-            
-        } catch {
-            print("Problem! Abort! Returning 0,0 from extract Dimensions")
-            return (0,0)
-        }
-        
-        
 
-    }
-    
-
-    func executeConversion(filename: String, fps:Int, posterize:Int, dim:(width:Int, height:Int)) {
+    func executeConversion(filename: String, fps:Float, posterize:Int, dim:(width:Int, height:Int)) {
         let scaleArg:String = "-vf scale=\(dim.width):\(dim.height)"
         
         let posterizeArg:String = "-posterize \(posterize)"
@@ -190,13 +146,25 @@ class MovieConverter: ShellTaskDelegate {
         return "\(filterString)";
     }
 
-    func getFps() -> String {
-        var fps = Util.use.getStringPref("fps") // TODO: Call Preferences.use instead
-        if fps == nil {
-            fps = "10"
-        }
+    func getFps(filepath:String, completion:(Float)->Void) {
+        var finalFps:Float = 1
         
-        return fps!;
+        // match movie fps?
+        if (Preferences().getMatchFps() == true) {
+            print("# Let's match the original")
+            MovieMetadataExtractor(forMovie: filepath, completion: { (metadata) -> Void in
+                finalFps = metadata.fps
+                print("extracted fps is \(metadata.fps)")
+                completion(finalFps)
+            })
+        } else {
+            // no, use the one from prefs
+            var fps = Preferences().getFpsPref()
+            if fps == nil {
+                fps = "10"
+            }
+            completion(finalFps)
+        }
     }
     
     
@@ -215,6 +183,4 @@ class MovieConverter: ShellTaskDelegate {
         
         return optionsString
     }
-
-    
 }

@@ -38,6 +38,11 @@ class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDeleg
     @IBOutlet weak var alphaLabel: NSTextField!
     @IBOutlet weak var alphaCheckbox: NSButton!
     
+    @IBOutlet weak var matchFpsCheckBox: NSButton!
+    
+    
+    @IBOutlet weak var fpsLabel: NSTextField!
+    @IBOutlet weak var fpsTextField: NSTextField!
     
     var activeFromDragging = false;
     
@@ -46,9 +51,10 @@ class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDeleg
         watchFolderLabel.delegate = self;
         
         scene = LoaderScene()
+        loaderSKView.hidden = false
         loaderSKView.allowsTransparency = true
         loaderSKView.presentScene(scene)
-        loaderSKView.showsPhysics = false
+        loaderSKView.showsPhysics = true
         appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate;
         appDelegate.vc = self
         circleDropView.delegate = self;
@@ -59,11 +65,8 @@ class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDeleg
         // wait 1s for UI to become ready, then update labels
         dispatch_after(1, dispatch_get_main_queue()) { () -> Void in
             self.updateUILabels()
-            
-            
-            // debug
-//            self.scene.useRollerCoasterBody()
-//            self.scene.startLoading()
+
+            // self.scene.startLoading()
         }
 
     }
@@ -79,7 +82,6 @@ class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDeleg
         print("willBecomeInactive")
         showPlaceholderArrow()
         scene.enterInactiveState()
-        loaderSKView.hidden = true
         activeFromDragging = false;
         loaderSKView.presentScene(nil)
     }
@@ -88,7 +90,6 @@ class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDeleg
         print("willbecomeactive")
         hidePlaceholderArrow()
         loaderSKView.presentScene(scene)
-        loaderSKView.hidden = false;
         
         self.activeFromDragging = fromDragging
         
@@ -127,6 +128,16 @@ class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDeleg
         loaderSKView.hidden = false
     }
 
+    
+    @IBAction func matchFpsPressed(sender: NSButton) {
+        if sender.state == NSOnState {
+            
+        } else {
+            
+        }
+    }
+    
+    
     
     @IBAction func posterizeChanged(sender: NSSlider) {
         switch sender.integerValue {
