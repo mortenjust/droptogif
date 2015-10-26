@@ -16,8 +16,19 @@ class AppDelegate: NSObject, NSApplicationDelegate, FolderWatcherDelegate, Movie
     var vc:ViewController! // it's safe, the VC sets it from its viewdidload
     var taskRunning = false;
 
-    func folderWatcherEvent(event: FileSystemEvent) {
-        handleNewFile(event.path)
+    
+    func folderWatcherEvent(event: FileSystemEvent) { // delegate
+        let path = event.path
+        let pathUrl = NSURL(fileURLWithPath: path)
+
+        if let pathExtension = pathUrl.pathExtension {
+            if pathExtension == "gif" {
+                return; // abort, or recursive hell
+            }
+        }
+        if(pathUrl.pathExtension! != "gif"){
+            handleNewFile(path)
+            }
     }
     
     func applicationWillResignActive(notification: NSNotification) {
