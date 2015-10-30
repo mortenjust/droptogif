@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8191"/>
+        <plugIn identifier="com.apple.AVKitIBPlugin" version="9059"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9059"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -809,6 +810,10 @@
                                             <color key="backgroundColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
+                                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WjP-nX-Gru" userLabel="Drag Receiver" customClass="DragReceiverView" customModule="Drop_to_GIF" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="9" width="173" height="208"/>
+                                        <animations/>
+                                    </customView>
                                 </subviews>
                                 <animations/>
                             </customView>
@@ -830,14 +835,6 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hfb-W5-vZc" userLabel="SpriteKit" customClass="SKView">
-                                <rect key="frame" x="20" y="11" width="212" height="212"/>
-                                <animations/>
-                            </customView>
-                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WjP-nX-Gru" userLabel="Drag Receiver" customClass="DragReceiverView" customModule="Drop_to_GIF" customModuleProvider="target">
-                                <rect key="frame" x="31" y="20" width="173" height="208"/>
-                                <animations/>
-                            </customView>
                             <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l8T-P8-xjc">
                                 <rect key="frame" x="212" y="11" width="36" height="36"/>
                                 <animations/>
@@ -858,16 +855,16 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                                 <connections>
-                                    <binding destination="AeS-Eh-nfO" name="enabled" keyPath="values.matchFps" id="Q3d-nK-7FB">
-                                        <dictionary key="options">
-                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                        </dictionary>
-                                    </binding>
                                     <binding destination="AeS-Eh-nfO" name="value" keyPath="values.fps" id="8FX-D5-Tiw">
                                         <dictionary key="options">
                                             <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                             <string key="NSNoSelectionPlaceholder">24</string>
                                             <string key="NSNullPlaceholder">24</string>
+                                        </dictionary>
+                                    </binding>
+                                    <binding destination="AeS-Eh-nfO" name="enabled" keyPath="values.matchFps" id="Q3d-nK-7FB">
+                                        <dictionary key="options">
+                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
                                         </dictionary>
                                     </binding>
                                 </connections>
@@ -941,6 +938,10 @@
                                     </binding>
                                 </connections>
                             </button>
+                            <avPlayerView hidden="YES" fixedFrame="YES" controlsStyle="none" translatesAutoresizingMaskIntoConstraints="NO" id="r3a-pV-R9b">
+                                <rect key="frame" x="0.0" y="0.0" width="262" height="248"/>
+                                <animations/>
+                            </avPlayerView>
                         </subviews>
                         <animations/>
                     </view>
@@ -950,13 +951,13 @@
                         <outlet property="circleDropView" destination="WjP-nX-Gru" id="Qfn-Rb-kmB"/>
                         <outlet property="fpsLabel" destination="UPt-NS-z5x" id="3Qs-jc-7Ba"/>
                         <outlet property="fpsTextField" destination="Jsy-RR-Q5e" id="JMB-Gz-DA9"/>
-                        <outlet property="loaderSKView" destination="hfb-W5-vZc" id="WRL-Ol-4hK"/>
                         <outlet property="matchFpsCheckBox" destination="zKa-nb-hda" id="i3E-Zw-7Pj"/>
                         <outlet property="posterizeLabel" destination="Yjl-8a-DHo" id="7bS-Tn-h5T"/>
                         <outlet property="posterizeSlider" destination="Xbe-F7-cVf" id="xGD-M6-p6T"/>
                         <outlet property="settingsButton" destination="l8T-P8-xjc" id="2t0-Ea-ijw"/>
                         <outlet property="sizeLabel" destination="QI2-f8-mzG" id="ev8-Cw-Gke"/>
                         <outlet property="sizeSlider" destination="Qlk-tu-07x" id="yag-5S-rJz"/>
+                        <outlet property="videoPlayer" destination="r3a-pV-R9b" id="zC8-an-fDe"/>
                         <outlet property="waitForDrop" destination="OAJ-FX-zKP" id="XSe-Lo-Puo"/>
                         <outlet property="watchFolderLabel" destination="psE-GP-WjW" id="tXN-HH-z47"/>
                     </connections>

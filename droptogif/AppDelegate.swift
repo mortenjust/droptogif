@@ -109,7 +109,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, FolderWatcherDelegate, Movie
     }
     
     func movieConverterDidUpdate() {
-        vc.scene.addSlice(atLocation: nil, isProgressFeedback: true)
+//        vc.scene.addSlice(atLocation: nil, isProgressFeedback: true)
     }
 }
 

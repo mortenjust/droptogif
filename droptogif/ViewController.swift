@@ -9,13 +9,12 @@
 import Cocoa
 import AVFoundation
 import SpriteKit
+import AVKit
 
 class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDelegate, CircleDropDelegate {
     
     @IBOutlet weak var watchFolderLabel: NSTextView!
     @IBOutlet weak var settingsButton: NSButton!
-    @IBOutlet weak var loaderSKView: SKView!
-    var scene:LoaderScene!
     
     @IBOutlet weak var sizeSlider: NSSlider!
     @IBOutlet weak var sizeLabel: NSTextField!
@@ -40,81 +39,46 @@ class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDeleg
     
     @IBOutlet weak var matchFpsCheckBox: NSButton!
     
+    @IBOutlet weak var videoPlayer: AVPlayerView!
+    
+    
     
     @IBOutlet weak var fpsLabel: NSTextField!
     @IBOutlet weak var fpsTextField: NSTextField!
     
-    var activeFromDragging = false;
+    var activeFromDragging = false
+    
+    var loaderUI:LoaderUI!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        watchFolderLabel.delegate = self;
-        
-        scene = LoaderScene()
- 
+        loaderUI = LoaderUI(videoView: videoPlayer)
+        watchFolderLabel.delegate = self
         appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate;
         appDelegate.vc = self
-        circleDropView.delegate = self;
+        circleDropView.delegate = self // receive drops
         setBaseColor()
-        
-        // self.scene.startLoading()
-        
-//let newSKView = SKView(frame: self.view.bounds)
-//self.view.addSubview(newSKView)
-//
-//let testScene = SKScene(size: self.view.bounds.size)
-//newSKView.presentScene(testScene)
-//
-//let redBox:SKSpriteNode = SKSpriteNode(color: SKColor.redColor(), size:CGSizeMake(300, 300))
-//redBox.position = CGPointMake(512, 384)
-//redBox.runAction(SKAction.repeatActionForever(SKAction.rotateByAngle(6, duration: 2)))
-//testScene.addChild(redBox)
-        
-        
-//
-// weird. None of this works. Seems to be a bug in El Capitan. Leaving for now
-        
-        
     }
     
     override func viewDidAppear() {
         // wait 1s for UI to become ready, then update labels
         dispatch_after(1, dispatch_get_main_queue()) { () -> Void in
             self.updateUILabels()
-
-            
-            
         }
-
     }
     
     func updateUILabels(){
-        // trigger updating of labels
-        
         sizeChanged(sizeSlider)
         posterizeChanged(posterizeSlider)
     }
     
     func willBecomeInactive(){
         print("willBecomeInactive")
-        showPlaceholderArrow()
-        scene.enterInactiveState()
         activeFromDragging = false;
-        loaderSKView.presentScene(nil)
     }
     
     func willBecomeActive(fromDragging:Bool=false){
         print("willbecomeactive")
-        hidePlaceholderArrow()
-        loaderSKView.presentScene(scene)
-        
-        self.activeFromDragging = fromDragging
-        
-        if !activeFromDragging { // dragging is a few hundred ms behind, so annoying
-             scene.enterInviteState()
-        } else {
-            // do absolutely nothing, yet
-        }
     }
     
     func setBaseColor(){
@@ -124,37 +88,25 @@ class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDeleg
     
     func startLoader(filePath:String=""){
         print("startLoader")
-        //animateDropInvitationOut()
-        scene.startLoading(filePath)
+        hidePlaceholderArrow()
+        loaderUI.start(filePath)
     }
     
     func stopLoader(){
         print("stoploader")
-        animateDropInvitationIn()
-        scene.stopLoading()
+        loaderUI.stop()
+        showPlaceholderArrow()
     }
     
     func showPlaceholderArrow(){
         print("showPlaceholderArrow")
         arrowIcon.alphaValue = 1.0
-        loaderSKView.hidden = true
     }
     func hidePlaceholderArrow(){
         print("hideplaceholderarrw")
         arrowIcon.alphaValue = 0.0
-        loaderSKView.hidden = false
     }
 
-    
-    @IBAction func matchFpsPressed(sender: NSButton) {
-        if sender.state == NSOnState {
-            
-        } else {
-            
-        }
-    }
-    
-    
     
     @IBAction func posterizeChanged(sender: NSSlider) {
         switch sender.integerValue {
@@ -180,48 +132,6 @@ class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDeleg
         sizeLabel.stringValue = "Max \(maxSegmentWidth) px"
     }
     
-    // todo, subclass NSView for waitforDrop and put these funcs in there
-    func animateDropInvitationOut(){
-        print("animateDropInvitationOut")
-        waitForDrop.wantsLayer = true
-        let fadeAnim = CABasicAnimation(keyPath: "opacity")
-        fadeAnim.duration = 0.3
-        fadeAnim.fromValue = 1
-        fadeAnim.toValue = 0
-        waitForDrop.layer?.addAnimation(fadeAnim, forKey: "opacity")
-        
-//        let moveAnim = CABasicAnimation(keyPath: "position.y")
-//        moveAnim.byValue = -10
-//        moveAnim.duration = 0.3
-//        waitForDrop.layer?.addAnimation(moveAnim, forKey: "position.y")
-
-        let scale = CABasicAnimation(keyPath: "transform")
-        var tr = CATransform3DIdentity
-        tr = CATransform3DTranslate(tr, waitForDrop.bounds.size.width/2, waitForDrop.bounds.size.height/2, 0);
-        tr = CATransform3DScale(tr, 0.5, 0.5, 1);
-        tr = CATransform3DTranslate(tr, -waitForDrop.bounds.size.width/2, -waitForDrop.bounds.size.height/2, 0);
-        scale.toValue = NSValue(CATransform3D: tr)
-        
-        waitForDrop.layer?.addAnimation(scale, forKey: "transform")
-        
-        waitForDrop.alphaValue = 0
-    }
-    
-    
-    
-    func animateDropInvitationIn(){
-        //scene.enterInviteState()
-        print("animateDropInvitationIn")
-        waitForDrop.wantsLayer = true
-        let fadeAnim = CABasicAnimation(keyPath: "opacity")
-        fadeAnim.duration = 0.3
-        fadeAnim.fromValue = 0
-        fadeAnim.toValue = 1
-        
-        waitForDrop.layer?.addAnimation(fadeAnim, forKey: "opacity")
-        waitForDrop.alphaValue = 1
-
-    }
 
     override var representedObject: AnyObject? {
         didSet {
@@ -278,38 +188,37 @@ class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDeleg
         }
     }
     
-    func circleDropDragExited() {
-        print("circleDropDragExited")
-        
-//        animateDropInvitationIn()
-//        scene.hideDragInvite()
-//        willBecomeInactive()
-//        scene.enterInviteState()
-        showPlaceholderArrow()
-        animateDropInvitationIn()
-    }
-    
-    
+
     
     func circleDropDragEntered(filePath: String) {
         willBecomeActive(true)
-        loaderSKView.hidden = false
-        scene.useCircleBody()
         print("circleDropDragEntered")
-        animateDropInvitationOut()
-        scene.showDragInvite(Util.use.getFileSize(filePath))
+        showDropInvitation(filePath)
     }
+    
+    func circleDropDragExited() {
+        print("circleDropDragExited")
+        showPlaceholderArrow()
+        hideDropInvitation()
+    }
+    
+    func hideDropInvitation(){
+        showPlaceholderArrow()
+    }
+    
+    func showDropInvitation(filepath:String){
+        hidePlaceholderArrow()
+    }
+    
 
     
     func circleDropDragPerformed(filePath: String) {
-        // PASSITON
         print("drag performed vc, filepath:\(filePath)")
-        scene.prepareForDrop()
         appDelegate.handleNewFile(filePath)
     }
     
     func circleDropUpdated(location: NSPoint) {
-        scene.updateDragPosition(location)
+
     }
     
 }

@@ -9,7 +9,7 @@
 import Cocoa
 import SpriteKit
 
-class LoaderScene: SKScene, SKPhysicsContactDelegate {
+class LoadedrScene: SKScene, SKPhysicsContactDelegate {
     var REPEAT_ACTION = "repeatAction"
     var radial : SKFieldNode!
     var ballCategory:UInt32 = 0x1 << 0;
@@ -59,7 +59,6 @@ class LoaderScene: SKScene, SKPhysicsContactDelegate {
         let randomHue = CGFloat(Int.random(263...354))/360
         
 
-        
         if isProgressFeedback {
             slice.color = SKColor(hue: randomHue, saturation: 50/100, brightness: 100/100, alpha: 1.0)
         } else {
@@ -71,49 +70,7 @@ class LoaderScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func didBeginContact(contact: SKPhysicsContact) {
-        var firstBody: SKPhysicsBody
-        
-        return() // disabling for now, after trying this on JP's old fart of a mac
-        
-    //    var secondBody: SKPhysicsBody
-        
-        if (contact.bodyA.categoryBitMask == contact.bodyB.categoryBitMask)
-        {
-            firstBody = contact.bodyA
-        //    secondBody = contact.bodyB
-            
-            let firstNode = firstBody.node! as! SKSpriteNode
-     //       let secondNode = secondBody.node! as! SKSpriteNode
-
-            let newColor = NSColor(hue: firstNode.color.hueComponent,
-                saturation: firstNode.color.saturationComponent,
-                brightness: firstNode.color.brightnessComponent,
-                alpha: firstNode.color.alphaComponent)
-            
-            let colorAction = SKAction.colorizeWithColor(newColor, colorBlendFactor: 1.0, duration: 1)
-            
-            let scaleTo = CGFloat( Int.random(5...30) )/100 // scale between 5 and 30%
-            
-            let scaleAction = SKAction.scaleTo(scaleTo, duration: 0.5)
-            
-//            let squishIn = SKAction.scaleXTo(0.9, duration: 0.2)
-//            let squishOut = SKAction.scaleXTo(1, duration: 0.2)
-//            let squish = SKAction.group([squishIn, squishOut])
-            
-            let actions = SKAction.group([scaleAction, colorAction])
-            
-            firstNode.runAction(actions)
-
-        }
-        else // collission with scene
-        {
-            firstBody = contact.bodyB
-         //   secondBody = contact.bodyA
-//            print("contact B to A")
-
-        }
-        
-        
+            // noop
     }
     
     
@@ -263,10 +220,12 @@ class LoaderScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func useCircleBody(){
-        print("useCircleBody")
-        let circleRect = CGRectMake(0, 0, view!.frame.width, view!.frame.width)
-        let circlePath = CGPathCreateWithEllipseInRect(circleRect, nil)
-        self.physicsBody = SKPhysicsBody(edgeLoopFromPath: circlePath)
+        if let v = view {
+            print("useCircleBody")
+            let circleRect = CGRectMake(0, 0, v.frame.width, v.frame.width)
+            let circlePath = CGPathCreateWithEllipseInRect(circleRect, nil)
+            self.physicsBody = SKPhysicsBody(edgeLoopFromPath: circlePath)
+            }
     }
     
     

@@ -78,12 +78,12 @@ class MovieMetadataExtractor: NSObject {
         
     }
 
-    
+
     
     func extractDimensionsFromFfmpegInfo(info:String) -> (Int, Int) {
         
         do {
-            let re = try NSRegularExpression(pattern: ", (\\d.{0,}?)x(\\d.{0,}?), ",
+            let re = try NSRegularExpression(pattern: "\\, (\\d+)x(\\d.+?)\\D",
                 options: NSRegularExpressionOptions.CaseInsensitive)
             
             let matches = re.matchesInString(info,
