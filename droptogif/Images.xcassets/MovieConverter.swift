@@ -32,7 +32,7 @@ class MovieConverter: ShellTaskDelegate {
     
     
     func convertFile(filename:String, maxSize:UInt64 = 0){
-        print("convertfile for \(filename) with size \(maxSize)")
+//        print("convertfile for \(filename) with size \(maxSize)")
         
         if maxSize == 0 {
             let p = Preferences();
@@ -97,17 +97,17 @@ class MovieConverter: ShellTaskDelegate {
     
     
     func shellTaskDidUpdate(update: String) {
-        print("shell task update")
+
         self.delegate.movieConverterDidUpdate()
     }
     
     func shellTaskDidFinish(output: String) {
-        print("shell task finish")
+
         // we're calling did finish from convertfile method instead
     }
     
     func shellTaskDidBegin() {
-        print("Shell task betgin")
+
         // we're calling did begin from convertfile method instead
     }
     
@@ -151,19 +151,22 @@ class MovieConverter: ShellTaskDelegate {
         
         // match movie fps?
         if (Preferences().getMatchFps() == true) {
-            print("# Let's match the original")
+            print("#fps# Let's match the original")
             _ = MovieMetadataExtractor(forMovie: filepath, completion: { (metadata) -> Void in
                 finalFps = metadata.fps
                 print("extracted fps is \(metadata.fps)")
                 completion(finalFps)
             })
         } else {
+            print("#fps# not matching, using prefs")
             // no, use the one from prefs
             var fps = Preferences().getFpsPref()
             if fps == nil {
+                print("#fps# prefs was nil")
                 fps = "10"
             }
-            completion(finalFps)
+            print("#fps# returning \(fps)")
+            completion(Float(fps!)!)
         }
     }
     

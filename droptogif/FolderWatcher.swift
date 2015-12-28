@@ -32,15 +32,12 @@ class FolderWatcher: NSObject {
     
     func startMonitoringFolder(givenFolder:String){
         let folder = String((NSString(string: givenFolder).stringByExpandingTildeInPath))
-        print("got \(givenFolder) for folder: \(folder)")
         
         let onEvents = {
             (events: [FileSystemEvent]) -> () in
             dispatch_async(dispatch_get_main_queue()) {
                 for ev in events {
                     if(ev.flag.contains(FileSystemEventFlag.ItemCreated) || ev.flag.contains(FileSystemEventFlag.ItemRenamed)){ // only do new or moved files
-                        print("Event flag: Created. All flags: \(ev.flag)")
-                        print("\(ev.path) just \(ev.description)");
                         self.delegate?.folderWatcherEvent(ev);
                     }
                 }

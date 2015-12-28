@@ -70,7 +70,7 @@ class MovieMetadataExtractor: NSObject {
             }
             
         } catch {
-            print("Problem! Abort! Returning 0 from extract fps")
+            print("#fps# Problem! Abort! Returning 0 from extract fps")
             return (0)
         }
         
@@ -102,7 +102,7 @@ class MovieMetadataExtractor: NSObject {
             
             
         } catch {
-            print("Problem! Abort! Returning 0,0 from extract Dimensions")
+            print("#fps# Problem! Abort! Returning 0,0 from extract Dimensions")
             return (0,0)
         }
         

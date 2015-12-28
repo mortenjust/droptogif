@@ -73,12 +73,11 @@ class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDeleg
     }
     
     func willBecomeInactive(){
-        print("willBecomeInactive")
         activeFromDragging = false;
     }
     
     func willBecomeActive(fromDragging:Bool=false){
-        print("willbecomeactive")
+
     }
     
     func setBaseColor(){
@@ -87,23 +86,23 @@ class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDeleg
     }
     
     func startLoader(filePath:String=""){
-        print("startLoader")
+
         hidePlaceholderArrow()
         loaderUI.start(filePath)
     }
     
     func stopLoader(){
-        print("stoploader")
+
         loaderUI.stop()
         showPlaceholderArrow()
     }
     
     func showPlaceholderArrow(){
-        print("showPlaceholderArrow")
+
         arrowIcon.alphaValue = 1.0
     }
     func hidePlaceholderArrow(){
-        print("hideplaceholderarrw")
+
         arrowIcon.alphaValue = 0.0
     }
 
@@ -144,7 +143,6 @@ class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDeleg
     }
     
     func toggleWindowSize(){
-        print("toggleWindowSize")
         let window = NSApplication.sharedApplication().windows.first;
         var frame = window?.frame
         print(frame?.size.width)
@@ -213,7 +211,7 @@ class ViewController: NSViewController, NSOpenSavePanelDelegate, NSTextViewDeleg
 
     
     func circleDropDragPerformed(filePath: String) {
-        print("drag performed vc, filepath:\(filePath)")
+//        print("drag performed vc, filepath:\(filePath)")
         appDelegate.handleNewFile(filePath)
     }
     

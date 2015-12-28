@@ -21,6 +21,7 @@ class MJVideoPlayer: NSObject {
         player = AVPlayer(playerItem: playerItem)
         playerView.player = player
         player.pause()
+        player.muted = true
         player.play()
         
         let center = NSNotificationCenter.defaultCenter()

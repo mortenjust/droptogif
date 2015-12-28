@@ -89,7 +89,7 @@ class LoadedrScene: SKScene, SKPhysicsContactDelegate {
     
     
     func showDragInvite(fileSize:UInt64){ // shown onMoiseOver
-        print("showDragInvite")
+
         removeAllChildren()
         useCircleBody()
         var balls = Int(fileSize/100000)
@@ -176,7 +176,7 @@ class LoadedrScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func didMoveToView(view: SKView) {
-        print("didMoveToView")
+
         size = view.frame.size
         backgroundColor = SKColor.blueColor() 
         setStandardGravity()
@@ -184,7 +184,7 @@ class LoadedrScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func enterInviteState(){
-        print("enterInviteState")
+
         removeAllChildren()
         setStandardGravity()
         useArrowBody()
@@ -199,14 +199,14 @@ class LoadedrScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func enterInactiveState(){ // save cpu
-        print("enterInactiveState")
+
 //        if self.children.count > 0 {
 //            removeAllChildren()
 //            }
     }
     
     func useRollerCoasterBody(){
-        print("useRollerCoasterBody")
+
         self.physicsBody = SKPhysicsBody()
         let nodes = RollerCoasterGenerator().getAllNodes()
         for node in nodes {
@@ -215,13 +215,13 @@ class LoadedrScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func useArrowBody(){
-        print("useArrowBody")
+
             self.physicsBody = SKPhysicsBody(edgeLoopFromPath: getArrowPath())
     }
     
     func useCircleBody(){
         if let v = view {
-            print("useCircleBody")
+
             let circleRect = CGRectMake(0, 0, v.frame.width, v.frame.width)
             let circlePath = CGPathCreateWithEllipseInRect(circleRect, nil)
             self.physicsBody = SKPhysicsBody(edgeLoopFromPath: circlePath)

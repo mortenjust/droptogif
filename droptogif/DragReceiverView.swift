@@ -20,7 +20,7 @@ class DragReceiverView: NSImageView {
     
     override func draggingEntered(sender: NSDraggingInfo) -> NSDragOperation {
         
-//        Swift.print("HELLO \(getPathFromBoard(sender.draggingPasteboard()))")
+
         let path = getPathFromBoard(sender.draggingPasteboard())
         delegate?.circleDropDragEntered(path)
         return NSDragOperation.Copy
@@ -47,7 +47,7 @@ class DragReceiverView: NSImageView {
     func getPathFromBoard(board:NSPasteboard) -> String {
         let url = NSURL(fromPasteboard: board)
         let path = url?.path!
-//        Swift.print("dragged item: \(path)")
+
         return path!;
     }
     

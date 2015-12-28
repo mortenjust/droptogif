@@ -143,4 +143,7 @@ else
   echo "${output}.gif"
 fi
 
+echo "removing temp file"
+rm "$temp"
+
 echo 'Done making gifs'
